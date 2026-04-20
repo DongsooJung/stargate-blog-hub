@@ -1,0 +1,5 @@
+# blog.stargate11.com 허브 빌더 의존성
+# ─────────────────────────────────────
+# GitHub Actions 매일 실행 · 로컬 테스트 공용
+feedparser==6.0.11
+Jinja2==3.1.4

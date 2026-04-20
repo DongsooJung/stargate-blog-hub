@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Stargate Blog Hub | 정동수의 글을 한곳에서</title>
+<meta name="description" content="대치동 KOI 강사·AI CEO·도시공학 박사 정동수의 모든 글을 모아둔 블로그 허브입니다. 교육, AI, 창업, 도시연구, 출판 다섯 카테고리.">
+<meta name="keywords" content="대치동 수학, 영재학교 입시, AI 창업, 1인기업, 스마트도시, 정동수, 스타게이트">
+<meta property="og:title" content="Stargate Blog Hub | 정동수의 글을 한곳에서">
+<meta property="og:description" content="교육·AI·창업·도시연구·출판 5개 카테고리 통합 블로그 허브">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.stargate11.com/">
+<link rel="canonical" href="https://blog.stargate11.com/">
+<meta name="generator" content="stargate-blog-hub · {{updated}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Noto Sans KR","Pretendard","Malgun Gothic",sans-serif;
+       background:#FAFBFC;color:#1A1A1A;line-height:1.6;}
+  .hero{background:linear-gradient(135deg,#0B3D91 0%,#1E5BC6 100%);
+        color:#fff;padding:80px 20px 60px;text-align:center;}
+  .hero h1{font-size:2.4rem;margin-bottom:12px;letter-spacing:-0.02em;}
+  .hero p{font-size:1.05rem;opacity:.9;max-width:680px;margin:0 auto;}
+  .nav-pills{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+  .nav-pills a{background:rgba(255,255,255,.15);color:#fff;padding:8px 16px;
+               border-radius:20px;text-decoration:none;font-size:.92rem;
+               border:1px solid rgba(255,255,255,.3);transition:all .2s;}
+  .nav-pills a:hover{background:#fff;color:#0B3D91;}
+  .container{max-width:1080px;margin:0 auto;padding:50px 20px;}
+  .channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:30px;}
+  .channel{background:#fff;border-radius:12px;padding:24px;
+           box-shadow:0 1px 3px rgba(0,0,0,.06);
+           border:1px solid #E5E9F0;transition:all .2s;}
+  .channel:hover{box-shadow:0 8px 24px rgba(11,61,145,.12);transform:translateY(-2px);}
+  .channel .icon{font-size:1.8rem;margin-bottom:8px;}
+  .channel h3{font-size:1.15rem;margin-bottom:6px;color:#0B3D91;}
+  .channel .meta{font-size:.85rem;color:#6C757D;margin-bottom:12px;}
+  .channel p{font-size:.95rem;color:#444;margin-bottom:14px;}
+  .channel a.cta{display:inline-block;color:#0B3D91;text-decoration:none;font-weight:600;
+                  font-size:.92rem;border-bottom:1.5px solid #0B3D91;padding-bottom:1px;}
+  .channel a.cta:hover{color:#1E5BC6;border-color:#1E5BC6;}
+  h2.section-title{font-size:1.55rem;margin:36px 0 18px;color:#0B3D91;
+                    border-left:4px solid #0B3D91;padding-left:12px;
+                    display:flex;align-items:center;justify-content:space-between;}
+  h2.section-title .updated-pill{font-size:.72rem;background:#E8F0F7;color:#1E5BC6;
+                                  padding:4px 10px;border-radius:10px;font-weight:500;}
+  .latest-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;}
+  .latest-item{background:#fff;border:1px solid #E5E9F0;border-radius:8px;
+                padding:14px 16px;transition:all .2s;}
+  .latest-item:hover{border-color:#0B3D91;box-shadow:0 4px 12px rgba(11,61,145,.08);}
+  .latest-item .ch{display:inline-block;font-size:.78rem;font-weight:600;
+                    padding:2px 8px;border-radius:10px;margin-bottom:8px;}
+  .latest-item .title{font-size:1rem;font-weight:600;color:#1A1A1A;
+                       margin-bottom:6px;line-height:1.4;}
+  .latest-item .title a{color:inherit;text-decoration:none;}
+  .latest-item .title a:hover{color:#0B3D91;}
+  .latest-item .date{font-size:.78rem;color:#888;}
+  .empty{grid-column:1/-1;padding:24px;text-align:center;color:#888;
+          background:#fff;border:1px dashed #C5CDE0;border-radius:8px;}
+  .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .cat{background:#fff;padding:18px;border-radius:8px;border:1px solid #E5E9F0;}
+  .cat strong{display:block;color:#0B3D91;margin-bottom:6px;font-size:1.02rem;}
+  .cat span{font-size:.85rem;color:#666;}
+  footer{background:#1A1F2E;color:#A8B0BD;padding:30px 20px;text-align:center;font-size:.88rem;}
+  footer a{color:#fff;text-decoration:none;margin:0 8px;}
+  @media (max-width:640px){
+    .hero h1{font-size:1.9rem;}
+    .hero p{font-size:.95rem;}
+    h2.section-title{flex-direction:column;align-items:flex-start;gap:6px;}
+  }
+</style>
+</head>
+<body data-post-count="{{post_count}}">
+<header class="hero">
+  <h1>Stargate Blog Hub</h1>
+  <p>대치동 KOI 강사 · AI 기업 CEO · 서울대 도시공학 박사 정동수의 글을 한곳에서.<br>
+     교육 · AI · 창업 · 도시연구 · 출판 다섯 가지 주제로 주 2회 발행합니다.</p>
+  <nav class="nav-pills">
+    <a href="https://www.stargate11.com/">🏠 메인</a>
+    <a href="https://www.stargateedu.co.kr/">📚 쇼핑몰</a>
+    <a href="https://dongsoojung.github.io/">👤 프로필</a>
+    <a href="mailto:dongsu@stargate11.com">📧 연락</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <h2 class="section-title">📝 채널별 바로가기</h2>
+  <div class="channels">
+
+    <div class="channel">
+      <div class="icon">📒</div>
+      <h3>네이버 블로그 (개인)</h3>
+      <div class="meta">jds0688 · 교육·입시 중심</div>
+      <p>대치동 수학 학습법, 영재학교 입시 후기, 학부모 상담 사례를 매주 화요일 발행합니다.</p>
+      <a class="cta" href="https://blog.naver.com/jds0688" target="_blank" rel="noopener">바로가기 →</a>
+    </div>
+
+    <div class="channel">
+      <div class="icon">🏢</div>
+      <h3>네이버 블로그 (법인)</h3>
+      <div class="meta">rvcompany77 · 회사 소식</div>
+      <p>주식회사 별의문(스타게이트) 신간·강의·이벤트 안내.</p>
+      <a class="cta" href="https://blog.naver.com/rvcompany77" target="_blank" rel="noopener">바로가기 →</a>
+    </div>
+
+    <div class="channel">
+      <div class="icon">✍️</div>
+      <h3>티스토리 — 별로 향하는 문</h3>
+      <div class="meta">dongsoo · AI/테크 심화</div>
+      <p>AI 자동화·프롬프트 엔지니어링·n8n·Claude 활용 실전 노트.</p>
+      <a class="cta" href="https://dongsoo.tistory.com/" target="_blank" rel="noopener">바로가기 →</a>
+    </div>
+
+    <div class="channel">
+      <div class="icon">📖</div>
+      <h3>브런치 — 정올쌤</h3>
+      <div class="meta">KOI 수상자 출신 대치동 선생님</div>
+      <p>1인 법인 운영기, AI 내각 시스템, 강사·창업가 생존기.</p>
+      <a class="cta" href="https://brunch.co.kr/@stargate" target="_blank" rel="noopener">바로가기 →</a>
+    </div>
+
+    <div class="channel">
+      <div class="icon">🌐</div>
+      <h3>Medium (개설 예정)</h3>
+      <div class="meta">영문 · 도시·데이터·연구</div>
+      <p>스마트도시, 부동산 헤도닉 모형, 공간계량 연구 영문 정리.</p>
+      <a class="cta" href="#" style="opacity:.5;pointer-events:none;">준비 중</a>
+    </div>
+
+    <div class="channel">
+      <div class="icon">💼</div>
+      <h3>LinkedIn (개설 예정)</h3>
+      <div class="meta">전문 네트워킹 · 채용</div>
+      <p>회사 소식·인사이트·업계 트렌드 비즈니스 포스팅.</p>
+      <a class="cta" href="#" style="opacity:.5;pointer-events:none;">준비 중</a>
+    </div>
+
+  </div>
+
+  <h2 class="section-title">
+    🔥 최신 포스팅 ({{post_count}}개)
+    <span class="updated-pill">자동 갱신 · {{updated}}</span>
+  </h2>
+  <div class="latest-list">
+    {% if posts %}
+      {% for p in posts %}
+      <article class="latest-item">
+        <span class="ch" style="background:{{p.color}}22;color:{{p.color}};">{{p.icon}} {{p.channel}}</span>
+        <div class="title"><a href="{{p.link}}" target="_blank" rel="noopener">{{p.title|e}}</a></div>
+        <div class="date">{{p.date}}</div>
+      </article>
+      {% endfor %}
+    {% else %}
+      <div class="empty">RSS 수집 중 — 다음 자동 갱신(03:00 KST) 이후 목록이 채워집니다.</div>
+    {% endif %}
+  </div>
+
+  <h2 class="section-title">🎯 콘텐츠 카테고리</h2>
+  <div class="categories">
+    <div class="cat"><strong>🎓 교육·입시</strong><span>대치동 수학, 영재학교, 학습법, 학부모 상담</span></div>
+    <div class="cat"><strong>🤖 AI·테크</strong><span>프롬프트 엔지니어링, n8n, Claude, 자동화</span></div>
+    <div class="cat"><strong>🏢 창업·경영</strong><span>1인 법인, AI 내각, CEO 일지, 생존기</span></div>
+    <div class="cat"><strong>🏙️ 도시·연구</strong><span>스마트도시, 공간계량, 부동산 데이터, 헤도닉</span></div>
+    <div class="cat"><strong>📚 출판·서평</strong><span>책 추천, 독후감, 출판 과정 기록</span></div>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Stargate Corporation · 주식회사 별의문</p>
+  <p>
+    <a href="https://www.stargate11.com/">stargate11.com</a> |
+    <a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a> |
+    <a href="https://dongsoojung.github.io/">dongsoojung.github.io</a>
+  </p>
+  <p style="margin-top:8px;font-size:.72rem;opacity:.6;">RSS 자동 갱신 · 마지막 업데이트: {{updated}}</p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Blog",
+  "@id":"https://blog.stargate11.com/#blog",
+  "name":"Stargate Blog Hub",
+  "url":"https://blog.stargate11.com/",
+  "author":{"@type":"Person","name":"정동수","sameAs":"https://dongsoojung.github.io/"},
+  "publisher":{"@type":"Organization","@id":"https://www.stargate11.com/#org","name":"Stargate Corporation"}
+}
+</script>
+</body>
+</html>
