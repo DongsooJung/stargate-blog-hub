@@ -83,4 +83,4 @@ jobs:
           echo "- 최신 포스팅: **${{ steps.build.outputs.posts }}개**" >> $GITHUB_STEP_SUMMARY
           echo "- 변경 여부: **${{ steps.diff.outputs.changed }}**" >> $GITHUB_STEP_SUMMARY
           echo "- 실행 시각: **$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')**" >> $GITHUB_STEP_SUMMARY
-          echo "- 배포 URL: https://blog.stargate11.com/" >> $GITHUB_STEP_SUMMARY
+          echo "- 배포 URL: https://blog.stargateedu.co.kr/" >> $GITHUB_STEP_SUMMARY

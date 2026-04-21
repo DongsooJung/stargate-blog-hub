@@ -1,6 +1,6 @@
 # stargate-blog-hub
 
-[`blog.stargate11.com`](https://blog.stargate11.com/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
+[`blog.stargateedu.co.kr`](https://blog.stargateedu.co.kr/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
 
 매일 **KST 03:00** GitHub Actions 가 4개 채널(네이버 개인·법인 / 티스토리 / Medium) RSS 를
 수집해 상단 "🔥 최신 포스팅" 섹션을 자동 갱신합니다.
@@ -31,7 +31,7 @@
 
 ```
 stargate-blog-hub/
-├── CNAME                               # blog.stargate11.com
+├── CNAME                               # blog.stargateedu.co.kr
 ├── index.html                          # 자동 생성 (커밋 대상)
 ├── README.md
 ├── .gitignore
@@ -53,7 +53,7 @@ stargate-blog-hub/
 3. `build_hub_index.py` 가 4개 RSS 를 병렬 수집(채널당 최신 5개)
 4. 전체 목록을 날짜 역순으로 정렬 후 상위 20개를 템플릿에 주입
 5. 생성된 `index.html` 가 기존 파일과 diff 될 때만 자동 커밋(봇 계정: `stargate-hub-bot`)
-6. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargate11.com` 노출
+6. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargateedu.co.kr` 노출
 
 ## 배포 (최초 1회)
 
@@ -81,7 +81,7 @@ gh repo create DongsooJung/stargate-blog-hub --public --source=. --remote=origin
 gh api -X POST "repos/DongsooJung/stargate-blog-hub/pages" \
   -f "source[branch]=main" -f "source[path]=/"
 gh api -X PUT "repos/DongsooJung/stargate-blog-hub/pages" \
-  -f "cname=blog.stargate11.com" -F "https_enforced=true"
+  -f "cname=blog.stargateedu.co.kr" -F "https_enforced=true"
 
 # Actions 최초 실행
 gh workflow run "허브_RSS_자동갱신.yml"
@@ -122,9 +122,9 @@ python build_hub_index.py
 ## 검증 명령
 
 ```bash
-dig +short blog.stargate11.com                    # → dongsoojung.github.io.
-curl -sI https://blog.stargate11.com/ | head -5   # → HTTP/2 200
-curl -s  https://blog.stargate11.com/ | grep -c "latest-item"  # → 15~20
+dig +short blog.stargateedu.co.kr                    # → dongsoojung.github.io.
+curl -sI https://blog.stargateedu.co.kr/ | head -5   # → HTTP/2 200
+curl -s  https://blog.stargateedu.co.kr/ | grep -c "latest-item"  # → 15~20
 ```
 
 ## 라이선스 · 운영 주체

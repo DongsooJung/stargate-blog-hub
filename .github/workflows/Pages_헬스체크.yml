@@ -1,7 +1,7 @@
 name: Pages 헬스체크
 
 # ┌───────────────────────────────────────────────────────────────┐
-# │ GitHub Pages 배포 후 blog.stargate11.com 가 200 OK 를          │
+# │ GitHub Pages 배포 후 blog.stargateedu.co.kr 가 200 OK 를          │
 # │ 반환하는지, HTTPS 리다이렉트가 적용되었는지 주 1회 점검합니다.  │
 # │ 실패 시 GitHub Issue 를 자동 생성합니다.                        │
 # └───────────────────────────────────────────────────────────────┘
@@ -26,7 +26,7 @@ jobs:
         id: check
         run: |
           set +e
-          URL="https://blog.stargate11.com/"
+          URL="https://blog.stargateedu.co.kr/"
           STATUS=$(curl -sS -o /tmp/body.html -w "%{http_code}" -L --max-time 15 "$URL")
           SIZE=$(stat -c%s /tmp/body.html 2>/dev/null || echo 0)
           SSL=$(curl -sSI --max-time 10 "$URL" | grep -ic 'strict-transport-security' || true)
@@ -43,7 +43,7 @@ jobs:
           script: |
             const title = `🚨 허브 다운 감지 — ${new Date().toISOString().slice(0,16)}`;
             const body  = [
-              '## blog.stargate11.com 헬스체크 실패',
+              '## blog.stargateedu.co.kr 헬스체크 실패',
               '',
               `- HTTP 상태: **${{ steps.check.outputs.status }}**`,
               `- 응답 크기: **${{ steps.check.outputs.size }} B**`,
@@ -51,7 +51,7 @@ jobs:
               '',
               '### 점검 순서',
               '1. Settings → Pages → 배포 상태',
-              '2. DNS: `dig blog.stargate11.com +short`',
+              '2. DNS: `dig blog.stargateedu.co.kr +short`',
               '3. Cafe24 DNS 의 `blog` CNAME 레코드 확인',
               '4. GitHub Actions: 최근 "허브 RSS 자동갱신" 실행 로그',
             ].join('\n');

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-blog.stargate11.com 허브 인덱스 빌더
+blog.stargateedu.co.kr 허브 인덱스 빌더
 =====================================
 
 매일 KST 03:00 GitHub Actions 에서 실행됩니다.
