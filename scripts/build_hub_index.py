@@ -59,10 +59,10 @@ FEEDS: dict[str, dict[str, str]] = {
         "icon": "✍️",
         "color": "#FF5900",
     },
-    "Medium": {
-        "url": "https://medium.com/feed/@stargate-en",
-        "icon": "🌐",
-        "color": "#000000",
+    "YouTube 우주인": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZi4uumj35DvcKQFKKBjsvw",
+        "icon": "📺",
+        "color": "#FF0000",
     },
 }
 

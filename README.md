@@ -2,7 +2,7 @@
 
 [`blog.stargateedu.co.kr`](https://blog.stargateedu.co.kr/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
 
-매일 **KST 03:00** GitHub Actions 가 4개 채널(네이버 개인·법인 / 티스토리 / Medium) RSS 를
+매일 **KST 03:00** GitHub Actions 가 4개 채널(네이버 개인·법인 / 티스토리 / YouTube 우주인) RSS 를
 수집해 상단 "🔥 최신 포스팅" 섹션을 자동 갱신합니다.
 
 ---
@@ -23,7 +23,7 @@
                   ┌─── 네이버 개인 RSS ─────────┤
                   ├─── 네이버 법인 RSS ─────────┤
   매일 03:00 KST ─┼─── 티스토리 RSS ───────────┼── feedparser
-                  ├─── Medium RSS (예정) ──────┤
+                  ├─── YouTube 우주인 RSS ─────┤
                   └─── (LinkedIn 확장 예정) ───┘
 ```
 
@@ -108,12 +108,12 @@ python build_hub_index.py
 |------|------|------|
 | 매일 03:00 KST | RSS 수집 + 커밋 | Actions (자동) |
 | 매주 월 09:30 KST | 헬스체크 + Issue 알림 | Actions (자동) |
-| 수시 | Medium/LinkedIn 피드 추가 | `build_hub_index.py` `FEEDS` 수정 |
+| 수시 | YouTube 채널 변경·외부 피드 추가 | `build_hub_index.py` `FEEDS` 수정 |
 | 월 1회 | 채널 카드 문구 업데이트 | `templates/허브_템플릿.html` 수동 편집 |
 
 ## 확장 로드맵
 
-1. **Medium 실계정 개설** (`@stargate-en`) → FEEDS 주석 해제
+1. **YouTube Data API 연동** → 라이브 상태·재생목록 메타데이터 확장
 2. **LinkedIn Company Page API** 연동 (OAuth2 + GitHub Secrets)
 3. **GA4 + GTM** 통합 스크립트 `<head>` 삽입
 4. **Jekyll 확장** — `_config.yml` + `_posts/YYYY-MM-DD-title.md` 로 본 사이트에서 글 발행
