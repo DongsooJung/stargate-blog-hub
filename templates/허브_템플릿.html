@@ -59,7 +59,10 @@
   .empty{grid-column:1/-1;padding:24px;text-align:center;color:#888;
           background:#fff;border:1px dashed #C5CDE0;border-radius:8px;}
   .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
-  .cat{background:#fff;padding:18px;border-radius:8px;border:1px solid #E5E9F0;}
+  .cat{display:block;background:#fff;padding:18px;border-radius:8px;border:1px solid #E5E9F0;
+       text-decoration:none;transition:all .2s;}
+  .cat:hover,.cat:focus-visible{border-color:#0B3D91;box-shadow:0 4px 12px rgba(11,61,145,.08);
+                                transform:translateY(-2px);outline:none;}
   .cat strong{display:block;color:#0B3D91;margin-bottom:6px;font-size:1.02rem;}
   .cat span{font-size:.85rem;color:#666;}
   footer{background:#1A1F2E;color:#A8B0BD;padding:30px 20px;text-align:center;font-size:.88rem;}
@@ -122,11 +125,11 @@
     </div>
 
     <div class="channel">
-      <div class="icon">🌐</div>
-      <h3>Medium (개설 예정)</h3>
-      <div class="meta">영문 · 도시·데이터·연구</div>
-      <p>스마트도시, 부동산 헤도닉 모형, 공간계량 연구 영문 정리.</p>
-      <a class="cta" href="#" style="opacity:.5;pointer-events:none;">준비 중</a>
+      <div class="icon">📺</div>
+      <h3>Youtube 채널(우주인)</h3>
+      <div class="meta">YouTube · 라이브 스트림</div>
+      <p>우주인 채널의 라이브 스트림과 영상 콘텐츠.</p>
+      <a class="cta" href="https://www.youtube.com/@DONGSOO-MAIN/streams" target="_blank" rel="noopener">바로가기 →</a>
     </div>
 
     <div class="channel">
@@ -144,26 +147,26 @@
     <span class="updated-pill">자동 갱신 · {{updated}}</span>
   </h2>
   <div class="latest-list">
-    {% if posts %}
-      {% for p in posts %}
+{% if posts %}
+{% for p in posts %}
       <article class="latest-item">
         <span class="ch" style="background:{{p.color}}22;color:{{p.color}};">{{p.icon}} {{p.channel}}</span>
         <div class="title"><a href="{{p.link}}" target="_blank" rel="noopener">{{p.title|e}}</a></div>
         <div class="date">{{p.date}}</div>
       </article>
-      {% endfor %}
-    {% else %}
+{% endfor %}
+{% else %}
       <div class="empty">RSS 수집 중 — 다음 자동 갱신(03:00 KST) 이후 목록이 채워집니다.</div>
-    {% endif %}
+{% endif %}
   </div>
 
   <h2 class="section-title">🎯 콘텐츠 카테고리</h2>
   <div class="categories">
-    <div class="cat"><strong>🎓 교육·입시</strong><span>대치동 수학, 영재학교, 학습법, 학부모 상담</span></div>
-    <div class="cat"><strong>🤖 AI·테크</strong><span>프롬프트 엔지니어링, n8n, Claude, 자동화</span></div>
-    <div class="cat"><strong>🏢 창업·경영</strong><span>1인 법인, AI 내각, CEO 일지, 생존기</span></div>
-    <div class="cat"><strong>🏙️ 도시·연구</strong><span>스마트도시, 공간계량, 부동산 데이터, 헤도닉</span></div>
-    <div class="cat"><strong>📚 출판·서평</strong><span>책 추천, 독후감, 출판 과정 기록</span></div>
+    <a class="cat" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-001.html" target="_blank" rel="noopener" aria-label="교육·입시: KOI 영재고 콘텐츠 보기"><strong>🎓 교육·입시</strong><span>대치동 수학, 영재학교, 학습법, 학부모 상담</span></a>
+    <a class="cat" href="https://stargateedu.co.kr/stargate-ai-gallery/files/arch-001.html" target="_blank" rel="noopener" aria-label="AI·테크: Claude Code 생태계 콘텐츠 보기"><strong>🤖 AI·테크</strong><span>프롬프트 엔지니어링, n8n, Claude, 자동화</span></a>
+    <a class="cat" href="https://stargateedu.co.kr/stargate-ai-gallery/files/dash-001.html" target="_blank" rel="noopener" aria-label="창업·경영: 스타게이트 법인 설립 전략 보기"><strong>🏢 창업·경영</strong><span>1인 법인, AI 내각, CEO 일지, 생존기</span></a>
+    <a class="cat" href="https://stargateedu.co.kr/stargate-ai-gallery/files/graph-001.html" target="_blank" rel="noopener" aria-label="도시·연구: 학술·공간연구 지식 그래프 보기"><strong>🏙️ 도시·연구</strong><span>스마트도시, 공간계량, 부동산 데이터, 헤도닉</span></a>
+    <a class="cat" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-004.html" target="_blank" rel="noopener" aria-label="출판·서평: 학부모 가이드 콘텐츠 보기"><strong>📚 출판·서평</strong><span>책 추천, 독후감, 출판 과정 기록</span></a>
   </div>
 
 </main>
@@ -185,7 +188,7 @@
   "@id":"https://blog.stargateedu.co.kr/#blog",
   "name":"Stargate Blog Hub",
   "url":"https://blog.stargateedu.co.kr/",
-  "author":{"@type":"Person","name":"정동수","sameAs":["https://dongsoojung.github.io/","https://www.linkedin.com/in/%EB%8F%99%EC%88%98-%EC%A0%95-415aa8300/"]},
+  "author":{"@type":"Person","name":"정동수","sameAs":["https://dongsoojung.github.io/","https://www.linkedin.com/in/%EB%8F%99%EC%88%98-%EC%A0%95-415aa8300/","https://www.youtube.com/@DONGSOO-MAIN/streams"]},
   "publisher":{"@type":"Organization","@id":"https://www.stargate11.com/#org","name":"Stargate Corporation"}
 }
 </script>
