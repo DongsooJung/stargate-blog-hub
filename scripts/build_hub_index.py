@@ -45,12 +45,12 @@ KST = timezone(timedelta(hours=9))
 
 FEEDS: dict[str, dict[str, str]] = {
     "네이버 개인": {
-        "url": "https://rss.blog.naver.com/jds0688.xml",
+        "url": "https://rss.blog.naver.com/stargate8224.xml",
         "icon": "📒",
         "color": "#03C75A",
     },
     "네이버 법인": {
-        "url": "https://rss.blog.naver.com/rvcompany77.xml",
+        "url": "https://rss.blog.naver.com/stargate8225.xml",
         "icon": "🏢",
         "color": "#2DB400",
     },
