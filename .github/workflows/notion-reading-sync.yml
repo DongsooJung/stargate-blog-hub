@@ -1,0 +1,45 @@
+name: Notion Reading Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notion-reading-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATA_SOURCE_ID: 66846d6d-864e-42dc-99db-2b61b315f8d4
+      OUTPUT_PATH: reading/posts.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify secret
+        run: |
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "NOTION_TOKEN repository secret is not configured." >&2
+            exit 2
+          fi
+
+      - name: Export approved Notion posts
+        run: python3 scripts/sync_notion_reading.py
+
+      - name: Commit changed feed
+        run: |
+          git config user.name "stargate-reading-bot"
+          git config user.email "stargate-reading-bot@users.noreply.github.com"
+          git add reading/posts.json
+          if git diff --cached --quiet; then
+            echo "No reading feed changes."
+            exit 0
+          fi
+          git commit -m "chore(reading): Notion 독후감 자동 동기화"
+          git push
