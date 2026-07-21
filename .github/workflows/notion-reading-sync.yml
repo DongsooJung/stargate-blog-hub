@@ -2,6 +2,11 @@ name: Notion Reading Sync
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/sync_notion_reading.py"
+      - ".github/workflows/notion-reading-sync.yml"
   schedule:
     - cron: "17 * * * *"
 
