@@ -1,14 +1,7 @@
-name: Notion Reading Sync
+name: Notion Reading Sync (Manual Backup)
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "scripts/sync_notion_reading.py"
-      - ".github/workflows/notion-reading-sync.yml"
-  schedule:
-    - cron: "17 * * * *"
 
 permissions:
   contents: write
@@ -46,5 +39,5 @@ jobs:
             echo "No reading feed changes."
             exit 0
           fi
-          git commit -m "chore(reading): Notion 독후감 자동 동기화"
+          git commit -m "chore(reading): Notion 독후감 수동 동기화"
           git push
