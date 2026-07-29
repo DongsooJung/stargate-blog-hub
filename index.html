@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://blog.stargateedu.co.kr/">
 <link rel="canonical" href="https://blog.stargateedu.co.kr/">
-<meta name="generator" content="stargate-blog-hub · 2026-07-20 07:07 KST">
+<meta name="generator" content="stargate-blog-hub · 2026-07-29 17:46 KST">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,6 +45,23 @@
                     display:flex;align-items:center;justify-content:space-between;}
   h2.section-title .updated-pill{font-size:.72rem;background:#E8F0F7;color:#1E5BC6;
                                   padding:4px 10px;border-radius:10px;font-weight:500;}
+  .refresh-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .refresh-btn{display:inline-flex;align-items:center;gap:7px;
+               background:#0B3D91;color:#fff;border:none;border-radius:20px;
+               padding:7px 15px;font:600 .82rem "Noto Sans KR",sans-serif;cursor:pointer;
+               box-shadow:0 2px 8px rgba(11,61,145,.22);transition:all .2s;}
+  .refresh-btn:hover:not(:disabled){background:#1E5BC6;transform:translateY(-1px);}
+  .refresh-btn:disabled{opacity:.65;cursor:progress;}
+  .refresh-btn .spin{display:inline-block;font-size:.9rem;line-height:1;}
+  .refresh-btn.is-loading .spin{animation:hub-spin .8s linear infinite;}
+  @keyframes hub-spin{to{transform:rotate(360deg);}}
+  .refresh-note{font-size:.74rem;color:#6C757D;}
+  .refresh-note.ok{color:#1B7F4B;}
+  .refresh-note.err{color:#C62828;}
+  .latest-item.is-new{border-color:#1B7F4B;box-shadow:0 4px 14px rgba(27,127,75,.14);}
+  .latest-item .new-badge{display:inline-block;margin-left:6px;font-size:.68rem;font-weight:700;
+                          color:#1B7F4B;background:#E6F4EC;border-radius:8px;padding:1px 7px;
+                          vertical-align:middle;}
   .latest-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;}
   .latest-item{background:#fff;border:1px solid #E5E9F0;border-radius:8px;
                 padding:14px 16px;transition:all .2s;}
@@ -178,10 +195,16 @@
   </div>
 
   <h2 class="section-title">
-    🔥 최신 포스팅 (19개)
-    <span class="updated-pill">자동 갱신 · 2026-07-20 07:07 KST</span>
+    <span>🔥 최신 포스팅 (<span id="post-count">19</span>개)</span>
+    <span class="refresh-wrap">
+      <span class="refresh-note" id="refresh-note"></span>
+      <button class="refresh-btn" id="refresh-btn" type="button" aria-controls="latest-list">
+        <span class="spin" aria-hidden="true">↻</span><span>새로고침</span>
+      </button>
+      <span class="updated-pill" id="updated-pill">자동 갱신 · 2026-07-29 17:46 KST</span>
+    </span>
   </h2>
-  <div class="latest-list">
+  <div class="latest-list" id="latest-list" aria-live="polite" aria-busy="false">
 
 
       <article class="latest-item">
@@ -319,8 +342,137 @@
     <a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a> |
     <a href="https://dongsoojung.github.io/">dongsoojung.github.io</a>
   </p>
-  <p style="margin-top:8px;font-size:.72rem;opacity:.6;">RSS 자동 갱신 · 마지막 업데이트: 2026-07-20 07:07 KST</p>
+  <p style="margin-top:8px;font-size:.72rem;opacity:.6;" id="footer-updated">RSS 자동 갱신 · 마지막 업데이트: 2026-07-29 17:46 KST</p>
 </footer>
+
+<script>
+/* 🔄 새로고침 — posts.json 을 캐시 없이 다시 받아 목록을 즉시 다시 그린다.
+   GitHub Pages/CDN 캐시 때문에 페이지를 새로고침해도 옛 글이 보이는 문제를 우회하고,
+   자동 갱신(cron)이 방금 올린 새 글도 페이지를 떠나지 않고 확인할 수 있다. */
+(function(){
+  'use strict';
+  var btn    = document.getElementById('refresh-btn');
+  var note   = document.getElementById('refresh-note');
+  var list   = document.getElementById('latest-list');
+  var pill   = document.getElementById('updated-pill');
+  var countEl= document.getElementById('post-count');
+  var footer = document.getElementById('footer-updated');
+  if (!btn || !list) return;
+
+  // 서버가 그려준 현재 목록의 링크 — 이후 갱신에서 "새 글"을 가려내는 기준
+  var seen = new Set(
+    Array.prototype.map.call(list.querySelectorAll('.title a'), function(a){ return a.href; })
+  );
+  var busy = false;
+
+  function setNote(text, kind){
+    note.textContent = text || '';
+    note.className = 'refresh-note' + (kind ? ' ' + kind : '');
+  }
+
+  function timeNow(){
+    return new Date().toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit' });
+  }
+
+  function render(posts){
+    var frag = document.createDocumentFragment();
+    var fresh = 0;
+
+    posts.forEach(function(p){
+      var art = document.createElement('article');
+      art.className = 'latest-item';
+
+      var chip = document.createElement('span');
+      chip.className = 'ch';
+      chip.style.background = p.color + '22';
+      chip.style.color = p.color;
+      chip.textContent = (p.icon || '') + ' ' + (p.channel || '');
+
+      var title = document.createElement('div');
+      title.className = 'title';
+      var link = document.createElement('a');
+      link.href = p.link || '#';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = p.title || '제목 없음';
+      title.appendChild(link);
+
+      // seen 이 비어 있으면 첫 로드이므로 전부 새 글로 표시하지 않는다
+      if (seen.size && !seen.has(link.href)){
+        fresh++;
+        art.classList.add('is-new');
+        var badge = document.createElement('span');
+        badge.className = 'new-badge';
+        badge.textContent = 'NEW';
+        title.appendChild(badge);
+      }
+
+      var date = document.createElement('div');
+      date.className = 'date';
+      date.textContent = p.date || '-';
+
+      art.append(chip, title, date);
+      frag.appendChild(art);
+    });
+
+    if (!posts.length){
+      var empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = 'RSS 수집 중 — 다음 자동 갱신 이후 목록이 채워집니다.';
+      frag.appendChild(empty);
+    }
+
+    list.replaceChildren(frag);
+    seen = new Set(posts.map(function(p){ return new URL(p.link || '#', location.href).href; }));
+    return fresh;
+  }
+
+  function refresh(manual){
+    if (busy) return;
+    busy = true;
+    if (manual){
+      btn.disabled = true;
+      btn.classList.add('is-loading');
+      setNote('확인 중…');
+    }
+    list.setAttribute('aria-busy', 'true');
+
+    fetch('posts.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function(res){
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      })
+      .then(function(data){
+        var posts = Array.isArray(data.posts) ? data.posts : [];
+        var fresh = render(posts);
+        if (countEl) countEl.textContent = posts.length;
+        if (data.updated){
+          if (pill)   pill.textContent = '자동 갱신 · ' + data.updated;
+          if (footer) footer.textContent = 'RSS 자동 갱신 · 마지막 업데이트: ' + data.updated;
+        }
+        if (fresh) setNote('새 글 ' + fresh + '개 · ' + timeNow() + ' 확인', 'ok');
+        else if (manual) setNote('최신 상태 · ' + timeNow() + ' 확인', 'ok');
+      })
+      .catch(function(){
+        if (manual) setNote('불러오지 못했습니다. 잠시 후 다시 시도해 주세요.', 'err');
+      })
+      .finally(function(){
+        busy = false;
+        btn.disabled = false;
+        btn.classList.remove('is-loading');
+        list.setAttribute('aria-busy', 'false');
+      });
+  }
+
+  btn.addEventListener('click', function(){ refresh(true); });
+
+  // 캐시된 HTML 로 들어왔을 수 있으므로 진입 시 한 번, 그리고 탭으로 돌아올 때마다 조용히 동기화
+  refresh(false);
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible') refresh(false);
+  });
+})();
+</script>
 
 <script type="application/ld+json">
 {

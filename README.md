@@ -37,8 +37,9 @@ stargate-blog-hub/
 ├── .gitignore
 ├── .github/
 │   └── workflows/
-│       ├── 허브_RSS_자동갱신.yml        # 매일 KST 03:00 cron
+│       ├── 허브_RSS_자동갱신.yml        # 매시 정각 cron
 │       └── Pages_헬스체크.yml           # 매주 월 KST 09:30 cron
+├── posts.json                          # 자동 생성 · 새로고침 버튼의 데이터 소스
 ├── scripts/
 │   ├── build_hub_index.py              # 메인 빌더
 │   └── requirements.txt
@@ -48,12 +49,29 @@ stargate-blog-hub/
 
 ## 동작 원리
 
-1. `허브_RSS_자동갱신.yml` 가 매일 KST 03:00 또는 수동 `workflow_dispatch` 로 트리거
+1. `허브_RSS_자동갱신.yml` 가 매시 정각 또는 수동 `workflow_dispatch` 로 트리거
 2. Ubuntu 러너에서 Python 3.12 + `feedparser` + `Jinja2` 설치
-3. `build_hub_index.py` 가 4개 RSS 를 병렬 수집(채널당 최신 5개)
+3. `build_hub_index.py` 가 4개 RSS 를 수집(채널당 최신 5개)
 4. 전체 목록을 날짜 역순으로 정렬 후 상위 20개를 템플릿에 주입
-5. 생성된 `index.html` 가 기존 파일과 diff 될 때만 자동 커밋(봇 계정: `stargate-hub-bot`)
-6. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargateedu.co.kr` 노출
+5. **목록이 직전 빌드와 같으면 아무 파일도 쓰지 않고 종료** — 갱신 시각이
+   "마지막으로 글 목록이 실제로 바뀐 시각"을 가리키고, 빈 커밋도 생기지 않습니다
+6. 변경이 있으면 `index.html` + `posts.json` 을 함께 갱신하고 자동 커밋(봇: `stargate-hub-bot`)
+7. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargateedu.co.kr` 노출
+
+## 🔄 새로고침 버튼
+
+"🔥 최신 포스팅" 헤더의 **새로고침** 버튼은 `posts.json` 을 `cache: no-store` +
+쿼리스트링 캐시버스팅으로 다시 받아 목록을 그 자리에서 다시 그립니다.
+
+- **CDN 캐시 우회** — 페이지 HTML 이 캐시돼 옛 글이 보여도 버튼 한 번이면 최신 목록으로 교체
+- **새 글 표시** — 화면에 없던 글에는 초록색 `NEW` 배지와 테두리 강조
+- **상태 안내** — `최신 상태 · HH:MM 확인` / `새 글 N개 · HH:MM 확인` / 실패 메시지
+- **자동 동기화** — 페이지 진입 시 1회, 그리고 다른 탭에 다녀와 돌아올 때마다 조용히 갱신
+- 실패해도 화면에 떠 있던 목록은 그대로 유지됩니다
+
+> 버튼은 **직전 자동 갱신 결과**를 즉시 반영합니다. 브라우저에서 네이버·티스토리 RSS 를
+> 직접 부르는 것은 CORS 로 차단되므로, 실제 수집은 매시 정각 Actions 가 담당합니다.
+> 더 빠른 반영이 필요하면 Actions 에서 `허브 RSS 자동갱신` 을 수동 실행한 뒤 버튼을 누르세요.
 
 ## 배포 (최초 1회)
 

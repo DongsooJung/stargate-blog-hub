@@ -1,17 +1,17 @@
 name: 허브 RSS 자동갱신
 
 # ┌──────────────────────────────────────────────────────────────────┐
-# │ 매일 한국시간 03:00 에 4개 채널 RSS 를 수집하여 index.html 의      │
+# │ 매시 정각에 4개 채널 RSS 를 수집하여 index.html 과 posts.json 의    │
 # │ "최신 포스팅 20개" 섹션을 자동 업데이트합니다.                      │
-# │ - Cron UTC 18:00 == KST 03:00                                    │
+# │ - 매시간 실행 → 페이지의 "🔄 새로고침" 버튼이 실제로 최신 글을 집음  │
 # │ - workflow_dispatch 로 수동 트리거 가능                            │
-# │ - 변경이 있을 때만 커밋 (noop 방지)                                │
+# │ - 목록이 실제로 바뀔 때만 커밋 (빌더가 동일 목록이면 파일 미변경)     │
 # │ - GitHub Pages 가 동일 브랜치에서 자동 배포됨                       │
 # └──────────────────────────────────────────────────────────────────┘
 
 on:
   schedule:
-    - cron: '0 18 * * *'     # UTC → KST 03:00
+    - cron: '0 * * * *'      # 매시 정각 (UTC 기준, KST 는 매시 정각 동일)
   workflow_dispatch:          # 수동 실행 버튼
   push:
     paths:
@@ -61,7 +61,7 @@ jobs:
       - name: 변경 사항 확인
         id: diff
         run: |
-          if git diff --quiet index.html; then
+          if git diff --quiet index.html posts.json && [ -z "$(git ls-files --others --exclude-standard posts.json)" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "::notice::변경 사항 없음 — 커밋 생략"
           else
@@ -73,7 +73,7 @@ jobs:
         run: |
           git config user.name  'stargate-hub-bot'
           git config user.email 'bot@stargate11.com'
-          git add index.html
+          git add index.html posts.json
           git commit -m "chore(hub): RSS 자동 갱신 — 최신 글 ${{ steps.build.outputs.posts }}개 ($(date -u +'%Y-%m-%d %H:%MZ'))"
           git push
 

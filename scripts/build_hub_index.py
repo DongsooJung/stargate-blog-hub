@@ -9,15 +9,22 @@ blog.stargateedu.co.kr 허브 인덱스 빌더
 동작:
     1) FEEDS 에 정의된 4개(+옵션) 채널의 RSS 를 수집
     2) 각 채널 최신 5개씩 → 전체 최신순 20개로 정렬
-    3) templates/허브_템플릿.html 을 렌더링
-    4) 리포 루트의 index.html 을 원자적으로 갱신
+    3) 목록이 직전 빌드와 동일하면 아무 파일도 건드리지 않고 종료
+    4) 변경이 있으면 templates/허브_템플릿.html 을 렌더링해
+       index.html 과 posts.json 을 원자적으로 갱신
+
+posts.json 은 페이지의 "🔄 새로고침" 버튼이 읽어가는 데이터 소스입니다.
+버튼을 누르면 브라우저가 이 파일을 캐시 없이 다시 받아 목록을 다시 그리므로,
+페이지를 새로 열지 않아도 최신 갱신 결과가 즉시 반영됩니다.
 
 환경 변수:
     TEMPLATE_PATH  : 템플릿 경로 (기본 templates/허브_템플릿.html)
     OUTPUT_PATH    : 출력 경로   (기본 index.html)
+    DATA_PATH      : 데이터 경로 (기본 posts.json)
     FEED_TIMEOUT   : RSS 타임아웃 초 (기본 15)
     MAX_PER_FEED   : 채널당 최대 수집 수 (기본 5)
     TOP_N          : 전체 상위 표시 수 (기본 20)
+    FORCE_WRITE    : 1 이면 변경이 없어도 강제로 다시 씀
 
 로컬 테스트:
     pip install -r scripts/requirements.txt
@@ -26,6 +33,7 @@ blog.stargateedu.co.kr 허브 인덱스 빌더
 
 from __future__ import annotations
 
+import json
 import os
 import sys
 import socket
@@ -73,6 +81,11 @@ FEED_TIMEOUT = int(os.environ.get("FEED_TIMEOUT", "15"))
 BASE_DIR      = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = Path(os.environ.get("TEMPLATE_PATH", BASE_DIR / "templates" / "허브_템플릿.html"))
 OUTPUT_PATH   = Path(os.environ.get("OUTPUT_PATH",   BASE_DIR / "index.html"))
+DATA_PATH     = Path(os.environ.get("DATA_PATH",     BASE_DIR / "posts.json"))
+FORCE_WRITE   = os.environ.get("FORCE_WRITE", "") == "1"
+
+# posts.json 에 담는 필드 (sort_key 는 내부 정렬용이라 제외)
+PUBLIC_FIELDS = ("channel", "icon", "color", "title", "link", "date")
 
 
 # ───────────────────────────────────────────────────────────────────
@@ -141,7 +154,7 @@ def fetch_feed(channel: str, meta: dict) -> list[dict]:
 # 렌더링
 # ───────────────────────────────────────────────────────────────────
 
-def render(posts: list[dict]) -> str:
+def render(posts: list[dict], updated: str) -> str:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
         autoescape=select_autoescape(["html"]),
@@ -150,8 +163,30 @@ def render(posts: list[dict]) -> str:
     return template.render(
         posts=posts,
         post_count=len(posts),
-        updated=datetime.now(KST).strftime("%Y-%m-%d %H:%M KST"),
+        updated=updated,
     )
+
+
+def public_posts(posts: list[dict]) -> list[dict]:
+    """posts.json 에 실을 형태로 정리."""
+    return [{k: p[k] for k in PUBLIC_FIELDS} for p in posts]
+
+
+def load_previous() -> list[dict]:
+    """직전 빌드의 posts.json 목록. 없거나 깨졌으면 빈 목록."""
+    if not DATA_PATH.exists():
+        return []
+    try:
+        return json.loads(DATA_PATH.read_text(encoding="utf-8")).get("posts", [])
+    except (json.JSONDecodeError, OSError) as exc:
+        log("WARN", f"기존 {DATA_PATH.name} 읽기 실패 — 새로 씁니다: {exc}")
+        return []
+
+
+def write_atomic(path: Path, text: str) -> None:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(path)
 
 
 # ───────────────────────────────────────────────────────────────────
@@ -169,17 +204,25 @@ def main() -> int:
 
     all_posts.sort(key=lambda x: x["sort_key"], reverse=True)
     top_posts = all_posts[:TOP_N]
+    current = public_posts(top_posts)
 
-    html = render(top_posts)
+    # 목록이 그대로면 파일을 건드리지 않는다.
+    # → 갱신 시각이 "마지막으로 글 목록이 실제로 바뀐 시각"을 가리키고,
+    #    Actions 도 매 실행마다 빈 커밋을 만들지 않는다.
+    if not FORCE_WRITE and OUTPUT_PATH.exists() and current == load_previous():
+        log("NOTICE", f"변경 없음 — 기존 목록 유지 (포스팅 {len(current)}개)")
+        return 0
 
-    # 원자적 쓰기
-    tmp = OUTPUT_PATH.with_suffix(OUTPUT_PATH.suffix + ".tmp")
-    tmp.write_text(html, encoding="utf-8")
-    tmp.replace(OUTPUT_PATH)
+    updated = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
+    write_atomic(OUTPUT_PATH, render(top_posts, updated))
+    write_atomic(DATA_PATH, json.dumps(
+        {"updated": updated, "post_count": len(current), "posts": current},
+        ensure_ascii=False, indent=2,
+    ) + "\n")
 
     log("NOTICE",
         f"완료 — {OUTPUT_PATH.name} · {OUTPUT_PATH.stat().st_size/1024:.1f} KB · "
-        f"포스팅 {len(top_posts)}/{len(all_posts)}")
+        f"{DATA_PATH.name} 동시 갱신 · 포스팅 {len(top_posts)}/{len(all_posts)}")
     return 0
 
 
