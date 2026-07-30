@@ -44,17 +44,17 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape  # type: ign
 KST = timezone(timedelta(hours=9))
 
 FEEDS: dict[str, dict[str, str]] = {
-    "네이버 개인": {
+    "부동산·경제": {
         "url": "https://rss.blog.naver.com/stargate8224.xml",
         "icon": "📒",
         "color": "#03C75A",
     },
-    "네이버 법인": {
+    "수학·AI": {
         "url": "https://rss.blog.naver.com/stargate8225.xml",
         "icon": "🏢",
         "color": "#2DB400",
     },
-    "티스토리": {
+    "정치·데이터": {
         "url": "https://dongsoo.tistory.com/rss",
         "icon": "✍️",
         "color": "#FF5900",
