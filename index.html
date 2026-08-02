@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./community.css?v=20260725">
+  <link rel="stylesheet" href="./community.css?v=20260803">
 </head>
 <body data-post-count="19">
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -52,9 +52,30 @@
       <div class="board-feed"><div class="board-toolbar"><div class="filter-buttons" role="group" aria-label="게시글 분류 필터"><button type="button" class="active" data-filter="전체">전체</button><button type="button" data-filter="질문">질문</button><button type="button" data-filter="후기">후기</button><button type="button" data-filter="건의">건의</button></div><button id="refreshBoard" class="ghost-button" type="button">새로고침</button></div><div id="boardList" class="board-list" aria-live="polite"><div class="empty">게시글을 불러오는 중입니다.</div></div></div>
     </div></section>
     <section aria-labelledby="categories-title"><div class="section-heading"><div><span class="section-kicker">TOPICS</span><h2 id="categories-title">콘텐츠 카테고리</h2></div></div><div class="categories"><a class="category-card" href="https://blog.naver.com/stargate8224" target="_blank" rel="noopener"><strong>🏠 부동산·경제</strong><span>아파트 시황, 금리, 거시경제</span></a><a class="category-card" href="https://blog.naver.com/stargate8225" target="_blank" rel="noopener"><strong>🧮 수학·AI</strong><span>KOI, 서술형 AI, 학습·연구</span></a><a class="category-card" href="https://dongsoo.tistory.com/" target="_blank" rel="noopener"><strong>📊 정치·데이터</strong><span>정치 이슈, 지표, 사회 통계</span></a><a class="category-card" href="https://stargateedu.co.kr/stargate-ai-gallery/files/graph-001.html" target="_blank" rel="noopener"><strong>🏙️ 도시·연구</strong><span>스마트도시, 공간계량, 인구</span></a><a class="category-card" href="./reading/"><strong>📚 출판·서평</strong><span>책 추천, 독후감, 출판 기록</span></a></div></section>
+    <section id="notion-blog" class="notion-blog" aria-labelledby="notion-blog-title">
+      <div class="section-heading notion-blog__heading">
+        <div><span class="section-kicker">NOTION BLOG</span><h2 id="notion-blog-title">최신 글 · Notion Blog</h2></div>
+        <span class="updated-pill" id="notionFeedUpdated">Notion 자동 갱신</span>
+      </div>
+      <p class="notion-blog__intro">노션에서 발행한 글을 스크롤로 이어 읽습니다. 카드를 펼치면 본문 전체를 여기서 볼 수 있습니다.</p>
+      <div class="notion-filters" id="notionFeedFilters" role="group" aria-label="Notion Blog 카테고리 필터">
+        <button class="active" type="button" data-cat="">전체</button>
+        <button type="button" data-cat="공지">공지</button>
+        <button type="button" data-cat="교육·입시">교육·입시</button>
+        <button type="button" data-cat="AI·테크">AI·테크</button>
+        <button type="button" data-cat="창업·경영">창업·경영</button>
+        <button type="button" data-cat="도시·연구">도시·연구</button>
+        <button type="button" data-cat="출판·서평">출판·서평</button>
+        <button type="button" data-cat="시사·정치">시사·정치</button>
+      </div>
+      <div class="notion-feed" id="notionFeed" aria-live="polite"></div>
+      <div class="notion-feed__status" id="notionFeedStatus" role="status">글을 불러오는 중…</div>
+      <div id="notionFeedSentinel" aria-hidden="true"></div>
+    </section>
   </main>
   <footer><p>&copy; 2026 Stargate Corporation · 주식회사 별의문</p><p><a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a><span>·</span><a href="https://stargate-notion.stargate8224.chatgpt.site" target="_blank" rel="noopener">Notion Archive</a><span>·</span><a href="mailto:dongsu@stargate11.com">문의</a></p><p class="footer-meta">RSS 자동 갱신 · 마지막 업데이트: 2026-08-03 06:53 KST</p><p class="footer-business">상호 : 주식회사 별의문 · 대표자명 : 정동수 · 사업자번호 : 848-86-03835 · 통신판매업신고번호 : 2025-서울강남-05246호</p></footer>
   <script src="./community.js?v=20260723" defer></script>
   <script src="./latest-refresh.js?v=20260725" defer></script>
+  <script src="./notion-feed.js?v=20260803" defer></script>
 </body>
 </html>
