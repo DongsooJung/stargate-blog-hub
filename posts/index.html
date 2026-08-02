@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>정동수의 글 | Stargate Blog</title>
+<meta name="description" content="교육·입시, AI·테크, 창업·경영, 도시·연구, 출판·서평 다섯 주제로 직접 쓰는 글. 노션에서 발행하고 이곳에서 읽습니다.">
+<meta name="keywords" content="대치동 수학, 영재학교 입시, AI 창업, 1인기업, 스마트도시, 정동수, 스타게이트">
+<meta property="og:title" content="정동수의 글 | Stargate Blog">
+<meta property="og:description" content="교육·AI·창업·도시연구·출판 다섯 주제로 직접 쓰는 글">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.stargateedu.co.kr/posts/">
+<link rel="canonical" href="https://blog.stargateedu.co.kr/posts/">
+<meta name="theme-color" content="#0B3D91">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans KR","Pretendard","Malgun Gothic",sans-serif;
+       background:#FAFBFC;color:#1A1A1A;line-height:1.6}
+  a{color:#0B3D91}
+  .skip-link{position:absolute;left:-9999px;top:0;background:#0B3D91;color:#fff;padding:10px 16px;z-index:50}
+  .skip-link:focus{left:8px;top:8px}
+
+  .hero{background:linear-gradient(135deg,#0B3D91 0%,#1E5BC6 100%);color:#fff;
+        padding:72px 20px 54px;text-align:center}
+  .hero .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.14em;opacity:.75;text-transform:uppercase}
+  .hero h1{font-size:2.3rem;margin:10px 0 12px;letter-spacing:-.03em;line-height:1.25}
+  .hero p{font-size:1.02rem;opacity:.9;max-width:660px;margin:0 auto}
+  .nav-pills{margin-top:26px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .nav-pills a{background:rgba(255,255,255,.15);color:#fff;padding:8px 16px;border-radius:20px;
+               text-decoration:none;font-size:.9rem;border:1px solid rgba(255,255,255,.3);transition:all .2s}
+  .nav-pills a:hover{background:#fff;color:#0B3D91}
+  .nav-pills a[aria-current="page"]{background:#fff;color:#0B3D91;font-weight:600}
+
+  .container{max-width:900px;margin:0 auto;padding:44px 20px 64px}
+  .feed-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+             border-left:4px solid #0B3D91;padding-left:12px;margin-bottom:6px}
+  .feed-head h2{font-size:1.5rem;color:#0B3D91;letter-spacing:-.02em}
+  .feed-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .updated-pill{font-size:.72rem;background:#E8F0F7;color:#1E5BC6;padding:4px 10px;
+                border-radius:10px;font-weight:500;white-space:nowrap}
+  .refresh-btn{display:inline-flex;align-items:center;gap:7px;background:#0B3D91;color:#fff;
+               border:none;border-radius:20px;padding:7px 15px;font:600 .82rem inherit;cursor:pointer;
+               box-shadow:0 2px 8px rgba(11,61,145,.22);transition:all .2s}
+  .refresh-btn:hover:not(:disabled){background:#1E5BC6;transform:translateY(-1px)}
+  .refresh-btn:disabled{opacity:.65;cursor:progress}
+  .refresh-btn.is-loading .spin{display:inline-block;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .refresh-note{font-size:.74rem;color:#6C757D}
+  .refresh-note.ok{color:#1B7F4B} .refresh-note.err{color:#C62828}
+  .lede{color:#666;font-size:.92rem;margin:0 0 20px 16px}
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .filters button{background:#fff;border:1px solid #C5CDE0;color:#444;padding:7px 15px;
+                  border-radius:20px;font:500 .88rem inherit;cursor:pointer;transition:all .2s}
+  .filters button:hover{border-color:#0B3D91;color:#0B3D91}
+  .filters button.active{background:#0B3D91;border-color:#0B3D91;color:#fff;font-weight:600}
+
+  .feed{display:flex;flex-direction:column;gap:14px}
+  .post{background:#fff;border:1px solid #E5E9F0;border-radius:14px;padding:20px 22px;transition:all .2s}
+  .post:hover{border-color:#0B3D91;box-shadow:0 6px 18px rgba(11,61,145,.10)}
+  .post .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .post .ch{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:10px;
+            color:var(--chip);border:1px solid color-mix(in srgb,var(--chip) 40%,transparent);
+            background:color-mix(in srgb,var(--chip) 12%,transparent)}
+  .post .date{font-size:.78rem;color:#888}
+  .post h3{font-size:1.1rem;font-weight:700;line-height:1.45;margin-bottom:8px;letter-spacing:-.02em}
+  .post .summary{font-size:.94rem;color:#444}
+  .post .actions{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .post .actions button,.post .actions a{background:none;border:none;padding:0;cursor:pointer;
+        font:600 .88rem inherit;color:#0B3D91;text-decoration:none;
+        border-bottom:1.5px solid #0B3D91;padding-bottom:1px}
+  .post .actions button:hover,.post .actions a:hover{color:#1E5BC6;border-color:#1E5BC6}
+  .post .body{display:none;margin-top:16px;padding-top:16px;border-top:1px solid #EDF0F5;
+              font-size:.95rem;color:#333}
+  .post.open .body{display:block}
+  .post .body h3{font-size:1.02rem;color:#0B3D91;margin:18px 0 8px}
+  .post .body h4{font-size:.96rem;color:#0B3D91;margin:14px 0 6px}
+  .post .body p{margin:8px 0}
+  .post .body ul,.post .body ol{margin:8px 0 8px 22px} .post .body li{margin:4px 0}
+  .post .body blockquote{border-left:3px solid #1E5BC6;background:#F2F6FC;padding:10px 14px;
+        margin:12px 0;border-radius:0 8px 8px 0;color:#2b3a55}
+  .post .body hr{border:none;border-top:1px solid #E5E9F0;margin:16px 0}
+  .post .body code{background:#EEF2F9;color:#0B3D91;border-radius:4px;padding:1px 5px;font-size:.88em}
+  .post .body pre.post-code{background:#1A1F2E;color:#E8ECF4;border-radius:10px;padding:14px 16px;
+        margin:12px 0;overflow-x:auto;font-size:.84rem;line-height:1.6}
+  .post .body pre.post-code code{background:none;color:inherit;padding:0;
+        font-family:ui-monospace,Consolas,monospace}
+  .post .body .post-callout{display:flex;gap:10px;background:#FFF8E8;border:1px solid #F0E2B8;
+        border-radius:10px;padding:12px 14px;margin:12px 0}
+  .post .body figure{margin:14px 0} .post .body figure img{max-width:100%;border-radius:10px}
+  .post .body figcaption{font-size:.8rem;color:#888;margin-top:6px;text-align:center}
+  .feed-status{padding:22px;text-align:center;color:#888;font-size:.86rem;
+               background:#fff;border:1px dashed #C5CDE0;border-radius:10px}
+  #sentinel{height:1px}
+
+  footer{background:#1A1F2E;color:#A8B0BD;padding:30px 20px;text-align:center;font-size:.86rem}
+  footer a{color:#fff;text-decoration:none;margin:0 8px}
+
+  @media (max-width:640px){
+    .hero h1{font-size:1.8rem} .hero p{font-size:.94rem}
+    .feed-head{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header class="hero">
+  <div class="eyebrow">Stargate Blog · Written by Dongsoo</div>
+  <h1>직접 쓰는 글</h1>
+  <p>대치동 KOI 강사 · AI 기업 CEO · 서울대 도시공학 박사가<br>
+     교육 · AI · 창업 · 도시연구 · 출판 다섯 주제로 남기는 기록입니다.</p>
+  <nav class="nav-pills" aria-label="주요 메뉴">
+    <a href="/">🏠 블로그 허브</a>
+    <a href="/posts/" aria-current="page">✍️ 직접 쓴 글</a>
+    <a href="/reading/">📚 독서 기록</a>
+    <a href="https://www.stargateedu.co.kr/">🌐 포털</a>
+    <a href="https://shop.stargateedu.co.kr/">🛒 쇼핑몰</a>
+  </nav>
+</header>
+
+<main class="container" id="main">
+  <div class="feed-head">
+    <h2>최신 글</h2>
+    <div class="feed-actions">
+      <span class="refresh-note" id="refresh-note"></span>
+      <button class="refresh-btn" id="refresh-btn" type="button" aria-controls="feed">
+        <span class="spin" aria-hidden="true">↻</span><span>새로고침</span>
+      </button>
+      <span class="updated-pill" id="updated-pill">Notion 자동 갱신</span>
+    </div>
+  </div>
+  <p class="lede">노션에서 발행하면 이곳에 자동으로 올라옵니다. 카드를 펼치면 본문 전체를 여기서 읽을 수 있습니다.</p>
+
+  <div class="filters" id="filters" role="group" aria-label="카테고리 필터">
+    <button class="active" data-cat="">전체</button>
+    <button data-cat="공지">공지</button>
+    <button data-cat="교육·입시">교육·입시</button>
+    <button data-cat="AI·테크">AI·테크</button>
+    <button data-cat="창업·경영">창업·경영</button>
+    <button data-cat="도시·연구">도시·연구</button>
+    <button data-cat="출판·서평">출판·서평</button>
+    <button data-cat="시사·정치">시사·정치</button>
+  </div>
+
+  <div class="feed" id="feed" aria-live="polite"></div>
+  <div class="feed-status" id="feed-status">글을 불러오는 중…</div>
+  <div id="sentinel" aria-hidden="true"></div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Stargate Corporation · 주식회사 별의문</p>
+  <p>
+    <a href="/">blog.stargateedu.co.kr</a> |
+    <a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a> |
+    <a href="https://shop.stargateedu.co.kr/">shop</a>
+  </p>
+  <p style="margin-top:8px;font-size:.72rem;opacity:.6" id="footer-updated">Notion API 자동 갱신</p>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const BATCH = 4;
+  const feed = document.getElementById('feed');
+  const status = document.getElementById('feed-status');
+  const sentinel = document.getElementById('sentinel');
+  const filters = document.getElementById('filters');
+  const btn = document.getElementById('refresh-btn');
+  const note = document.getElementById('refresh-note');
+  const pill = document.getElementById('updated-pill');
+  const footer = document.getElementById('footer-updated');
+
+  let all = [], shown = [], rendered = 0, cat = '', seen = new Set(), busy = false;
+
+  const card = (p, isNew) => {
+    const art = document.createElement('article');
+    art.className = 'post';
+
+    const head = document.createElement('div');
+    head.className = 'head';
+    const chip = document.createElement('span');
+    chip.className = 'ch';
+    chip.style.setProperty('--chip', p.color || '#0B3D91');
+    chip.textContent = `${p.emoji || ''} ${p.category || ''}`.trim();
+    const date = document.createElement('span');
+    date.className = 'date';
+    date.textContent = p.date || '';
+    head.append(chip, date);
+
+    const ttl = document.createElement('h3');
+    ttl.textContent = p.title || '제목 없음';
+    if (isNew) {
+      const badge = document.createElement('span');
+      badge.className = 'ch';
+      badge.style.setProperty('--chip', '#1B7F4B');
+      badge.style.marginLeft = '7px';
+      badge.style.fontSize = '.68rem';
+      badge.textContent = 'NEW';
+      ttl.appendChild(badge);
+    }
+
+    const summary = document.createElement('p');
+    summary.className = 'summary';
+    summary.textContent = p.summary || '';
+
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    const body = document.createElement('div');
+    body.className = 'body';
+
+    if (p.html) {
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '전체 읽기 ▾';
+      toggle.addEventListener('click', () => {
+        const open = art.classList.toggle('open');
+        if (open && !body.innerHTML) body.innerHTML = p.html;
+        toggle.textContent = open ? '접기 ▴' : '전체 읽기 ▾';
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      actions.appendChild(toggle);
+    }
+    if (p.external_url) {
+      const link = document.createElement('a');
+      link.href = p.external_url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = '원문 보기 ↗';
+      actions.appendChild(link);
+    }
+
+    art.append(head, ttl, summary, actions, body);
+    return art;
+  };
+
+  // 상태 문구는 renderBatch 의 조기 반환과 무관하게 항상 현재 목록을 반영해야 한다
+  // (빈 카테고리에서 직전 문구가 남는 것을 방지)
+  const updateStatus = () => {
+    if (!shown.length) {
+      status.style.display = 'block';
+      status.textContent = '이 카테고리에는 아직 발행된 글이 없습니다.';
+    } else if (rendered >= shown.length) {
+      status.style.display = 'none';
+    } else {
+      status.style.display = 'block';
+      status.textContent = `스크롤하면 이어서 불러옵니다 (${rendered}/${shown.length})`;
+    }
+  };
+
+  const renderBatch = () => {
+    if (rendered >= shown.length) { updateStatus(); return; }
+    shown.slice(rendered, rendered + BATCH).forEach((p) => {
+      feed.appendChild(card(p, seen.size > 0 && !seen.has(p.id)));
+    });
+    rendered = Math.min(rendered + BATCH, shown.length);
+    updateStatus();
+    requestAnimationFrame(maybeMore);
+  };
+
+  function maybeMore() {
+    if (rendered >= shown.length) return;
+    if (sentinel.getBoundingClientRect().top < window.innerHeight + 400) renderBatch();
+  }
+
+  const applyFilter = (next) => {
+    cat = next || '';
+    shown = cat ? all.filter((p) => p.category === cat) : all;
+    rendered = 0;
+    feed.replaceChildren();
+    renderBatch();
+    filters.querySelectorAll('button').forEach((b) => {
+      b.classList.toggle('active', (b.dataset.cat || '') === cat);
+    });
+  };
+
+  filters.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (b) applyFilter(b.dataset.cat);
+  });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((es) => { if (es[0].isIntersecting) renderBatch(); },
+      { rootMargin: '400px' }).observe(sentinel);
+  }
+  window.addEventListener('scroll', maybeMore, { passive: true });
+
+  const setNote = (text, kind) => {
+    note.textContent = text || '';
+    note.className = 'refresh-note' + (kind ? ' ' + kind : '');
+  };
+  const nowTime = () =>
+    new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+
+  function load(manual) {
+    if (busy) return;
+    busy = true;
+    if (manual) {
+      btn.disabled = true;
+      btn.classList.add('is-loading');
+      setNote('확인 중…');
+    }
+    fetch(`./posts.json?t=${Date.now()}`, { cache: 'no-store' })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then((data) => {
+        const posts = Array.isArray(data.posts) ? data.posts : [];
+        const fresh = seen.size ? posts.filter((p) => !seen.has(p.id)).length : 0;
+        all = posts;
+        applyFilter(cat);
+        seen = new Set(posts.map((p) => p.id));
+        if (data.generated_at) {
+          pill.textContent = `Notion 자동 갱신 · ${data.generated_at}`;
+          footer.textContent = `Notion API 자동 갱신 · 마지막 업데이트: ${data.generated_at}`;
+        }
+        if (fresh) setNote(`새 글 ${fresh}개 · ${nowTime()} 확인`, 'ok');
+        else if (manual) setNote(`최신 상태 · ${nowTime()} 확인`, 'ok');
+      })
+      .catch(() => {
+        if (manual) setNote('불러오지 못했습니다. 잠시 후 다시 시도해 주세요.', 'err');
+        else status.textContent = '글을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.';
+      })
+      .finally(() => {
+        busy = false;
+        btn.disabled = false;
+        btn.classList.remove('is-loading');
+      });
+  }
+
+  btn.addEventListener('click', () => load(true));
+  load(false);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') load(false);
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Blog",
+  "@id":"https://blog.stargateedu.co.kr/posts/#blog",
+  "name":"Stargate Blog — 정동수의 글",
+  "url":"https://blog.stargateedu.co.kr/posts/",
+  "author":{"@type":"Person","name":"정동수","sameAs":["https://www.stargateedu.co.kr/","https://github.com/DongsooJung"]},
+  "publisher":{"@type":"Organization","name":"Stargate Corporation"}
+}
+</script>
+</body>
+</html>

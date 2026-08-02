@@ -1,0 +1,51 @@
+name: Notion 블로그 동기화
+
+# ┌──────────────────────────────────────────────────────────────────┐
+# │ 노션 「📰 포털 블로그 포스트」 DB 의 상태=발행 글을 수집해          │
+# │ posts/posts.json 을 갱신합니다. (/posts/ 페이지가 읽어가는 데이터)  │
+# │ - 매일 KST 03:00 (RSS 자동갱신과 동일 주기)                        │
+# │ - workflow_dispatch 로 수동 트리거 가능                            │
+# │ - 변경이 있을 때만 커밋                                            │
+# └──────────────────────────────────────────────────────────────────┘
+
+on:
+  schedule:
+    - cron: '0 18 * * *'     # UTC → KST 03:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notion-blog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: 노션 발행 글 수집
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 노션에서 발행 글 수집
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python3 scripts/sync_notion_blog.py
+
+      - name: 변경 사항 커밋
+        run: |
+          if git diff --quiet posts/posts.json; then
+            echo "::notice::변경 없음 — 커밋 생략"
+            exit 0
+          fi
+          git config user.name  'stargate-hub-bot'
+          git config user.email 'bot@stargate11.com'
+          git add posts/posts.json
+          git commit -m "chore(posts): 노션 발행 글 자동 갱신"
+          git push
