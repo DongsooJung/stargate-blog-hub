@@ -39,6 +39,7 @@ CATEGORY_META = {
     "창업·경영": {"emoji": "🏢", "color": "#E65100"},
     "도시·연구": {"emoji": "🏙️", "color": "#6A1B9A"},
     "출판·서평": {"emoji": "📚", "color": "#5D4037"},
+    "시사·정치": {"emoji": "🗳️", "color": "#B26A00"},
     "공지": {"emoji": "📢", "color": "#C62828"},
 }
 

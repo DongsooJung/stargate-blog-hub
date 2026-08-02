@@ -143,6 +143,7 @@
     <button data-cat="창업·경영">창업·경영</button>
     <button data-cat="도시·연구">도시·연구</button>
     <button data-cat="출판·서평">출판·서평</button>
+    <button data-cat="시사·정치">시사·정치</button>
   </div>
 
   <div class="feed" id="feed" aria-live="polite"></div>
@@ -237,12 +238,9 @@
     return art;
   };
 
-  const renderBatch = () => {
-    if (rendered >= shown.length) return;
-    shown.slice(rendered, rendered + BATCH).forEach((p) => {
-      feed.appendChild(card(p, seen.size > 0 && !seen.has(p.id)));
-    });
-    rendered = Math.min(rendered + BATCH, shown.length);
+  // 상태 문구는 renderBatch 의 조기 반환과 무관하게 항상 현재 목록을 반영해야 한다
+  // (빈 카테고리에서 직전 문구가 남는 것을 방지)
+  const updateStatus = () => {
     if (!shown.length) {
       status.style.display = 'block';
       status.textContent = '이 카테고리에는 아직 발행된 글이 없습니다.';
@@ -252,6 +250,15 @@
       status.style.display = 'block';
       status.textContent = `스크롤하면 이어서 불러옵니다 (${rendered}/${shown.length})`;
     }
+  };
+
+  const renderBatch = () => {
+    if (rendered >= shown.length) { updateStatus(); return; }
+    shown.slice(rendered, rendered + BATCH).forEach((p) => {
+      feed.appendChild(card(p, seen.size > 0 && !seen.has(p.id)));
+    });
+    rendered = Math.min(rendered + BATCH, shown.length);
+    updateStatus();
     requestAnimationFrame(maybeMore);
   };
 
