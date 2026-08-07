@@ -18,7 +18,7 @@ jobs:
       NOTION_DATA_SOURCE_ID: 66846d6d-864e-42dc-99db-2b61b315f8d4
       OUTPUT_PATH: reading/posts.json
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Verify secret
         run: |

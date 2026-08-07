@@ -38,7 +38,7 @@ jobs:
 
       - name: 실패 시 Issue 생성
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const title = `🚨 허브 다운 감지 — ${new Date().toISOString().slice(0,16)}`;
