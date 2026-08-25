@@ -66,3 +66,6 @@
 .notion-feed__status{margin-top:14px;padding:18px;border:1px dashed #b8c3d4;border-radius:14px;background:#fff;color:var(--muted);font-size:.84rem;text-align:center}
 #notionFeedSentinel{height:1px}
 @media(max-width:640px){.notion-blog__heading .updated-pill{display:inline-flex}.notion-card{padding:18px}.notion-filters{gap:7px}.notion-filters button{padding:6px 11px;font-size:.78rem}}
+
+/* Prominent responsive hero title */
+.hero .eyebrow{max-width:100%;font-size:clamp(1.65rem,5.35vw,3.75rem);line-height:1.08;letter-spacing:.06em;overflow-wrap:anywhere}
