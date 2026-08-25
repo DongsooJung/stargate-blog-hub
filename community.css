@@ -10,6 +10,27 @@
 @keyframes latest-refresh-spin{to{transform:rotate(360deg)}}
 @media(max-width:640px){.latest-refresh-controls{justify-items:start;margin-top:12px}.latest-refresh-status{text-align:left}}
 
+/* Collapsible feedback and community sections */
+.section-toggle{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 3px 14px rgba(16,32,68,.045);overflow:hidden}
+.section-toggle>summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;list-style:none;color:var(--navy);cursor:pointer;transition:background .2s}
+.section-toggle>summary::-webkit-details-marker{display:none}
+.section-toggle>summary:hover{background:#f4f7fb}
+.section-toggle>summary:focus-visible{outline:3px solid rgba(30,91,198,.35);outline-offset:-3px}
+.section-toggle>summary::after{content:"펼치기  +";flex:0 0 auto;color:var(--blue);font-size:.8rem;font-weight:800}
+.section-toggle[open]>summary{border-bottom:1px solid var(--line)}
+.section-toggle[open]>summary::after{content:"접기  −"}
+.section-toggle__label{display:grid;gap:2px}
+.section-toggle__label strong{font-size:.84rem;letter-spacing:.14em}
+.section-toggle__label span{color:var(--muted);font-size:.88rem;font-weight:600}
+.section-toggle__content{padding:28px 22px 22px}
+.section-toggle--light{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);box-shadow:none}
+.section-toggle--light>summary{color:#fff}
+.section-toggle--light>summary:hover{background:rgba(255,255,255,.09)}
+.section-toggle--light>summary:focus-visible{outline-color:#fff}
+.section-toggle--light>summary::after,.section-toggle--light .section-toggle__label span{color:#dbe8ff}
+.section-toggle--light[open]>summary{border-bottom-color:rgba(255,255,255,.22)}
+@media(max-width:640px){.section-toggle>summary{padding:17px 18px}.section-toggle__content{padding:23px 18px 18px}}
+
 .notion-blog{border-top:1px solid var(--line)}
 .notion-blog__heading{margin-bottom:8px}
 .notion-blog__intro{margin:0 0 22px;color:var(--muted);font-size:.94rem}
