@@ -1,4 +1,14 @@
 (() => {
+  if (!window.__STARGATE_ANALYTICS_LOADER_REQUESTED__) {
+    window.__STARGATE_ANALYTICS_LOADER_REQUESTED__ = true;
+    const script = document.createElement('script');
+    script.defer = true;
+    script.src = 'https://stargateedu.co.kr/assets/analytics-loader.js';
+    document.head.appendChild(script);
+  }
+})();
+
+(() => {
   'use strict';
 
   const button = document.getElementById('refreshLatest');
