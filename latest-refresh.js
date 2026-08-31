@@ -75,3 +75,28 @@
     }
   });
 })();
+
+(() => {
+  const addMathLinks = () => {
+    const nav = document.querySelector('.nav-pills');
+    if (nav && !nav.querySelector('a[href="./math/"],a[href="/math/"]')) {
+      const link = document.createElement('a');
+      link.href = './math/';
+      link.textContent = '🧮 하루 한 문제';
+      const posts = nav.querySelector('a[href="./posts/"]');
+      if (posts) posts.insertAdjacentElement('afterend', link);
+      else nav.appendChild(link);
+    }
+
+    const channels = document.querySelector('.channels');
+    if (channels && !channels.querySelector('[data-math-daily]')) {
+      const article = document.createElement('article');
+      article.className = 'channel';
+      article.dataset.mathDaily = 'true';
+      article.innerHTML = '<div class="icon">🧮</div><h3>STARGATE MATH</h3><div class="meta">하루 한 문제 · 자동발행</div><p>성대경시형·황소형 중등 수학 문제를 문제·힌트·단계별 풀이로 한 문제씩 발행합니다.</p><a class="text-link" href="./math/">수학 블로그 →</a>';
+      channels.insertBefore(article, channels.firstChild);
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addMathLinks);
+  else addMathLinks();
+})();
