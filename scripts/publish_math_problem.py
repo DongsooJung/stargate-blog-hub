@@ -2,7 +2,7 @@
 """Publish exactly one queued math problem as a blog post.
 
 Default is dry-run. Use --publish to write math/posts.json, math/publish-state.json,
-and math/problems/<id>/index.html.
+math/problems/<id>/index.html, and a Naver-ready draft payload.
 """
 from __future__ import annotations
 
@@ -87,6 +87,41 @@ def render_page(post):
 <footer>© 2026 Stargate Corporation · One Problem a Day</footer></body></html>'''
 
 
+def build_naver_payload(post):
+    lines = [
+        post["title"],
+        "",
+        f"[{post['series']} · {post['level']} · {post['topic']} · 난도 {post['difficulty']}/5]",
+        "",
+        "오늘의 문제",
+        post["problem"],
+        "",
+        "힌트",
+        post["hint"],
+        "",
+        "단계별 풀이",
+    ]
+    for i, step in enumerate(post["solution"], 1):
+        lines.append(f"{i}. {step}")
+    lines += [
+        "",
+        f"정답: {post['answer']}",
+        "",
+        f"연구 아카이브: {post['research_url']}",
+        post["copyright_note"],
+    ]
+    return {
+        "id": post["id"],
+        "target": "Naver Blog stargate8225",
+        "status": "ready_for_manual_or_browser_publish",
+        "title": post["title"],
+        "body_text": "\n".join(lines),
+        "tags": ["수학", "중등수학", post["series"], post["level"], post["topic"], "오늘의수학"],
+        "canonical": post["canonical"],
+        "research_url": post["research_url"],
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--publish", action="store_true", help="write one new post")
@@ -122,6 +157,10 @@ def main():
     target.write_text(render_page(post), encoding="utf-8")
     POSTS_PATH.write_text(json.dumps(posts_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    naver_target = ROOT / "math" / "naver-queue" / f"{problem['id']}.json"
+    naver_target.parent.mkdir(parents=True, exist_ok=True)
+    naver_target.write_text(json.dumps(build_naver_payload(post), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     published = state.setdefault("published", [])
     if problem["id"] not in published:
         published.append(problem["id"])
@@ -129,6 +168,7 @@ def main():
     state["last_problem_id"] = problem["id"]
     STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"PUBLISHED: {post['canonical']}")
+    print(f"NAVER QUEUE: math/naver-queue/{problem['id']}.json")
     return 0
 
 
