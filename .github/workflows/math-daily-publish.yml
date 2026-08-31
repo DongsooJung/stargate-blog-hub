@@ -39,15 +39,14 @@ jobs:
 
       - name: 다음 문제 확인 또는 1건 발행
         env:
-          AUTO_ENABLED: ${{ vars.MATH_AUTO_PUBLISH_ENABLED }}
           EVENT_NAME: ${{ github.event_name }}
           MANUAL_MODE: ${{ inputs.mode }}
           MATH_PROBLEMS_URL: https://stargateedu.co.kr/research/math/archive/problems.json
         run: |
           set -euo pipefail
-          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$MANUAL_MODE" = "publish" ]; then
+          if [ "$EVENT_NAME" = "schedule" ]; then
             python3 scripts/publish_math_problem.py --publish
-          elif [ "$EVENT_NAME" = "schedule" ] && [ "${AUTO_ENABLED:-false}" = "true" ]; then
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$MANUAL_MODE" = "publish" ]; then
             python3 scripts/publish_math_problem.py --publish
           else
             python3 scripts/publish_math_problem.py
