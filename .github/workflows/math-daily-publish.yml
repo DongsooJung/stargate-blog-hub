@@ -55,12 +55,12 @@ jobs:
 
       - name: 변경 사항 커밋
         run: |
-          if git diff --quiet -- math/posts.json math/publish-state.json math/problems/; then
+          if git diff --quiet -- math/posts.json math/publish-state.json math/problems/ math/naver-queue/; then
             echo "::notice::발행 변경 없음 — dry-run 또는 대기 상태"
             exit 0
           fi
           git config user.name 'stargate-math-bot'
           git config user.email 'bot@stargate11.com'
-          git add math/posts.json math/publish-state.json math/problems/
+          git add math/posts.json math/publish-state.json math/problems/ math/naver-queue/
           git commit -m "feat(math): publish daily problem"
           git push
