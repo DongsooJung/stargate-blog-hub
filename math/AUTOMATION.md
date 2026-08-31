@@ -16,9 +16,11 @@
 ## 현재 운영 상태
 
 - 자동 스케줄: 매일 KST 10:10
-- 기본 상태: **DRY RUN / 자동발행 OFF**
+- 자동발행: **ON**
 - 한 번 실행 시 최대 1문제만 발행
 - 중복 방지: `publish-state.json`의 `published` 배열 사용
+- 초기 QA 발행 완료: `skku-m1-01`, `skku-m1-02`, `skku-m1-03`
+- 다음 자동발행 후보: `skku-m2-01`
 - 공개 원문 복제 금지: 모든 성대경시형·생각하는황소형 문항은 교육용 재구성 문제로만 운영
 
 ## 수동 발행
@@ -27,15 +29,11 @@ GitHub Actions → `Math Daily 하루 한 문제` → `Run workflow` → `mode=p
 
 수동 실행도 정확히 1문제만 처리한다. 다음 queued 문항을 선택하고 페이지/피드/상태/네이버용 원고를 함께 생성한다.
 
-## 자동발행 활성화
+## 자동발행 규칙
 
-Repository variable `MATH_AUTO_PUBLISH_ENABLED`를 `true`로 설정하면 매일 KST 10:10 스케줄에서 1문제를 발행한다.
+스케줄 이벤트가 발생하면 별도 Repository variable 없이 `python3 scripts/publish_math_problem.py --publish`를 실행한다.
 
-`false`, 미설정 또는 다른 값이면 스케줄은 dry-run만 수행한다.
-
-## 권장 활성화 순서
-
-초기 3건은 수동 `publish`로 제목·수식·모바일 표시를 확인한다. 이상이 없으면 `MATH_AUTO_PUBLISH_ENABLED=true`로 전환한다.
+문제가 모두 소진되면 발행기는 `No queued unpublished problem remains.`로 종료하며 기존 글을 중복 생성하지 않는다.
 
 ## 네이버 블로그
 
