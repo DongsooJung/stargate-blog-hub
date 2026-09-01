@@ -1,5 +1,10 @@
 {
-  "published": ["skku-m1-01", "skku-m1-02", "skku-m1-03"],
-  "last_published_at": "2026-08-31T23:15:00+09:00",
-  "last_problem_id": "skku-m1-03"
+  "published": [
+    "skku-m1-01",
+    "skku-m1-02",
+    "skku-m1-03",
+    "skku-m2-01"
+  ],
+  "last_published_at": "2026-09-01T15:12:24+09:00",
+  "last_problem_id": "skku-m2-01"
 }
