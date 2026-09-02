@@ -1,7 +1,29 @@
 {
-  "updated_at": "2026-09-01T15:12:24+09:00",
+  "updated_at": "2026-09-02T14:42:03+09:00",
   "source": "https://stargateedu.co.kr/research/math/archive/problems.json",
   "posts": [
+    {
+      "id": "skku-m2-02",
+      "title": "[오늘의 수학] 약수가 18개인 최소 배수 — 성대경시형 중2",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T14:42:03+09:00",
+      "series": "성대경시형",
+      "level": "중2",
+      "topic": "약수·소인수분해",
+      "difficulty": 5,
+      "problem": "12의 배수이면서 양의 약수의 개수가 18개인 가장 작은 자연수를 구하여라.",
+      "hint": "약수 개수 18의 지수 분할과 12=2^2×3 조건을 동시에 만족시키며 수를 최소화한다.",
+      "answer": "180",
+      "solution": [
+        "약수 개수 18은 지수 구조 (17), (8,1), (5,2), (2,2,1) 등이 가능하다.",
+        "12의 배수 조건 때문에 2와 3이 반드시 포함되어야 한다.",
+        "(2,2,1) 구조에서 가장 작은 소수부터 배치하면 2^2×3^2×5=180이고 약수 개수는 3×3×2=18이다."
+      ],
+      "summary": "약수·소인수분해 문제입니다. 핵심은 약수 개수 18의 지수 분할과 12=2^2×3 조건을 동시에 만족시키며 수를 최소화한다.",
+      "research_url": "https://stargateedu.co.kr/research/math/archive/?id=skku-m2-02",
+      "canonical": "https://blog.stargateedu.co.kr/math/problems/skku-m2-02/",
+      "copyright_note": "교육용 재구성 문제이며 실제 기출 원문을 그대로 복제하지 않습니다."
+    },
     {
       "id": "skku-m2-01",
       "title": "[오늘의 수학] 팩토리얼 누적합의 나머지 — 성대경시형 중2",
