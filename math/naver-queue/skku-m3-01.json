@@ -1,0 +1,17 @@
+{
+  "id": "skku-m3-01",
+  "target": "Naver Blog stargate8225",
+  "status": "ready_for_manual_or_browser_publish",
+  "title": "[오늘의 수학] 정수근을 갖는 이차방정식 — 성대경시형 중3",
+  "body_text": "[오늘의 수학] 정수근을 갖는 이차방정식 — 성대경시형 중3\n\n[성대경시형 · 중3 · 이차방정식·정수 · 난도 5/5]\n\n오늘의 문제\n방정식 x^2-(m+3)x+2m=0이 서로 양의 정수근을 가질 때 자연수 m을 구하여라.\n\n힌트\n두 근 r,s를 도입해 합과 곱 조건을 하나의 인수분해 식으로 바꾼다.\n\n단계별 풀이\n1. r+s=m+3, rs=2m이므로 m=rs/2이다.\n2. 2r+2s=rs+6에서 (r-2)(s-2)=-2를 얻는다.\n3. 양의 정수근 조건을 만족하는 경우는 {r,s}={1,4}이고, 이때 m=rs/2=2이다.\n\n정답: 2\n\n연구 아카이브: https://stargateedu.co.kr/research/math/archive/?id=skku-m3-01\n교육용 재구성 문제이며 실제 기출 원문을 그대로 복제하지 않습니다.",
+  "tags": [
+    "수학",
+    "중등수학",
+    "성대경시형",
+    "중3",
+    "이차방정식·정수",
+    "오늘의수학"
+  ],
+  "canonical": "https://blog.stargateedu.co.kr/math/problems/skku-m3-01/",
+  "research_url": "https://stargateedu.co.kr/research/math/archive/?id=skku-m3-01"
+}
