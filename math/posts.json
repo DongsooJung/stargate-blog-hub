@@ -1,7 +1,29 @@
 {
-  "updated_at": "2026-09-07T14:59:05+09:00",
+  "updated_at": "2026-09-08T14:52:29+09:00",
   "source": "https://stargateedu.co.kr/research/math/archive/problems.json",
   "posts": [
+    {
+      "id": "bull-02",
+      "title": "[오늘의 수학] 뒤집은 두 자리 수 — 생각하는황소형 중등 사고력",
+      "date": "2026-09-08",
+      "published_at": "2026-09-08T14:52:29+09:00",
+      "series": "생각하는황소형",
+      "level": "중등 사고력",
+      "topic": "수 체계·논리",
+      "difficulty": 3,
+      "problem": "두 자리 자연수 N의 십의 자리와 일의 자리를 바꾸면 원래 수보다 27 커진다. 두 자리 숫자의 곱이 18일 때 N을 구하여라.",
+      "hint": "자리수를 a,b로 두면 뒤집기 조건이 9(b-a)=27로 단순화된다.",
+      "answer": "36",
+      "solution": [
+        "N=10a+b, 뒤집은 수는 10b+a이다.",
+        "9(b-a)=27이므로 b-a=3이다.",
+        "ab=18을 함께 만족하는 숫자쌍은 a=3,b=6이므로 N=36이다."
+      ],
+      "summary": "수 체계·논리 문제입니다. 핵심은 자리수를 a,b로 두면 뒤집기 조건이 9(b-a)=27로 단순화된다.",
+      "research_url": "https://stargateedu.co.kr/research/math/archive/?id=bull-02",
+      "canonical": "https://blog.stargateedu.co.kr/math/problems/bull-02/",
+      "copyright_note": "교육용 재구성 문제이며 실제 기출 원문을 그대로 복제하지 않습니다."
+    },
     {
       "id": "bull-01",
       "title": "[오늘의 수학] 배수와 나머지를 한 줄로 압축하기 — 생각하는황소형 중등 사고력",
