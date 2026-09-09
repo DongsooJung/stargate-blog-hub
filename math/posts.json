@@ -1,7 +1,29 @@
 {
-  "updated_at": "2026-09-08T14:52:29+09:00",
+  "updated_at": "2026-09-09T14:54:49+09:00",
   "source": "https://stargateedu.co.kr/research/math/archive/problems.json",
   "posts": [
+    {
+      "id": "bull-03",
+      "title": "[오늘의 수학] 차이가 하나씩 커지는 수열 — 생각하는황소형 중등 사고력",
+      "date": "2026-09-09",
+      "published_at": "2026-09-09T14:54:49+09:00",
+      "series": "생각하는황소형",
+      "level": "중등 사고력",
+      "topic": "규칙성·수열",
+      "difficulty": 3,
+      "problem": "수열 1,2,4,7,11,16,…에서 제20항을 구하여라.",
+      "hint": "항 사이의 차가 1,2,3,4,…이므로 삼각수 누적 구조이다.",
+      "answer": "191",
+      "solution": [
+        "a_n=1+(1+2+⋯+(n-1))이다.",
+        "따라서 a_n=1+n(n-1)/2이다.",
+        "n=20을 대입하면 1+190=191이다."
+      ],
+      "summary": "규칙성·수열 문제입니다. 핵심은 항 사이의 차가 1,2,3,4,…이므로 삼각수 누적 구조이다.",
+      "research_url": "https://stargateedu.co.kr/research/math/archive/?id=bull-03",
+      "canonical": "https://blog.stargateedu.co.kr/math/problems/bull-03/",
+      "copyright_note": "교육용 재구성 문제이며 실제 기출 원문을 그대로 복제하지 않습니다."
+    },
     {
       "id": "bull-02",
       "title": "[오늘의 수학] 뒤집은 두 자리 수 — 생각하는황소형 중등 사고력",
