@@ -1,7 +1,28 @@
 {
-  "updated_at": "2026-09-10T14:52:44+09:00",
+  "updated_at": "2026-09-11T14:51:36+09:00",
   "source": "https://stargateedu.co.kr/research/math/archive/problems.json",
   "posts": [
+    {
+      "id": "bull-05",
+      "title": "[오늘의 수학] 합이 15인 서로 다른 세 숫자 — 생각하는황소형 중등 사고력",
+      "date": "2026-09-11",
+      "published_at": "2026-09-11T14:51:36+09:00",
+      "series": "생각하는황소형",
+      "level": "중등 사고력",
+      "topic": "경우의 수·정수",
+      "difficulty": 4,
+      "problem": "1부터 9까지의 숫자 중 서로 다른 세 숫자를 골라 합이 15가 되게 하는 방법은 몇 가지인가? 순서는 고려하지 않는다.",
+      "hint": "가장 작은 수를 고정한 뒤 가능한 나머지 두 수를 체계적으로 열거하면 중복을 피할 수 있다.",
+      "answer": "8",
+      "solution": [
+        "가능한 세 쌍은 (1,5,9),(1,6,8),(2,4,9),(2,5,8),(2,6,7),(3,4,8),(3,5,7),(4,5,6)이다.",
+        "총 8가지이다."
+      ],
+      "summary": "경우의 수·정수 문제입니다. 핵심은 가장 작은 수를 고정한 뒤 가능한 나머지 두 수를 체계적으로 열거하면 중복을 피할 수 있다.",
+      "research_url": "https://stargateedu.co.kr/research/math/archive/?id=bull-05",
+      "canonical": "https://blog.stargateedu.co.kr/math/problems/bull-05/",
+      "copyright_note": "교육용 재구성 문제이며 실제 기출 원문을 그대로 복제하지 않습니다."
+    },
     {
       "id": "bull-04",
       "title": "[오늘의 수학] 가운데 점을 피하는 최단경로 — 생각하는황소형 중등 사고력",
