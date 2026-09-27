@@ -94,7 +94,7 @@
       article.className = 'channel';
       article.dataset.mathDaily = 'true';
       article.innerHTML = '<div class="icon">🧮</div><h3>STARGATE MATH</h3><div class="meta">하루 한 문제 · 자동발행</div><p>성대경시형·황소형 중등 수학 문제를 문제·힌트·단계별 풀이로 한 문제씩 발행합니다.</p><a class="text-link" href="./math/">수학 블로그 →</a>';
-      channels.insertBefore(article, channels.firstChild);
+      channels.appendChild(article);
     }
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addMathLinks);
