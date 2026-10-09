@@ -44,6 +44,29 @@ CATEGORY_META = {
 }
 
 
+class NotionAPIError(RuntimeError):
+    """노션 API 오류 — 원인별로 조치 방법을 안내한다."""
+
+    def __init__(self, code: int, path: str, body: str):
+        self.code = code
+        self.path = path
+        self.body = body
+        super().__init__(f"Notion API {code} {path}: {body[:300]}")
+
+    def advice(self) -> str:
+        if self.code == 401:
+            return ("NOTION_TOKEN 이 유효하지 않습니다. 노션 통합에서 시크릿을 재발급한 뒤 "
+                    "저장소 Secrets 의 NOTION_TOKEN 을 교체하세요.")
+        if self.code == 404:
+            return ("통합에 데이터베이스가 공유되지 않았습니다. 토큰과 DB ID 는 정상입니다.\n"
+                    "  노션에서 「📰 포털 블로그 포스트」 DB 열기 → 우측 상단 ⋯ → 연결(Connections) → "
+                    "해당 통합 추가.\n"
+                    "  DB 가 하위 페이지라면 상위 페이지에 연결해도 상속됩니다.")
+        if self.code == 403:
+            return "통합에 이 DB 를 읽을 권한이 없습니다. 연결 권한을 확인하세요."
+        return "노션 API 응답을 확인하세요."
+
+
 def api_request(path: str, payload: dict | None = None) -> dict:
     token = os.environ["NOTION_TOKEN"]
     req = urllib.request.Request(
@@ -65,7 +88,7 @@ def api_request(path: str, payload: dict | None = None) -> dict:
                 time.sleep(int(e.headers.get("Retry-After", "2")))
                 continue
             body = e.read().decode(errors="replace")
-            raise RuntimeError(f"Notion API {e.code} {path}: {body[:300]}") from e
+            raise NotionAPIError(e.code, path, body) from e
     raise RuntimeError(f"Notion API 재시도 초과: {path}")
 
 
@@ -208,7 +231,8 @@ def page_to_post(page: dict) -> dict:
 
 def main() -> int:
     if not os.environ.get("NOTION_TOKEN"):
-        print("NOTION_TOKEN 환경변수가 없습니다. GitHub Secrets 에 노션 통합 토큰을 등록하세요.", file=sys.stderr)
+        print("::error::NOTION_TOKEN 환경변수가 없습니다. "
+              "GitHub Secrets 에 노션 통합 토큰을 등록하세요.", file=sys.stderr)
         return 1
     database_id = os.environ.get("NOTION_DATABASE_ID", DEFAULT_DATABASE_ID)
 
@@ -243,4 +267,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    # 설정 문제는 스택 트레이스 대신 조치 방법을 남긴다 (Actions 로그 가독성)
+    try:
+        sys.exit(main())
+    except NotionAPIError as exc:
+        print(f"::error::노션 API {exc.code} — {exc.advice()}", file=sys.stderr)
+        print(f"  응답: {exc.body[:300]}", file=sys.stderr)
+        sys.exit(1)
