@@ -3,53 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stargate Blog Hub | 정동수의 글과 커뮤니티</title>
-  <meta name="description" content="부동산·경제, 수학·AI, 정치·데이터 콘텐츠와 독자 피드백·설문·자유게시판을 한곳에서 만나보세요. 정동수 · Stargate Blog Hub.">
-  <meta name="keywords" content="부동산, 아파트 시황, 거시경제, 금리, 수학, AI, KOI, LLM, 정치 데이터, 도시 통계, 정동수, 스타게이트, 스타게이트연구소, 자유게시판">
-  <meta property="og:title" content="Stargate Blog Hub | 글과 커뮤니티">
-  <meta property="og:description" content="부동산·경제, 수학·AI, 정치·데이터 콘텐츠와 독자 피드백, 설문, 자유게시판">
+  <title>정동수의 지식과 연구 | STARGATE</title>
+  <meta name="description" content="부동산·경제, 수학·AI, 도시와 사회를 읽는 글을 한곳에 모았습니다. 정동수의 지식과 연구.">
+  <meta name="keywords" content="부동산, 아파트 시황, 거시경제, 수학, AI, 도시, 사회 데이터, 정동수, 스타게이트">
+  <meta property="og:title" content="정동수의 지식과 연구">
+  <meta property="og:description" content="부동산·경제, 수학·AI, 도시와 사회를 읽는 글을 한곳에 모았습니다.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blog.stargateedu.co.kr/">
   <link rel="canonical" href="https://blog.stargateedu.co.kr/">
-  <meta name="generator" content="stargate-blog-hub · {{updated}}">
+  <meta name="generator" content="stargate-blog-hub · {{ generated_at }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./community.css?v=20260826">
+  <link rel="stylesheet" href="./community.css?v=20261016">
 </head>
-<body data-post-count="{{post_count}}">
+<body data-post-count="{{ post_count }}">
   <a class="skip-link" href="#main">본문 바로가기</a>
-  <header class="hero"><div class="hero__inner"><span class="eyebrow">STARGATE KNOWLEDGE NETWORK</span><p>부동산 · 경제 · 수학 · AI · 정치 데이터 콘텐츠를 모아보고<br class="desktop-only"> 독자의 의견과 질문을 다음 글에 반영합니다.</p><nav class="nav-pills" aria-label="주요 메뉴"><a href="https://www.stargateedu.co.kr/">🏠 메인</a><a href="#latest">🔥 최신 글</a><a href="#feedback">⭐ 피드백</a><a href="#survey">📊 설문</a><a href="#community">💬 자유게시판</a><a href="./posts/">✍️ 직접 쓴 글</a><a href="./reading/">📚 독서 기록</a><a href="https://dongsoojung.github.io/">👤 프로필</a></nav></div></header>
+  <header class="site-header">
+    <div class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow">STARGATE</p>
+        <h1>정동수의 지식과 연구</h1>
+        <p class="hero-lead">부동산·경제, 수학·AI, 도시와 사회를 읽는 글을 한곳에 모았습니다.</p>
+        <div class="hero-actions">
+          <a class="hero-button" href="#latest">최신 글 읽기</a>
+          <a class="hero-button hero-button--ghost" href="#topics">주제별 둘러보기</a>
+        </div>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <div class="site-nav__inner">
+        <div class="nav-pills nav-pills--primary">
+          <a href="#latest">최신 글</a>
+          <a href="#topics">주제별 글</a>
+          <a href="#channels">채널</a>
+          <a href="#about">소개</a>
+        </div>
+        <div class="nav-pills nav-pills--extra">
+          <a href="#written">직접 쓴 글</a>
+          <a href="./reading/">독서 기록</a>
+          <a href="./math/">하루 한 문제</a>
+          <a href="#community">게시판</a>
+        </div>
+      </div>
+    </nav>
+  </header>
   <main id="main" class="container">
-    <section aria-labelledby="channels-title"><div class="section-heading"><div><span class="section-kicker">CHANNELS</span><h2 id="channels-title">채널별 바로가기</h2></div><p>관심 분야에 맞는 채널을 선택하세요.</p></div><div class="channels">
-      <article class="channel"><div class="icon">📒</div><h3>스타게이트</h3><div class="meta">부동산 · 경제 블로그</div><p>아파트 시황, 금리·거시경제, 정책이 만드는 시장 흐름을 정리합니다.</p><a class="text-link" href="https://blog.naver.com/stargate8224" target="_blank" rel="noopener">바로가기 →</a></article>
-      <article class="channel"><div class="icon">🏢</div><h3>스타게이트연구소</h3><div class="meta">수학 · AI 블로그</div><p>KOI·수학 교육, LLM·서술형 AI, 연구·강의 노트를 공유합니다.</p><a class="text-link" href="https://blog.naver.com/stargate8225" target="_blank" rel="noopener">바로가기 →</a></article>
-      <article class="channel"><div class="icon">✍️</div><h3>별로 향하는 문</h3><div class="meta">정치 · 데이터 블로그</div><p>정치·사회 이슈를 지표와 데이터로 읽고 해석하는 글입니다.</p><a class="text-link" href="https://dongsoo.tistory.com/" target="_blank" rel="noopener">바로가기 →</a></article>
-      <article class="channel"><div class="icon">🪐</div><h3>Notion Archive</h3><div class="meta">지식 아카이브</div><p>교육·AI·연구·창업 기록을 체계적으로 정리한 아카이브.</p><a class="text-link" href="https://stargate-notion.stargate8224.chatgpt.site" target="_blank" rel="noopener">노션 보기 →</a></article>
-      <article class="channel"><div class="icon">📺</div><h3>YouTube 우주인</h3><div class="meta">영상 · 라이브</div><p>강의, 연구, AI 활용과 실시간 스트림 콘텐츠.</p><a class="text-link" href="https://www.youtube.com/@DONGSOO-MAIN/streams" target="_blank" rel="noopener">채널 보기 →</a></article>
-      <article class="channel"><div class="icon">🌐</div><h3>소셜 네트워크</h3><div class="meta">Facebook · Instagram · Threads · X</div><p>일상과 교육·AI·비즈니스 소식을 빠르게 공유합니다.</p><a class="text-link" href="https://www.instagram.com/jds0688/" target="_blank" rel="noopener">Instagram →</a></article>
-    </div></section>
     <section id="latest" aria-labelledby="latest-title">
       <div class="section-heading section-heading--inline">
-        <div><span class="section-kicker">LATEST POSTS</span><h2 id="latest-title">최신 포스팅 <span class="count">{{post_count}}</span></h2></div>
+        <div>
+          <span class="section-kicker">LATEST</span>
+          <h2 id="latest-title">최신 글 <span class="count" id="latestCount">{{ post_count }}</span></h2>
+        </div>
         <div class="latest-refresh-controls">
-          <span class="updated-pill">자동 갱신 · {{updated}}</span>
+          <span class="updated-pill" id="collectUpdated">{{ status_message }}</span>
           <button id="refreshLatest" class="latest-refresh-button" type="button" aria-describedby="latestRefreshStatus">
             <span class="refresh-icon" aria-hidden="true">↻</span>
-            <span class="refresh-label">최신 글 새로고침</span>
+            <span class="refresh-label">업데이트 확인</span>
           </button>
           <span id="latestRefreshStatus" class="latest-refresh-status" role="status" aria-live="polite"></span>
         </div>
       </div>
-      <div class="latest-list" aria-live="polite">{% if posts %}{% for p in posts %}<article class="latest-item"><span class="channel-tag" style="--tag-color:{{p.color}};">{{p.icon}} {{p.channel}}</span><h3><a href="{{p.link}}" target="_blank" rel="noopener">{{p.title|e}}</a></h3><time datetime="{{p.date}}">{{p.date}}</time></article>{% endfor %}{% else %}<div class="empty">RSS 수집 중입니다. 다음 자동 갱신 이후 최신 글이 표시됩니다.</div>{% endif %}</div>
+      <p class="collect-note">약 1시간마다 수집합니다. 화면 반영에는 배포 시간이 더해질 수 있습니다.</p>
+      <div class="explore-bar">
+        <form id="exploreForm" class="explore-search" role="search">
+          <label for="exploreQuery">수집된 글 검색</label>
+          <input id="exploreQuery" type="search" placeholder="제목·요약에서 검색" autocomplete="off">
+          <p class="explore-scope">검색 범위는 이 페이지에 수집된 글입니다. 각 블로그의 모든 과거 글을 포함하지는 않습니다.</p>
+        </form>
+        <div class="explore-filters">
+          <div class="filter-line">
+            <span class="filter-line__name">출처</span>
+            <div class="filter-buttons" id="platformFilters" role="group" aria-label="출처">
+              <button type="button" class="active" data-platform="" aria-pressed="true">전체</button>
+              {% for platform in platforms %}
+              <button type="button" data-platform="{{ platform }}" aria-pressed="false">{{ platform }}</button>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="filter-line">
+            <span class="filter-line__name">주제</span>
+            <div class="filter-buttons" id="topicFilters" role="group" aria-label="주제">
+              <button type="button" class="active" data-topic="" aria-pressed="true">전체</button>
+              {% for topic in topics %}
+              <button type="button" data-topic="{{ topic }}" aria-pressed="false">{{ topic }}</button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="latest-visible-note" id="latestVisibleNote" aria-live="polite"></p>
+      {% if featured %}
+      <div class="featured-list" id="featuredList">
+        {% for p in featured %}
+        <article class="featured-card latest-card" data-platform="{{ p.platform }}" data-topic="{{ p.topic }}" data-search="{{ p.title }} {{ p.summary }}" data-featured="true">
+          <div class="featured-card__media{% if not p.image %} featured-card__media--plain{% endif %}">
+            {% if p.image %}<img src="{{ p.image }}" alt="">{% else %}<span aria-hidden="true">{{ p.icon }}</span>{% endif %}
+          </div>
+          <div class="featured-card__body">
+            <p class="latest-meta">
+              <span class="badge badge--source">{{ p.platform }}</span>
+              {% if p.topic %}<span class="badge badge--topic">{{ p.topic }}</span>{% endif %}
+              <span class="latest-source-name">{{ p.channel_name }}</span>
+            </p>
+            <h3><a href="{{ p.link }}" target="_blank" rel="noopener">{{ p.title }}</a></h3>
+            {% if p.summary %}<p class="latest-summary">{{ p.summary }}</p>{% endif %}
+            <time datetime="{{ p.datetime }}">{{ p.date or "날짜 없음" }}</time>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="featured-list" id="featuredList" hidden></div>
+      {% endif %}
+      <div class="latest-list" id="latestList" aria-live="polite">
+        {% if posts %}
+          {% for p in posts %}
+          <article class="latest-item latest-card" data-platform="{{ p.platform }}" data-topic="{{ p.topic }}" data-search="{{ p.title }} {{ p.summary }}">
+            <p class="latest-meta">
+              <span class="badge badge--source">{{ p.platform }}</span>
+              {% if p.topic %}<span class="badge badge--topic">{{ p.topic }}</span>{% endif %}
+              <span class="latest-source-name">{{ p.channel_name }}</span>
+              <time datetime="{{ p.datetime }}">{{ p.date or "날짜 없음" }}</time>
+            </p>
+            <h3><a href="{{ p.link }}" target="_blank" rel="noopener">{{ p.title }}</a></h3>
+          </article>
+          {% endfor %}
+        {% else %}
+          <div class="empty latest-empty-static">표시할 수집 글이 없습니다. 이전 수집 결과가 없고 이번 수집도 실패했습니다.</div>
+        {% endif %}
+      </div>
+      <div class="explore-empty" id="exploreEmpty" hidden>
+        <p>조건에 맞는 수집된 글이 없습니다.</p>
+        <p id="exploreReadingHint" hidden>독서 기록은 수집 목록과 별도 페이지에 있습니다. <a href="./reading/">독서 기록 보기</a></p>
+        <p id="exploreTopicHint" hidden>이 주제의 수집된 글은 아직 없습니다. <a href="#written" data-notion-jump="도시·연구">직접 쓴 글</a>에서 볼 수 있습니다.</p>
+        <button id="resetExplore" class="ghost-button" type="button">검색어·필터 초기화</button>
+      </div>
+      <button id="showMorePosts" class="more-button" type="button">더 보기</button>
     </section>
-    <section id="notion-blog" class="notion-blog" aria-labelledby="notion-blog-title">
+
+    <section id="topics" aria-labelledby="topics-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">TOPICS</span>
+          <h2 id="topics-title">주제별 글</h2>
+        </div>
+        <p>출처와 별개로, 글의 주제로 모아 봅니다.</p>
+      </div>
+      <div class="categories">
+        <a class="category-card" href="#latest" data-topic-jump="부동산·경제"><strong>부동산·경제</strong><span>아파트 시황, 금리, 거시경제</span></a>
+        <a class="category-card" href="#latest" data-topic-jump="수학·AI"><strong>수학·AI</strong><span>KOI, 서술형 AI, 학습·연구</span></a>
+        <a class="category-card" href="#written" data-notion-jump="도시·연구"><strong>도시·연구</strong><span>스마트도시, 공간계량, 인구</span></a>
+        <a class="category-card" href="#latest" data-topic-jump="사회·데이터"><strong>사회·데이터</strong><span>정치·사회 이슈, 지표, 통계</span></a>
+        <a class="category-card" href="./reading/"><strong>독서·기록</strong><span>책 추천, 독후감, 출판 기록</span></a>
+      </div>
+    </section>
+
+    <section id="channels" aria-labelledby="channels-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">CHANNELS</span>
+          <h2 id="channels-title">채널 바로가기</h2>
+        </div>
+        <p>글을 발행하는 곳입니다. 플랫폼은 출처이고, 위의 주제와는 따로 구분합니다.</p>
+      </div>
+      <div class="channels">
+        {% for ch in channels %}
+        <article class="channel">
+          <div class="icon" aria-hidden="true">{{ ch.icon }}</div>
+          <h3>{{ ch.name }}</h3>
+          <p class="meta">{{ ch.platform }}{% if ch.topic %} · {{ ch.topic }}{% endif %}</p>
+          <p class="channel-desc">{{ ch.description }}</p>
+          <a class="text-link" href="{{ ch.url }}"{% if ch.external %} target="_blank" rel="noopener"{% endif %} aria-label="{{ ch.name }} 바로가기">{{ ch.link_label }}</a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="written" class="notion-blog" aria-labelledby="written-title">
       <div class="section-heading notion-blog__heading">
-        <div><span class="section-kicker">NOTION BLOG</span><h2 id="notion-blog-title">최신 글 · Notion Blog</h2></div>
+        <div>
+          <span class="section-kicker">ORIGINAL</span>
+          <h2 id="written-title">직접 쓴 글</h2>
+        </div>
         <span class="updated-pill" id="notionFeedUpdated">Notion 자동 갱신</span>
       </div>
-      <p class="notion-blog__intro">노션에서 발행한 글을 스크롤로 이어 읽습니다. 카드를 펼치면 본문 전체를 여기서 볼 수 있습니다.</p>
-      <div class="notion-filters" id="notionFeedFilters" role="group" aria-label="Notion Blog 카테고리 필터">
+      <p class="notion-blog__intro">노션에서 발행한 글을 이 페이지에서 이어 읽습니다. 독서 기록과 하루 한 문제는 각 페이지로 이동합니다.</p>
+      <div class="related-links">
+        <a href="./posts/">글 목록</a>
+        <a href="./reading/">독서 기록</a>
+        <a href="./math/">하루 한 문제</a>
+      </div>
+      <div class="notion-filters" id="notionFeedFilters" role="group" aria-label="직접 쓴 글 분류">
         <button class="active" type="button" data-cat="">전체</button>
         <button type="button" data-cat="공지">공지</button>
         <button type="button" data-cat="교육·입시">교육·입시</button>
@@ -63,24 +208,134 @@
       <div class="notion-feed__status" id="notionFeedStatus" role="status">글을 불러오는 중…</div>
       <div id="notionFeedSentinel" aria-hidden="true"></div>
     </section>
-    <section id="feedback" class="engagement" aria-labelledby="feedback-title"><details class="section-toggle section-toggle--light"><summary><span class="section-toggle__label"><strong>FEEDBACK</strong><span>독자 평가와 1분 설문</span></span></summary><div class="section-toggle__content"><div class="section-heading section-heading--light"><div><span class="section-kicker">READER FEEDBACK</span><h2 id="feedback-title">이 블로그가 도움이 되었나요?</h2></div><p>좋아요와 별점은 다음 콘텐츠의 우선순위를 정하는 데 사용됩니다.</p></div><div class="engagement-grid">
-      <article class="panel reaction-panel"><span class="panel-label">빠른 평가</span><h3>한 번의 클릭으로 의견을 알려주세요</h3><button id="likeButton" class="like-button" type="button" aria-pressed="false"><span aria-hidden="true">👍</span><span id="likeButtonText">좋아요</span><strong id="likeCount">0</strong></button><div class="rating-block"><p>전체 만족도</p><div id="starRating" class="stars" role="radiogroup" aria-label="별점 선택"><button type="button" role="radio" aria-checked="false" data-rating="1" aria-label="1점">★</button><button type="button" role="radio" aria-checked="false" data-rating="2" aria-label="2점">★</button><button type="button" role="radio" aria-checked="false" data-rating="3" aria-label="3점">★</button><button type="button" role="radio" aria-checked="false" data-rating="4" aria-label="4점">★</button><button type="button" role="radio" aria-checked="false" data-rating="5" aria-label="5점">★</button></div><p class="rating-summary"><strong id="averageRating">0.0</strong> / 5 · <span id="ratingCount">0</span>명 참여</p></div><p id="reactionMessage" class="form-message" aria-live="polite"></p></article>
-      <article id="survey" class="panel survey-panel"><span class="panel-label">1분 설문</span><h3>앞으로 어떤 글을 보고 싶으신가요?</h3><form id="surveyForm"><fieldset><legend>관심 주제</legend><div class="choice-grid"><label><input type="checkbox" name="topics" value="부동산·경제"> 부동산·경제</label><label><input type="checkbox" name="topics" value="수학·AI"> 수학·AI</label><label><input type="checkbox" name="topics" value="정치·데이터"> 정치·데이터</label><label><input type="checkbox" name="topics" value="도시·연구"> 도시·연구</label></div></fieldset><label class="field-label" for="recommendScore">추천 의향 <span id="recommendValue">8점</span></label><input id="recommendScore" name="recommendScore" type="range" min="0" max="10" value="8"><label class="field-label" for="surveyComment">개선 의견 <span class="optional">선택</span></label><textarea id="surveyComment" name="surveyComment" maxlength="500" rows="3" placeholder="보고 싶은 주제나 개선할 점을 알려주세요."></textarea><button class="primary-button" type="submit">설문 제출</button><p id="surveyMessage" class="form-message" aria-live="polite"></p></form></article>
-    </div></div></details></section>
-    <section id="community" aria-labelledby="community-title"><details class="section-toggle"><summary><span class="section-toggle__label"><strong>COMMUNITY</strong><span>스타게이트 자유게시판</span></span></summary><div class="section-toggle__content"><div class="section-heading section-heading--inline"><div><span class="section-kicker">COMMUNITY</span><h2 id="community-title">스타게이트 자유게시판</h2></div><span id="storageMode" class="mode-pill">연결 확인 중</span></div><p class="section-intro">부동산·경제, 수학·AI, 정치·데이터에 관한 질문과 의견을 자유롭게 남겨주세요. 개인정보와 광고성 내용은 작성하지 마세요.</p><div class="board-layout">
-      <article class="panel board-form-panel"><span class="panel-label">새 글 작성</span><form id="boardForm"><div class="form-row"><label><span>닉네임</span><input id="boardNickname" name="nickname" required maxlength="24" placeholder="닉네임"></label><label><span>분류</span><select id="boardCategory" name="category"><option value="자유">자유</option><option value="질문">질문</option><option value="후기">후기</option><option value="건의">건의</option></select></label></div><label><span>제목</span><input id="boardTitle" name="title" required maxlength="100" placeholder="제목을 입력하세요"></label><label><span>내용</span><textarea id="boardContent" name="content" required maxlength="2000" rows="7" placeholder="서로 존중하는 표현으로 작성해 주세요."></textarea></label><label class="honeypot" aria-hidden="true">웹사이트<input id="boardWebsite" name="website" tabindex="-1" autocomplete="off"></label><button class="primary-button" type="submit">게시글 등록</button><p id="boardFormMessage" class="form-message" aria-live="polite"></p></form></article>
-      <div class="board-feed"><div class="board-toolbar"><div class="filter-buttons" role="group" aria-label="게시글 분류 필터"><button type="button" class="active" data-filter="전체">전체</button><button type="button" data-filter="질문">질문</button><button type="button" data-filter="후기">후기</button><button type="button" data-filter="건의">건의</button></div><button id="refreshBoard" class="ghost-button" type="button">새로고침</button></div><div id="boardList" class="board-list" aria-live="polite"><div class="empty">게시글을 불러오는 중입니다.</div></div></div>
-    </div></div></details></section>
-    <section aria-labelledby="categories-title"><div class="section-heading"><div><span class="section-kicker">TOPICS</span><h2 id="categories-title">콘텐츠 카테고리</h2></div></div><div class="categories"><a class="category-card" href="https://blog.naver.com/stargate8224" target="_blank" rel="noopener"><strong>🏠 부동산·경제</strong><span>아파트 시황, 금리, 거시경제</span></a><a class="category-card" href="https://blog.naver.com/stargate8225" target="_blank" rel="noopener"><strong>🧮 수학·AI</strong><span>KOI, 서술형 AI, 학습·연구</span></a><a class="category-card" href="https://dongsoo.tistory.com/" target="_blank" rel="noopener"><strong>📊 정치·데이터</strong><span>정치 이슈, 지표, 사회 통계</span></a><a class="category-card" href="https://stargateedu.co.kr/stargate-ai-gallery/files/graph-001.html" target="_blank" rel="noopener"><strong>🏙️ 도시·연구</strong><span>스마트도시, 공간계량, 인구</span></a><a class="category-card" href="./reading/"><strong>📚 출판·서평</strong><span>책 추천, 독후감, 출판 기록</span></a></div></section>
+
+    <section id="feedback" class="engagement" aria-labelledby="feedback-title">
+      <details class="section-toggle section-toggle--light">
+        <summary><span class="section-toggle__label"><strong>FEEDBACK</strong><span>독자 평가와 1분 설문</span></span></summary>
+        <div class="section-toggle__content">
+          <div class="section-heading section-heading--light">
+            <div>
+              <span class="section-kicker">READER FEEDBACK</span>
+              <h2 id="feedback-title">이 블로그가 도움이 되었나요?</h2>
+            </div>
+            <p>좋아요와 별점은 다음 콘텐츠의 우선순위를 정하는 데 사용됩니다.</p>
+          </div>
+          <div class="engagement-grid">
+            <article class="panel reaction-panel">
+              <span class="panel-label">빠른 평가</span>
+              <h3>한 번의 클릭으로 의견을 알려주세요</h3>
+              <button id="likeButton" class="like-button" type="button" aria-pressed="false"><span aria-hidden="true">👍</span><span id="likeButtonText">좋아요</span><strong id="likeCount">0</strong></button>
+              <div class="rating-block">
+                <p>전체 만족도</p>
+                <div id="starRating" class="stars" role="radiogroup" aria-label="별점 선택">
+                  <button type="button" role="radio" aria-checked="false" data-rating="1" aria-label="1점">★</button>
+                  <button type="button" role="radio" aria-checked="false" data-rating="2" aria-label="2점">★</button>
+                  <button type="button" role="radio" aria-checked="false" data-rating="3" aria-label="3점">★</button>
+                  <button type="button" role="radio" aria-checked="false" data-rating="4" aria-label="4점">★</button>
+                  <button type="button" role="radio" aria-checked="false" data-rating="5" aria-label="5점">★</button>
+                </div>
+                <p class="rating-summary"><strong id="averageRating">0.0</strong> / 5 · <span id="ratingCount">0</span>명 참여</p>
+              </div>
+              <p id="reactionMessage" class="form-message" aria-live="polite"></p>
+            </article>
+            <article id="survey" class="panel survey-panel">
+              <span class="panel-label">1분 설문</span>
+              <h3>앞으로 어떤 글을 보고 싶으신가요?</h3>
+              <form id="surveyForm">
+                <fieldset>
+                  <legend>관심 주제</legend>
+                  <div class="choice-grid">
+                    <label><input type="checkbox" name="topics" value="부동산·경제"> 부동산·경제</label>
+                    <label><input type="checkbox" name="topics" value="수학·AI"> 수학·AI</label>
+                    <label><input type="checkbox" name="topics" value="사회·데이터"> 사회·데이터</label>
+                    <label><input type="checkbox" name="topics" value="도시·연구"> 도시·연구</label>
+                  </div>
+                </fieldset>
+                <label class="field-label" for="recommendScore">추천 의향 <span id="recommendValue">8점</span></label>
+                <input id="recommendScore" name="recommendScore" type="range" min="0" max="10" value="8">
+                <label class="field-label" for="surveyComment">개선 의견 <span class="optional">선택</span></label>
+                <textarea id="surveyComment" name="surveyComment" maxlength="500" rows="3" placeholder="보고 싶은 주제나 개선할 점을 알려주세요."></textarea>
+                <button class="primary-button" type="submit">설문 제출</button>
+                <p id="surveyMessage" class="form-message" aria-live="polite"></p>
+              </form>
+            </article>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="community" aria-labelledby="community-title">
+      <details class="section-toggle">
+        <summary><span class="section-toggle__label"><strong>COMMUNITY</strong><span>스타게이트 자유게시판</span></span></summary>
+        <div class="section-toggle__content">
+          <div class="section-heading section-heading--inline">
+            <div>
+              <span class="section-kicker">COMMUNITY</span>
+              <h2 id="community-title">스타게이트 자유게시판</h2>
+            </div>
+            <span id="storageMode" class="mode-pill">연결 확인 중</span>
+          </div>
+          <p class="section-intro">질문과 의견을 남겨 주세요. 서버에 저장되면 다른 방문자에게 보이고, 연결이 되지 않으면 이 기기에만 임시 저장됩니다. 개인정보와 광고성 내용은 작성하지 마세요.</p>
+          <div class="board-layout">
+            <article class="panel board-form-panel">
+              <span class="panel-label">새 글 작성</span>
+              <form id="boardForm">
+                <div class="form-row">
+                  <label><span>닉네임</span><input id="boardNickname" name="nickname" required maxlength="24" placeholder="닉네임"></label>
+                  <label><span>분류</span><select id="boardCategory" name="category"><option value="자유">자유</option><option value="질문">질문</option><option value="후기">후기</option><option value="건의">건의</option></select></label>
+                </div>
+                <label><span>제목</span><input id="boardTitle" name="title" required maxlength="100" placeholder="제목을 입력하세요"></label>
+                <label><span>내용</span><textarea id="boardContent" name="content" required maxlength="2000" rows="7" placeholder="서로 존중하는 표현으로 작성해 주세요."></textarea></label>
+                <label class="honeypot" aria-hidden="true">웹사이트<input id="boardWebsite" name="website" tabindex="-1" autocomplete="off"></label>
+                <button class="primary-button" type="submit">게시글 등록</button>
+                <p id="boardFormMessage" class="form-message" aria-live="polite"></p>
+              </form>
+            </article>
+            <div class="board-feed">
+              <div class="board-toolbar">
+                <div class="filter-buttons" role="group" aria-label="게시글 분류 필터">
+                  <button type="button" class="active" data-filter="전체">전체</button>
+                  <button type="button" data-filter="질문">질문</button>
+                  <button type="button" data-filter="후기">후기</button>
+                  <button type="button" data-filter="건의">건의</button>
+                </div>
+                <button id="refreshBoard" class="ghost-button" type="button">새로고침</button>
+              </div>
+              <div id="boardList" class="board-list" aria-live="polite"><div class="empty">게시글을 불러오는 중입니다.</div></div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">ABOUT</span>
+          <h2 id="about-title">운영자</h2>
+        </div>
+      </div>
+      <article class="about-card">
+        <p>정동수는 도시·부동산과 사회 데이터를 연구하고, 수학·정보 교육과 AI 활용을 글로 남깁니다. 정책의 숫자와 생활의 차이, 강의와 연구에서 쌓은 기록을 이 허브에 모읍니다.</p>
+        <p><a class="text-link" href="https://dongsoojung.github.io/" target="_blank" rel="noopener">프로필 보기</a></p>
+      </article>
+    </section>
   </main>
-  <footer><p>&copy; 2026 Stargate Corporation · 주식회사 별의문</p><p><a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a><span>·</span><a href="https://stargate-notion.stargate8224.chatgpt.site" target="_blank" rel="noopener">Notion Archive</a><span>·</span><a href="mailto:dongsu@stargate11.com">문의</a></p><p class="footer-meta">RSS 자동 갱신 · 마지막 업데이트: {{updated}}</p><p class="footer-business">상호 : 주식회사 별의문 · 대표자명 : 정동수 · 사업자번호 : 848-86-03835 · 통신판매업신고번호 : 2025-서울강남-05246호</p></footer>
-  <script src="./community.js?v=20260723" defer></script>
-  <script src="./latest-refresh.js?v=20260927" defer></script>
+  <footer>
+    <p>&copy; 2026 Stargate Corporation · 주식회사 별의문</p>
+    <p><a href="https://www.stargateedu.co.kr/">stargateedu.co.kr</a><span>·</span><a href="https://stargate-notion.stargate8224.chatgpt.site" target="_blank" rel="noopener">Notion Archive</a><span>·</span><a href="mailto:dongsu@stargate11.com">문의</a></p>
+    <p class="footer-meta">RSS 자동 수집 · 약 1시간 간격 · {{ status_message }}</p>
+    <p class="footer-business">상호 : 주식회사 별의문 · 대표자명 : 정동수 · 사업자번호 : 848-86-03835 · 통신판매업신고번호 : 2025-서울강남-05246호</p>
+  </footer>
+  <script src="./community.js?v=20261016" defer></script>
+  <script src="./explore.js?v=20261016" defer></script>
+  <script src="./latest-refresh.js?v=20261016" defer></script>
   <script src="./notion-feed.js?v=20260803" defer></script>
   <script>
     (() => {
       const revealHashTarget = () => {
-        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        const id = decodeURIComponent(location.hash.slice(1));
+        const target = id ? document.getElementById(id) : null;
         const toggle = target?.closest("details.section-toggle") || target?.querySelector(":scope > details.section-toggle");
         if (toggle) toggle.open = true;
       };
@@ -88,5 +343,11 @@
       revealHashTarget();
     })();
   </script>
+  <noscript>
+    <style>
+      .latest-list .latest-item { display: block !important; }
+      #showMorePosts { display: none !important; }
+    </style>
+  </noscript>
 </body>
 </html>

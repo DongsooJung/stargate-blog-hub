@@ -1,0 +1,120 @@
+{
+  "featured_urls": [
+    "https://blog.naver.com/stargate8224/224442763354",
+    "https://blog.naver.com/stargate8225/224435113021"
+  ],
+  "channels": [
+    {
+      "id": "naver-estate",
+      "name": "스타게이트",
+      "description": "아파트 시황, 금리·거시경제, 정책이 만드는 시장 흐름을 정리합니다.",
+      "url": "https://blog.naver.com/stargate8224",
+      "platform": "네이버",
+      "topic": "부동산·경제",
+      "icon": "📒",
+      "color": "#03C75A",
+      "rss": "https://rss.blog.naver.com/stargate8224.xml",
+      "order": 10,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "naver-math",
+      "name": "스타게이트연구소",
+      "description": "KOI·수학 교육, LLM·서술형 AI, 연구·강의 노트를 공유합니다.",
+      "url": "https://blog.naver.com/stargate8225",
+      "platform": "네이버",
+      "topic": "수학·AI",
+      "icon": "🏢",
+      "color": "#2DB400",
+      "rss": "https://rss.blog.naver.com/stargate8225.xml",
+      "order": 20,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "tistory",
+      "name": "별로 향하는 문",
+      "description": "정치·사회 이슈를 지표와 데이터로 읽고 해석하는 글입니다.",
+      "url": "https://dongsoo.tistory.com/",
+      "platform": "티스토리",
+      "topic": "사회·데이터",
+      "icon": "✍️",
+      "color": "#FF5900",
+      "rss": "https://dongsoo.tistory.com/rss",
+      "order": 30,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "blogger",
+      "name": "STARGATE · Google Blog",
+      "description": "생각과 기록을 나누는 구글 블로그",
+      "url": "https://jds0688.blogspot.com/",
+      "platform": "Blogger",
+      "topic": "수학·AI",
+      "icon": "📝",
+      "color": "#F4B400",
+      "rss": "https://jds0688.blogspot.com/feeds/posts/default?alt=rss",
+      "order": 40,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube 우주인",
+      "description": "강의, 연구, AI 활용과 실시간 스트림 콘텐츠.",
+      "url": "https://www.youtube.com/@DONGSOO-MAIN/streams",
+      "platform": "YouTube",
+      "topic": "수학·AI",
+      "icon": "📺",
+      "color": "#FF0000",
+      "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZi4uumj35DvcKQFKKBjsvw",
+      "order": 50,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "math",
+      "name": "STARGATE MATH",
+      "description": "성대경시형·황소형 중등 수학 문제를 하루 한 문제씩 발행합니다.",
+      "url": "./math/",
+      "platform": "수학 블로그",
+      "topic": "수학·AI",
+      "icon": "🧮",
+      "color": "#0B3D91",
+      "rss": "",
+      "order": 60,
+      "link_label": "바로가기",
+      "external": false
+    },
+    {
+      "id": "notion",
+      "name": "Notion Archive",
+      "description": "교육·AI·연구·창업 기록을 체계적으로 정리한 아카이브.",
+      "url": "https://stargate-notion.stargate8224.chatgpt.site",
+      "platform": "Notion",
+      "topic": "도시·연구",
+      "icon": "🪐",
+      "color": "#111111",
+      "rss": "",
+      "order": 70,
+      "link_label": "바로가기",
+      "external": true
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "description": "교육·AI·비즈니스 소식을 전하는 인스타그램입니다.",
+      "url": "https://www.instagram.com/jds0688/",
+      "platform": "Instagram",
+      "topic": "",
+      "icon": "📷",
+      "color": "#E1306C",
+      "rss": "",
+      "order": 80,
+      "link_label": "바로가기",
+      "external": true
+    }
+  ]
+}

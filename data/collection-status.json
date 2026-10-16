@@ -1,0 +1,91 @@
+{
+  "attempted_at": "2026-10-16T20:36:31+09:00",
+  "last_success_at": "2026-10-16T20:36:31+09:00",
+  "interval": "1h",
+  "all_failed": false,
+  "partial": false,
+  "kept_cache": false,
+  "missed": false,
+  "channels": [
+    {
+      "id": "naver-estate",
+      "name": "스타게이트",
+      "ok": true,
+      "used_cache": false,
+      "count": 8,
+      "error": null,
+      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "rss": true
+    },
+    {
+      "id": "naver-math",
+      "name": "스타게이트연구소",
+      "ok": true,
+      "used_cache": false,
+      "count": 8,
+      "error": null,
+      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "rss": true
+    },
+    {
+      "id": "tistory",
+      "name": "별로 향하는 문",
+      "ok": true,
+      "used_cache": false,
+      "count": 8,
+      "error": null,
+      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "rss": true
+    },
+    {
+      "id": "blogger",
+      "name": "STARGATE · Google Blog",
+      "ok": true,
+      "used_cache": false,
+      "count": 7,
+      "error": null,
+      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "rss": true
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube 우주인",
+      "ok": true,
+      "used_cache": false,
+      "count": 4,
+      "error": null,
+      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "rss": true
+    },
+    {
+      "id": "math",
+      "name": "STARGATE MATH",
+      "ok": null,
+      "used_cache": false,
+      "count": 0,
+      "error": null,
+      "last_success_at": null,
+      "rss": false
+    },
+    {
+      "id": "notion",
+      "name": "Notion Archive",
+      "ok": null,
+      "used_cache": false,
+      "count": 0,
+      "error": null,
+      "last_success_at": null,
+      "rss": false
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "ok": null,
+      "used_cache": false,
+      "count": 0,
+      "error": null,
+      "last_success_at": null,
+      "rss": false
+    }
+  ]
+}

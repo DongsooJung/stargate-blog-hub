@@ -20,6 +20,7 @@
   if (!button || !list || !count || !updated || !status) return;
 
   const label = button.querySelector('.refresh-label');
+  const featured = document.getElementById('featuredList');
   const timeFormatter = new Intl.DateTimeFormat('ko-KR', {
     hour: '2-digit',
     minute: '2-digit',
@@ -30,7 +31,7 @@
     button.disabled = busy;
     button.setAttribute('aria-busy', String(busy));
     list.setAttribute('aria-busy', String(busy));
-    label.textContent = busy ? '확인 중…' : '최신 글 새로고침';
+    label.textContent = busy ? '확인 중…' : '업데이트 확인';
   };
 
   button.addEventListener('click', async () => {
@@ -53,19 +54,25 @@
 
       const nextDocument = new DOMParser().parseFromString(await response.text(), 'text/html');
       const nextList = nextDocument.querySelector('#latest .latest-list');
+      const nextFeatured = nextDocument.querySelector('#featuredList');
       const nextCount = nextDocument.querySelector('#latest .count');
       const nextUpdated = nextDocument.querySelector('#latest .updated-pill');
       if (!nextList || !nextCount || !nextUpdated) throw new Error('최신 글 영역을 찾지 못했습니다.');
 
       list.replaceChildren(...Array.from(nextList.children, (child) => child.cloneNode(true)));
+      if (featured && nextFeatured) {
+        featured.replaceChildren(...Array.from(nextFeatured.children, (child) => child.cloneNode(true)));
+        featured.hidden = nextFeatured.hidden || nextFeatured.children.length === 0;
+      }
       count.textContent = nextCount.textContent;
       updated.textContent = nextUpdated.textContent;
       document.body.dataset.postCount = nextCount.textContent.trim();
+      window.StargateHubExplore?.sync();
 
       const checkedAt = timeFormatter.format(new Date());
       status.textContent = nextUpdated.textContent.trim() === previousUpdated
         ? `새 게시물이 없습니다 · ${checkedAt} 확인`
-        : `최신 포스팅으로 갱신했습니다 · ${checkedAt} 확인`;
+        : `배포된 페이지를 다시 확인했습니다 · ${checkedAt} 확인`;
     } catch (error) {
       console.error('Latest posts refresh failed:', error);
       status.classList.add('error');
@@ -74,29 +81,4 @@
       setBusy(false);
     }
   });
-})();
-
-(() => {
-  const addMathLinks = () => {
-    const nav = document.querySelector('.nav-pills');
-    if (nav && !nav.querySelector('a[href="./math/"],a[href="/math/"]')) {
-      const link = document.createElement('a');
-      link.href = './math/';
-      link.textContent = '🧮 하루 한 문제';
-      const posts = nav.querySelector('a[href="./posts/"]');
-      if (posts) posts.insertAdjacentElement('afterend', link);
-      else nav.appendChild(link);
-    }
-
-    const channels = document.querySelector('.channels');
-    if (channels && !channels.querySelector('[data-math-daily]')) {
-      const article = document.createElement('article');
-      article.className = 'channel';
-      article.dataset.mathDaily = 'true';
-      article.innerHTML = '<div class="icon">🧮</div><h3>STARGATE MATH</h3><div class="meta">하루 한 문제 · 자동발행</div><p>성대경시형·황소형 중등 수학 문제를 문제·힌트·단계별 풀이로 한 문제씩 발행합니다.</p><a class="text-link" href="./math/">수학 블로그 →</a>';
-      channels.appendChild(article);
-    }
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addMathLinks);
-  else addMathLinks();
 })();

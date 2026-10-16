@@ -2,8 +2,8 @@
 
 [`blog.stargateedu.co.kr`](https://blog.stargateedu.co.kr/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
 
-매일 **KST 03:00** GitHub Actions 가 4개 채널(부동산·경제 / 수학·AI / 정치·데이터 / YouTube 우주인) RSS 를
-수집해 상단 "🔥 최신 포스팅" 섹션을 자동 갱신합니다.
+GitHub Actions 가 **1시간 간격**으로 `config/channels.json`에 적힌 RSS를 수집해 첫 화면의 최신 글을 갱신합니다.
+수집에 실패한 채널은 직전 정상 결과를 유지합니다. 화면 반영에는 작업 대기와 배포 시간이 더해질 수 있습니다.
 
 메인 페이지 하단의 **"최신 글 · Notion Blog"** 섹션과 `/posts/` 페이지는 `posts/posts.json`을 함께 읽습니다.
 노션 동기화 작업이 이 파일을 갱신하면 두 화면에 새 글과 본문이 동시에 반영됩니다.
@@ -25,9 +25,9 @@
                                                │
                   ┌─── 부동산·경제 RSS ────────┤
                   ├─── 수학·AI RSS ────────────┤
-  매일 03:00 KST ─┼─── 정치·데이터 RSS ────────┼── feedparser
+  1시간 간격 ─┼─── 티스토리 RSS ────────────┼── feedparser
                   ├─── YouTube 우주인 RSS ─────┤
-                  └─── (LinkedIn 확장 예정) ───┘
+                  └─── Blogger · 링크 전용 채널 ──┘
 ```
 
 ## 디렉터리 구성
@@ -53,8 +53,8 @@ stargate-blog-hub/
 
 1. `허브_RSS_자동갱신.yml` 가 매일 KST 03:00 또는 수동 `workflow_dispatch` 로 트리거
 2. Ubuntu 러너에서 Python 3.12 + `feedparser` + `Jinja2` 설치
-3. `build_hub_index.py` 가 4개 RSS 를 병렬 수집(채널당 최신 5개)
-4. 전체 목록을 날짜 역순으로 정렬 후 상위 20개를 템플릿에 주입
+3. `build_hub_index.py` 가 `config/channels.json`의 RSS를 수집합니다. RSS가 없는 채널은 바로가기만 만듭니다.
+4. 글은 발행 시각(한국시간) 기준으로 정렬하고, 같은 원문 주소는 한 번만 남깁니다.
 5. 생성된 `index.html` 가 기존 파일과 diff 될 때만 자동 커밋(봇 계정: `stargate-hub-bot`)
 6. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargateedu.co.kr` 노출
 
@@ -109,10 +109,10 @@ python build_hub_index.py
 
 | 주기 | 작업 | 담당 |
 |------|------|------|
-| 매일 03:00 KST | RSS 수집 + 커밋 | Actions (자동) |
+| 1시간 간격 | RSS 수집 + 캐시·인덱스 커밋 | Actions (자동) |
 | 매주 월 09:30 KST | 헬스체크 + Issue 알림 | Actions (자동) |
-| 수시 | YouTube 채널 변경·외부 피드 추가 | `build_hub_index.py` `FEEDS` 수정 |
-| 월 1회 | 채널 카드 문구 업데이트 | `templates/허브_템플릿.html` 수동 편집 |
+| 수시 | 채널 추가·문구·RSS·대표 글 | `config/channels.json` |
+| 수시 | 카드 디자인·페이지 구조 | `community.css`, `templates/허브_템플릿.html` |
 
 ## 확장 로드맵
 
