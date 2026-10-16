@@ -13,6 +13,8 @@ body{background:#f7f9fc}
 .nav-pills>a:hover,.nav-pills>a:focus-visible,.nav-more>summary:hover,.nav-more>summary:focus-visible{color:#fff;background:rgba(255,255,255,.12);transform:none;outline:2px solid transparent}
 .nav-pills>a.open-chat-link{background:#fee500;color:#251e00;font-weight:700}
 .nav-pills>a.open-chat-link:hover,.nav-pills>a.open-chat-link:focus-visible{background:#ffed66;color:#251e00;outline:2px solid #fff;outline-offset:2px}
+.nav-pills>a.naver-cafe-link{background:#03c75a;color:#092516;font-weight:700}
+.nav-pills>a.naver-cafe-link:hover,.nav-pills>a.naver-cafe-link:focus-visible{background:#48df8b;color:#092516;outline:2px solid #fff;outline-offset:2px}
 .nav-more{position:relative}
 .nav-more>summary::-webkit-details-marker{display:none}
 .nav-more[open]>summary{background:rgba(255,255,255,.12);color:#fff}
