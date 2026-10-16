@@ -1,6 +1,6 @@
 {
-  "attempted_at": "2026-10-16T20:36:31+09:00",
-  "last_success_at": "2026-10-16T20:36:31+09:00",
+  "attempted_at": "2026-10-16T20:37:24+09:00",
+  "last_success_at": "2026-10-16T20:37:24+09:00",
   "interval": "1h",
   "all_failed": false,
   "partial": false,
@@ -14,7 +14,7 @@
       "used_cache": false,
       "count": 8,
       "error": null,
-      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "last_success_at": "2026-10-16T20:37:24+09:00",
       "rss": true
     },
     {
@@ -24,7 +24,7 @@
       "used_cache": false,
       "count": 8,
       "error": null,
-      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "last_success_at": "2026-10-16T20:37:24+09:00",
       "rss": true
     },
     {
@@ -34,7 +34,7 @@
       "used_cache": false,
       "count": 8,
       "error": null,
-      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "last_success_at": "2026-10-16T20:37:24+09:00",
       "rss": true
     },
     {
@@ -44,7 +44,7 @@
       "used_cache": false,
       "count": 7,
       "error": null,
-      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "last_success_at": "2026-10-16T20:37:24+09:00",
       "rss": true
     },
     {
@@ -54,7 +54,7 @@
       "used_cache": false,
       "count": 4,
       "error": null,
-      "last_success_at": "2026-10-16T20:36:31+09:00",
+      "last_success_at": "2026-10-16T20:37:24+09:00",
       "rss": true
     },
     {
