@@ -7,8 +7,8 @@ blog.stargateedu.co.kr 허브 인덱스 빌더
 매일 KST 03:00 GitHub Actions 에서 실행됩니다.
 
 동작:
-    1) FEEDS 에 정의된 4개(+옵션) 채널의 RSS 를 수집
-    2) 각 채널 최신 5개씩 → 전체 최신순 20개로 정렬
+    1) FEEDS 에 정의된 5개 채널의 RSS 를 수집
+    2) 제목·주소를 정리하고 중복 제거 → 발행 시각순 20개로 정렬
     3) templates/허브_템플릿.html 을 렌더링
     4) 리포 루트의 index.html 을 원자적으로 갱신
 
@@ -29,9 +29,13 @@ from __future__ import annotations
 import os
 import sys
 import socket
-import time
+import calendar
+import html
+import re
 from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import feedparser  # type: ignore
 from jinja2 import Environment, FileSystemLoader, select_autoescape  # type: ignore
@@ -58,6 +62,11 @@ FEEDS: dict[str, dict[str, str]] = {
         "url": "https://dongsoo.tistory.com/rss",
         "icon": "✍️",
         "color": "#FF5900",
+    },
+    "Google Blog": {
+        "url": "https://jds0688.blogspot.com/feeds/posts/default?alt=rss",
+        "icon": "📝",
+        "color": "#b84b00",
     },
     "YouTube 우주인": {
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZi4uumj35DvcKQFKKBjsvw",
@@ -88,22 +97,105 @@ def log(level: str, msg: str) -> None:
 # RSS 수집
 # ───────────────────────────────────────────────────────────────────
 
-def parse_pubdate(entry: dict) -> str:
-    """published · updated 필드에서 ISO 날짜 문자열 추출."""
-    # feedparser 가 제공하는 struct_time 우선
-    for key in ("published_parsed", "updated_parsed"):
-        st = entry.get(key)
+def clean_title(value: str) -> str:
+    """Decode feed entities before the template escapes HTML once."""
+    title = str(value or "제목 없음")
+    for _ in range(5):
+        decoded = html.unescape(title)
+        if decoded == title:
+            break
+        title = decoded
+    title = re.sub(r"\s+", " ", title).strip()
+    return re.sub(r"^#{1,6}\s+", "", title).strip() or "제목 없음"
+
+
+def clean_url(value: str) -> str:
+    """Remove tracking only; retain parameters that identify the article."""
+    try:
+        url = urlsplit(html.unescape(str(value or "")).strip())
+        if url.scheme not in ("http", "https") or not url.hostname or url.username or url.password:
+            return ""
+        host = url.hostname.lower()
+        scheme = url.scheme
+        if host == "m.blog.naver.com":
+            host = "blog.naver.com"
+        if host == "blog.naver.com" or host.endswith((".tistory.com", ".blogspot.com")):
+            scheme = "https"
+        port = url.port
+        if (url.scheme, port) in (("http", 80), ("https", 443)):
+            port = None
+        netloc = host if not port else f"{host}:{port}"
+        query = [(key, val) for key, val in parse_qsl(url.query, keep_blank_values=True)
+                 if not key.lower().startswith("utm_")
+                 and key.lower() not in {"fromrss", "trackingcode", "fbclid", "gclid", "_ga", "_gl"}
+                 and not (host.endswith(".blogspot.com") and key == "m" and val in ("0", "1"))]
+        path = url.path or "/"
+        if host == "blog.naver.com" and path.lower() == "/postview.naver":
+            params = dict(query)
+            if re.fullmatch(r"[A-Za-z0-9_-]+", params.get("blogId", "")) and params.get("logNo", "").isdigit():
+                path = f"/{params['blogId']}/{params['logNo']}"
+                query = []
+        return urlunsplit((scheme, netloc, path, urlencode(sorted(query)), ""))
+    except (TypeError, ValueError):
+        return ""
+
+
+def article_key(link: str) -> str:
+    """Recognize YouTube's watch, short and sharing URLs as one video."""
+    url = urlsplit(link)
+    video = ""
+    if url.hostname == "youtu.be":
+        video = url.path.strip("/")
+    elif url.hostname in ("www.youtube.com", "youtube.com", "m.youtube.com"):
+        video = dict(parse_qsl(url.query)).get("v", "") if url.path == "/watch" else ""
+        if url.path.startswith("/shorts/"):
+            video = url.path.split("/")[2]
+    if re.fullmatch(r"[A-Za-z0-9_-]{11}", video):
+        return "youtube:" + video
+    return link
+
+
+def parse_timestamp(entry: dict) -> datetime | None:
+    """feedparser struct_times are UTC; display all feeds in Asia/Seoul."""
+    for key in ("published", "updated", "created"):
+        st = entry.get(key + "_parsed")
         if st:
             try:
-                return time.strftime("%Y-%m-%d", st)
-            except Exception:
+                return datetime.fromtimestamp(calendar.timegm(st), timezone.utc).astimezone(KST)
+            except (TypeError, ValueError, OverflowError):
                 pass
-    # 원본 문자열 fallback
-    for key in ("published", "updated", "created"):
-        val = entry.get(key, "")
-        if val:
-            return str(val)[:10]
-    return ""
+        raw = entry.get(key)
+        if not raw:
+            continue
+        try:
+            value = parsedate_to_datetime(str(raw))
+        except (TypeError, ValueError, OverflowError):
+            try:
+                value = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+            except (TypeError, ValueError):
+                continue
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=KST)
+        return value.astimezone(KST)
+    return None
+
+
+def parse_pubdate(entry: dict) -> str:
+    stamp = parse_timestamp(entry)
+    return stamp.strftime("%Y-%m-%d") if stamp else ""
+
+
+def select_posts(posts: list[dict], limit: int = TOP_N) -> list[dict]:
+    selected, seen = [], set()
+    for post in sorted(posts, key=lambda post: post["sort_key"], reverse=True):
+        key = article_key(post["link"])
+        if key in seen:
+            continue
+        seen.add(key)
+        selected.append(post)
+        if len(selected) >= limit:
+            break
+    return selected
 
 
 def fetch_feed(channel: str, meta: dict) -> list[dict]:
@@ -119,20 +211,29 @@ def fetch_feed(channel: str, meta: dict) -> list[dict]:
         log("WARN", f"{channel} RSS 응답 비어있음 (bozo={parsed.bozo_exception!r})")
         return []
 
-    posts = []
-    for entry in parsed.entries[:MAX_PER_FEED]:
-        title = (entry.get("title") or "제목 없음").strip()
-        link  = entry.get("link") or "#"
-        date  = parse_pubdate(entry)
+    posts, seen = [], set()
+    entries = sorted(parsed.entries, key=lambda entry: (parse_timestamp(entry) or datetime.min.replace(tzinfo=KST)).isoformat(), reverse=True)
+    for entry in entries:
+        title = clean_title(entry.get("title"))
+        link = clean_url(entry.get("link"))
+        if not link or article_key(link) in seen:
+            continue
+        seen.add(article_key(link))
+        stamp = parse_timestamp(entry)
         posts.append({
             "channel": channel,
             "icon":    meta["icon"],
             "color":   meta["color"],
             "title":   title,
             "link":    link,
-            "date":    date or "-",
-            "sort_key": date or "0000-00-00",
+            "date": stamp.strftime("%Y-%m-%d") if stamp else "",
+            "published_at": stamp.isoformat() if stamp else "",
+            "display_date": stamp.strftime("%Y.%m.%d") if stamp else "날짜 확인 중",
+            "display_time": stamp.strftime("%H:%M") if stamp else "",
+            "sort_key": stamp.timestamp() if stamp else 0,
         })
+        if len(posts) >= MAX_PER_FEED:
+            break
     log("INFO", f"{channel}: {len(posts)}개 수집")
     return posts
 
@@ -167,8 +268,10 @@ def main() -> int:
     for ch, meta in FEEDS.items():
         all_posts.extend(fetch_feed(ch, meta))
 
-    all_posts.sort(key=lambda x: x["sort_key"], reverse=True)
-    top_posts = all_posts[:TOP_N]
+    if not all_posts:
+        log("ERROR", "수집된 글 없음 — 기존 index.html을 보존합니다.")
+        return 1
+    top_posts = select_posts(all_posts)
 
     html = render(top_posts)
 

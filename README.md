@@ -11,8 +11,21 @@ RSS 자동 갱신 뒤에도 유지되도록 `templates/허브_템플릿.html`과
 
 [`blog.stargateedu.co.kr`](https://blog.stargateedu.co.kr/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
 
-매일 **KST 03:00** GitHub Actions 가 4개 채널(부동산·경제 / 수학·AI / 정치·데이터 / YouTube 우주인) RSS 를
-수집해 상단 "🔥 최신 포스팅" 섹션을 자동 갱신합니다.
+매일 **KST 03:00** GitHub Actions가 5개 채널(부동산·경제 / 수학·AI / 정치·데이터 / Google Blog / YouTube 우주인) RSS를
+수집해 상단 ‘새로 도착한 글’ 섹션을 자동 갱신합니다.
+
+## 1·2차 홈 개편
+
+- 한글 대표 제목, 핵심 메뉴 4개와 더보기, 최신 글 → 주제 → 8개 채널 → Notion 아카이브 순서.
+- 최신 글은 처음 6개, 더보기마다 6개씩 최대 20개. JavaScript가 없으면 모든 글을 표시합니다.
+- Blogger: `https://jds0688.blogspot.com/`, RSS: `/feeds/posts/default?alt=rss`.
+- HTML 엔티티와 제목 앞 마크다운 헤딩을 정리하고, 실제 HTML은 템플릿에서 이스케이프합니다.
+- 원문을 식별하는 쿼리는 보존하며 추적 매개변수·모바일 주소 차이·같은 YouTube 영상의 중복을 제거합니다.
+- 발행 시각을 보존해 한국시간으로 표시하고 시각순으로 정렬합니다.
+- PC 채널 4열, 태블릿 2열, 모바일은 간결한 목록. 홈페이지 전용 스타일은 `assets/hub-home.css`입니다.
+- 전체 RSS 수집 실패 시 기존 `index.html`을 보존합니다. 채널별 이전 데이터 복구는 별도 후속 과제입니다.
+
+검증: `python -m unittest discover -s tests -p 'test_hub_builder.py' -v`, `node --check latest-refresh.js`.
 
 메인 페이지 하단의 **"최신 글 · Notion Blog"** 섹션과 `/posts/` 페이지는 `posts/posts.json`을 함께 읽습니다.
 노션 동기화 작업이 이 파일을 갱신하면 두 화면에 새 글과 본문이 동시에 반영됩니다.
@@ -36,6 +49,7 @@ RSS 자동 갱신 뒤에도 유지되도록 `templates/허브_템플릿.html`과
                   ├─── 수학·AI RSS ────────────┤
   매일 03:00 KST ─┼─── 정치·데이터 RSS ────────┼── feedparser
                   ├─── YouTube 우주인 RSS ─────┤
+                  ├─── Google Blog RSS ───────┤
                   └─── (LinkedIn 확장 예정) ───┘
 ```
 
@@ -62,8 +76,8 @@ stargate-blog-hub/
 
 1. `허브_RSS_자동갱신.yml` 가 매일 KST 03:00 또는 수동 `workflow_dispatch` 로 트리거
 2. Ubuntu 러너에서 Python 3.12 + `feedparser` + `Jinja2` 설치
-3. `build_hub_index.py` 가 4개 RSS 를 병렬 수집(채널당 최신 5개)
-4. 전체 목록을 날짜 역순으로 정렬 후 상위 20개를 템플릿에 주입
+3. `build_hub_index.py`가 5개 RSS를 수집(채널당 중복 없는 최신 5개)
+4. 전체 목록의 중복을 제거하고 발행 시각 역순으로 정렬 후 상위 20개를 템플릿에 주입
 5. 생성된 `index.html` 가 기존 파일과 diff 될 때만 자동 커밋(봇 계정: `stargate-hub-bot`)
 6. GitHub Pages 가 즉시 배포 → CDN 전파 후 `blog.stargateedu.co.kr` 노출
 
