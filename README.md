@@ -1,5 +1,14 @@
 # stargate-blog-hub
 
+## 블로그 방문자 수
+
+메인 배너의 ‘오늘 · 누적’은 기존 Firebase 프로젝트의 Firestore에 별도로 저장합니다.
+같은 브라우저는 한국시간 기준 하루 1회 집계하며, 누적은 일별 방문 합계입니다.
+`assets/blog-visitors.js`가 기존 Cloudflare Worker의 `/api/blog-visitors`를 호출합니다.
+서버가 중복을 확인하고 집계하며 서비스 계정 키는 브라우저에 전달하지 않습니다.
+RSS 자동 갱신 뒤에도 유지되도록 `templates/허브_템플릿.html`과 `index.html`에 함께 적용합니다.
+집계는 연결 시점부터 시작하며, 메인 포털 방문자 수와 합산하지 않습니다.
+
 [`blog.stargateedu.co.kr`](https://blog.stargateedu.co.kr/) — 정동수의 멀티 블로그/SNS 통합 랜딩.
 
 매일 **KST 03:00** GitHub Actions 가 4개 채널(부동산·경제 / 수학·AI / 정치·데이터 / YouTube 우주인) RSS 를
