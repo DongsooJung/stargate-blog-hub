@@ -8,9 +8,11 @@ body{background:#f7f9fc}
 .brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;white-space:nowrap;font-size:.92rem;font-weight:800;letter-spacing:.08em}
 .brand__mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid #647d9f;border-radius:9px;color:#bcd4fc;font-size:1.3rem}
 .brand__name{margin-left:6px;padding-left:15px;border-left:1px solid #58718f;color:#bccce2;font-size:.76rem;font-weight:500;letter-spacing:0}
-.nav-pills{align-items:center;gap:3px;flex-wrap:nowrap;margin:0;justify-content:flex-end}
+.nav-pills{align-items:center;gap:3px;flex-wrap:wrap;margin:0;justify-content:flex-end}
 .nav-pills>a,.nav-more>summary{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 12px;border:0;border-radius:8px;background:transparent;backdrop-filter:none;color:#dbe7f8;font-size:.82rem;font-weight:500;white-space:nowrap;list-style:none;text-decoration:none;cursor:pointer}
 .nav-pills>a:hover,.nav-pills>a:focus-visible,.nav-more>summary:hover,.nav-more>summary:focus-visible{color:#fff;background:rgba(255,255,255,.12);transform:none;outline:2px solid transparent}
+.nav-pills>a.open-chat-link{background:#fee500;color:#251e00;font-weight:700}
+.nav-pills>a.open-chat-link:hover,.nav-pills>a.open-chat-link:focus-visible{background:#ffed66;color:#251e00;outline:2px solid #fff;outline-offset:2px}
 .nav-more{position:relative}
 .nav-more>summary::-webkit-details-marker{display:none}
 .nav-more[open]>summary{background:rgba(255,255,255,.12);color:#fff}
