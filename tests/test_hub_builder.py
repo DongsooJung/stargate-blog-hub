@@ -16,6 +16,7 @@ class HubBuilderTests(unittest.TestCase):
     def test_titles_decode_entities_but_preserve_meaningful_hashes_and_math(self):
         self.assertEqual(hub.clean_title("# 도시 &amp;mdash; 연구 &amp;middot; AI"), "도시 — 연구 · AI")
         self.assertEqual(hub.clean_title("C#과 #AI, x < y &amp; z > 0"), "C#과 #AI, x < y & z > 0")
+        self.assertEqual(hub.clean_title("A &notable &copycat"), "A &notable &copycat")
         self.assertEqual(hub.clean_title("\n ##   새 글\n  제목  "), "새 글 제목")
         self.assertEqual(hub.clean_title(None), "제목 없음")
 
@@ -35,6 +36,8 @@ class HubBuilderTests(unittest.TestCase):
         self.assertEqual(hub.clean_url("https://m.blog.naver.com/PostView.naver?blogId=stargate8224&logNo=123"), hub.clean_url(tracked))
         self.assertEqual(hub.clean_url("https://jds0688.blogspot.com/2026/10/ai.html?m=1"), "https://jds0688.blogspot.com/2026/10/ai.html")
         self.assertNotEqual(hub.clean_url("https://example.com/post?id=1"), hub.clean_url("https://example.com/post?id=2"))
+        self.assertIn("notable=2", hub.clean_url("https://example.com/post?id=1&notable=2"))
+        self.assertEqual(hub.clean_url("https://example.com/post?id=1&amp;page=2"), "https://example.com/post?id=1&page=2")
         self.assertEqual(hub.clean_url("javascript:alert(1)"), "")
         self.assertEqual(hub.clean_url("https://user:password@example.com/post"), "")
 

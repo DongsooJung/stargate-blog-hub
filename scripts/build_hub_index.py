@@ -101,7 +101,7 @@ def clean_title(value: str) -> str:
     """Decode feed entities before the template escapes HTML once."""
     title = str(value or "제목 없음")
     for _ in range(5):
-        decoded = html.unescape(title)
+        decoded = re.sub(r"&(?:#[0-9]+|#x[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]+);", lambda match: html.unescape(match.group()), title)
         if decoded == title:
             break
         title = decoded
@@ -112,7 +112,7 @@ def clean_title(value: str) -> str:
 def clean_url(value: str) -> str:
     """Remove tracking only; retain parameters that identify the article."""
     try:
-        url = urlsplit(html.unescape(str(value or "")).strip())
+        url = urlsplit(str(value or "").strip().replace("&amp;", "&"))
         if url.scheme not in ("http", "https") or not url.hostname or url.username or url.password:
             return ""
         host = url.hostname.lower()
