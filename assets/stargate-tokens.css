@@ -1,0 +1,94 @@
+/*!
+ * STARGATE 디자인 토큰 v1.0 (2026-10-17)
+ * 적용 대상: www / blog / shop.stargateedu.co.kr 공통
+ * 근거: moyoplan.com 실측(Pretendard Variable 단일 서체, Open Color 회색 체계,
+ *       카드 radius 16px · 그림자 0 2px 8px rgba(36,41,46,.04))을 참고하되
+ *       브랜드 색은 스타게이트 고유색(딥 네이비 + 스타 골드)으로 정의.
+ * 서체: Pretendard (SIL Open Font License 1.1, 상업적 사용 무료)
+ * 이 파일은 각 페이지 <head> 마지막에 로드되어 기존 서체 선언을 덮어씁니다.
+ */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+:root:root{
+  /* 서체 */
+  --sg-font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --sg-font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  /* 기존 사이트 변수 호환: 본문·제목 서체를 Pretendard로 통일 */
+  --font-sans:var(--sg-font);
+  --font-display:var(--sg-font);
+
+  /* 회색 체계 (Open Color) */
+  --sg-gray-0:#F8F9FA; --sg-gray-1:#F1F3F5; --sg-gray-3:#DEE2E6;
+  --sg-gray-5:#ADB5BD; --sg-gray-6:#868E96; --sg-gray-8:#3F4750; --sg-gray-9:#24292E;
+  --sg-text-1:var(--sg-gray-9); --sg-text-2:var(--sg-gray-8); --sg-text-3:var(--sg-gray-6);
+  --sg-line:var(--sg-gray-1); --sg-bg-soft:var(--sg-gray-0);
+
+  /* 브랜드 */
+  --sg-brand:#1B2A6B;       /* 딥 네이비 — 신뢰·학술 */
+  --sg-brand-strong:#121D4D;
+  --sg-brand-soft:#EEF1FA;
+  --sg-accent:#F5B700;      /* 스타 골드 — 별의문 아이덴티티 */
+  --sg-accent-soft:#FFF8E1;
+  --sg-alert:#FA5252;       /* 마감·특가 */
+  --sg-alert-soft:#FFF5F5;
+
+  /* 형태 */
+  --sg-radius:16px; --sg-radius-sm:10px; --sg-radius-pill:999px;
+  --sg-shadow:0 2px 8px rgba(36,41,46,.04);
+  --sg-shadow-hover:0 8px 24px rgba(36,41,46,.08);
+}
+
+/* 전역 서체 적용 */
+html body{
+  font-family:var(--sg-font);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  word-break:keep-all;
+}
+html body :is(h1,h2,h3,h4,h5,h6,p,a,li,td,th,label,button,input,select,textarea,.btn,.chip){
+  font-family:var(--sg-font);
+}
+html body :is(code,pre,kbd,samp){font-family:var(--sg-font-mono)}
+html body :is(h1,h2,h3){letter-spacing:-0.02em}
+
+/* ── 재사용 컴포넌트 (모요 패턴 차용) ─────────────────────── */
+
+/* 카드: 옅은 테두리 + 매우 옅은 그림자 */
+.sg-card{background:#fff;border:1px solid var(--sg-line);border-radius:var(--sg-radius);
+  box-shadow:var(--sg-shadow);padding:20px;transition:box-shadow .2s,transform .2s;color:var(--sg-text-1)}
+a.sg-card{display:block;text-decoration:none}
+.sg-card:hover{box-shadow:var(--sg-shadow-hover);transform:translateY(-2px)}
+
+/* 니즈 질문형 카드 그리드: "어떤 목표세요?" */
+.sg-needs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.sg-needs__title{font-size:24px;font-weight:700;color:var(--sg-text-1);margin:0 0 16px}
+.sg-needs .sg-card strong{display:block;font-size:20px;font-weight:700;color:var(--sg-brand)}
+.sg-needs .sg-card span{display:block;margin-top:6px;font-size:15px;color:var(--sg-text-3)}
+
+/* 가격 앵커링: 정가 → 혜택 → 실부담 */
+.sg-price__list{color:var(--sg-gray-5);text-decoration:line-through;font-size:14px}
+.sg-price__off{color:var(--sg-alert);font-weight:700}
+.sg-price__final{color:var(--sg-text-1);font-size:22px;font-weight:800}
+
+/* 뱃지 */
+.sg-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:var(--sg-radius-pill);
+  font-size:12px;font-weight:700;background:var(--sg-brand-soft);color:var(--sg-brand)}
+.sg-badge--alert{background:var(--sg-alert-soft);color:var(--sg-alert)}
+.sg-badge--gold{background:var(--sg-accent-soft);color:#8A6500}
+
+/* 마감 카운트다운 */
+.sg-countdown{font-variant-numeric:tabular-nums;font-weight:700;color:var(--sg-alert)}
+
+/* 탭 (선택 진하게 / 비선택 회색) */
+.sg-tabs{display:flex;gap:20px;border-bottom:1px solid var(--sg-line)}
+.sg-tabs > *{padding:10px 0;font-size:16px;color:var(--sg-text-3);background:none;border:0;cursor:pointer;text-decoration:none}
+.sg-tabs > [aria-selected="true"],.sg-tabs > .is-active{color:var(--sg-text-1);font-weight:700;box-shadow:inset 0 -2px 0 var(--sg-text-1)}
+
+/* 버튼 */
+.sg-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;
+  border-radius:12px;border:0;font-weight:700;font-size:16px;background:var(--sg-brand);color:#fff;text-decoration:none;cursor:pointer}
+.sg-btn:hover{background:var(--sg-brand-strong)}
+.sg-btn--ghost{background:var(--sg-gray-1);color:var(--sg-text-1)}
+.sg-btn--ghost:hover{background:var(--sg-gray-3)}
