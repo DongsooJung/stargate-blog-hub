@@ -102,3 +102,5 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #2c
 .nav-contact-links>a.naver-booking-link{background:#03c75a;color:#092516;font-weight:700}
 .nav-contact-links>a.naver-booking-link:hover,.nav-contact-links>a.naver-booking-link:focus-visible{background:#48df8b;color:#092516;outline:2px solid #fff;outline-offset:2px;transform:none}
 .naver-booking-link small{padding:1px 5px;border-radius:4px;background:#ffffffb3;color:#15512e;font-size:.62rem;font-weight:600}
+.nav-pills>a.sms-console-link{background:#d9f8ed;color:#0b4c37;font-weight:700}
+.nav-pills>a.sms-console-link:hover,.nav-pills>a.sms-console-link:focus-visible{background:#b7f0dc;color:#063a29;outline:2px solid #fff;outline-offset:2px}
