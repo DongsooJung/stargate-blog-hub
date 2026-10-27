@@ -1,0 +1,18 @@
+{
+  "name": "스타게이트 블로그",
+  "short_name": "스타게이트 블로그",
+  "description": "정동수의 지식·연구 아카이브 | STARGATE",
+  "id": "/",
+  "start_url": "/?source=twa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ko",
+  "background_color": "#1A1A2E",
+  "theme_color": "#1A1A2E",
+  "icons": [
+    { "src": "/assets/app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/app/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
