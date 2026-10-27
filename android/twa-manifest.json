@@ -17,7 +17,10 @@
   "iconUrl": "https://blog.stargateedu.co.kr/assets/app/icon-512.png",
   "maskableIconUrl": "https://blog.stargateedu.co.kr/assets/app/icon-maskable-512.png",
   "splashScreenFadeOutDuration": 300,
-  "signingKey": { "path": "./stargate-blog-upload.keystore", "alias": "upload" },
+  "signingKey": {
+    "path": "./stargate-blog-upload.keystore",
+    "alias": "upload"
+  },
   "appVersionName": "1.0.0",
   "appVersionCode": 1,
   "shortcuts": [],
@@ -25,13 +28,28 @@
   "webManifestUrl": "https://blog.stargateedu.co.kr/manifest.webmanifest",
   "fallbackType": "customtabs",
   "features": {},
-  "alphaDependencies": { "enabled": false },
+  "alphaDependencies": {
+    "enabled": false
+  },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
   "fullScopeUrl": "https://blog.stargateedu.co.kr/",
   "minSdkVersion": 21,
-  "fingerprints": [],
+  "fingerprints": [
+    {
+      "name": "play-app-signing",
+      "value": "32:99:54:3D:D9:4B:50:A5:B1:CE:88:32:12:CC:10:D2:53:E7:8A:B9:4F:83:1A:AF:30:D0:1A:B1:DD:E7:5C:65"
+    },
+    {
+      "name": "key-1",
+      "value": "29:58:A2:43:5B:1A:EB:80:E6:7C:96:01:1C:BD:8F:A8:89:09:D2:80:C6:F2:8E:86:5F:B2:79:48:D1:77:FD:56"
+    },
+    {
+      "name": "key-2",
+      "value": "EE:E4:11:D2:FA:8B:B2:EE:46:63:92:4A:90:F4:A5:D0:7F:63:AC:DC:4A:67:39:FD:83:E6:D8:11:B8:77:79:3B"
+    }
+  ],
   "additionalTrustedOrigins": [],
   "retainedBundles": []
 }
