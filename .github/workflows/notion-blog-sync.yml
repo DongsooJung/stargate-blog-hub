@@ -16,6 +16,7 @@ on:
   push:
     paths:
       - '.github/workflows/notion-blog-sync.yml'
+      - 'scripts/sync_notion_blog.py'
 
 permissions:
   contents: write

@@ -208,7 +208,7 @@ def page_to_post(page: dict) -> dict:
 
 def main() -> int:
     if not os.environ.get("NOTION_TOKEN"):
-        print("NOTION_TOKEN 환경변수가 없습니다. GitHub Secrets 에 노션 통합 토큰을 등록하세요.", file=sys.stderr)
+        print("::error title=Notion 동기화::NOTION_TOKEN 시크릿이 비어 있습니다. 저장소 Settings → Secrets → Actions 에 노션 통합 토큰을 등록하세요.", flush=True)
         return 1
     database_id = os.environ.get("NOTION_DATABASE_ID", DEFAULT_DATABASE_ID)
 
@@ -243,4 +243,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except Exception as exc:  # 실패 사유를 Actions 주석으로 노출 (로그를 열지 않아도 보이도록)
+        msg = str(exc).replace("\n", " ")[:400]
+        print(f"::error title=Notion 동기화 실패::{type(exc).__name__}: {msg}", flush=True)
+        raise
