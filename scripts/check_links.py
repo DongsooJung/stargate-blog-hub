@@ -45,8 +45,25 @@ def is_ours(url: str) -> bool:
     return host == "stargateedu.co.kr" or host.endswith(".stargateedu.co.kr")
 
 
+# 안드로이드 TWA 앱 진입 주소 (블로그 앱 kr.co.stargateedu.blog, 메인 앱 kr.co.stargateedu.twa)
+APP_URLS = [
+    "https://blog.stargateedu.co.kr/?source=twa",
+    "https://blog.stargateedu.co.kr/manifest.webmanifest",
+    "https://blog.stargateedu.co.kr/.well-known/assetlinks.json",
+    "https://blog.stargateedu.co.kr/assets/app/icon-512.png",
+    "https://stargateedu.co.kr/",
+    "https://www.stargateedu.co.kr/",
+    "https://www.stargateedu.co.kr/?source=twa",
+    "https://stargateedu.co.kr/?source=twa",
+    "https://www.stargateedu.co.kr/manifest.webmanifest",
+    "https://www.stargateedu.co.kr/manifest.json",
+    "https://stargateedu.co.kr/.well-known/assetlinks.json",
+    "https://www.stargateedu.co.kr/.well-known/assetlinks.json",
+]
+
+
 def collect() -> dict[str, set[str]]:
-    found: dict[str, set[str]] = {}
+    found: dict[str, set[str]] = {u: {"(앱 진입)"} for u in APP_URLS}
 
     def add(url, src):
         url = url.strip()
