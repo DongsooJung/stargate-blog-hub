@@ -85,7 +85,7 @@ def main() -> int:
     with ThreadPoolExecutor(8) as ex:
         results = dict(zip(links, ex.map(lambda u: get(u)[0], links)))
     broken = {u: s for u, s in results.items() if s != 200}
-    print(f"검사 {len(results)}개 · 깨짐 {len(broken)}개")
+    print(f"::notice title=링크 검사::검사 {len(results)}개 · 깨짐 {len(broken)}개")
     lines = []
     for url, status in sorted(broken.items()):
         srcs = ", ".join(sorted(links[url]))[:200]
