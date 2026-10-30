@@ -56,7 +56,6 @@ APP_URLS = [
     "https://www.stargateedu.co.kr/?source=twa",
     "https://stargateedu.co.kr/?source=twa",
     "https://www.stargateedu.co.kr/manifest.webmanifest",
-    "https://www.stargateedu.co.kr/manifest.json",
     "https://stargateedu.co.kr/.well-known/assetlinks.json",
     "https://www.stargateedu.co.kr/.well-known/assetlinks.json",
 ]
