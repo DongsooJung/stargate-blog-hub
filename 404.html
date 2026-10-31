@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>페이지를 찾을 수 없습니다 | 스타게이트 블로그</title>
+  <script>
+    // 앱(/app 하위) 경로나 예전 주소로 들어온 경우 살아 있는 화면으로 돌려보냅니다.
+    (function () {
+      var p = location.pathname;
+      if (p.indexOf('/app') === 0) { location.replace('/app/' + location.hash); return; }
+      if (p.indexOf('/post') === 0) { location.replace('/posts/'); return; }
+      if (p.indexOf('/read') === 0) { location.replace('/reading/'); return; }
+    })();
+  </script>
+  <style>
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1A1A2E;color:#FFF8F0;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;padding:16px;box-sizing:border-box;text-align:center}
+    a{display:inline-block;margin:6px;padding:12px 18px;border-radius:10px;background:#A32D2D;color:#FFF8F0;text-decoration:none;font-weight:600}
+    a.sub{background:transparent;border:1px solid #BA7517;color:#BA7517}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>요청하신 페이지를 찾을 수 없습니다</h1>
+    <p>주소가 바뀌었거나 삭제된 글입니다.</p>
+    <a href="/">블로그 홈</a><a class="sub" href="/app/">앱에서 읽기</a>
+  </main>
+</body>
+</html>
