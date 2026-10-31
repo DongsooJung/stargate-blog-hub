@@ -21,7 +21,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = os.environ.get("BASE_URL", "https://blog.stargateedu.co.kr/")
-PAGES = ["", "posts/", "math/", "reading/", "career-trends/"]
+PAGES = ["", "app/", "posts/", "math/", "reading/", "career-trends/"]
 FEEDS = ["math/posts.json", "posts/posts.json"]
 CHECK_EXTERNAL = os.environ.get("CHECK_EXTERNAL") == "1"
 OUT = os.environ.get("BROKEN_OUT", "broken-links.txt")
@@ -47,6 +47,14 @@ def is_ours(url: str) -> bool:
 
 # 안드로이드 TWA 앱 진입 주소 (블로그 앱 kr.co.stargateedu.blog, 메인 앱 kr.co.stargateedu.twa)
 APP_URLS = [
+    "https://blog.stargateedu.co.kr/app/",
+    "https://blog.stargateedu.co.kr/app/app.js",
+    "https://blog.stargateedu.co.kr/app/styles.css",
+    "https://blog.stargateedu.co.kr/app/feed.json",
+    "https://blog.stargateedu.co.kr/app/manifest.webmanifest",
+    "https://blog.stargateedu.co.kr/app/sw.js",
+    "https://blog.stargateedu.co.kr/app/icon-192.png",
+    "https://blog.stargateedu.co.kr/app/icon-512.png",
     "https://blog.stargateedu.co.kr/?source=twa",
     "https://blog.stargateedu.co.kr/manifest.webmanifest",
     "https://blog.stargateedu.co.kr/.well-known/assetlinks.json",

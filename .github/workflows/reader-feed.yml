@@ -1,0 +1,32 @@
+name: reader feed
+
+on:
+  schedule:
+    - cron: "15 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild app/feed.json from the public hub
+        run: python3 scripts/build_reader_feed.py
+      - name: Commit when the list changes
+        run: |
+          if git diff --quiet -- app/feed.json; then
+            echo "feed unchanged"
+            exit 0
+          fi
+          git config user.name "stargate-hub-bot"
+          git config user.email "bot@stargate11.com"
+          git add app/feed.json
+          git commit -m "chore(reader): refresh feed.json"
+          git push

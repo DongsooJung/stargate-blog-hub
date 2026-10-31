@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>스타게이트 블로그</title>
+  <meta name="description" content="네이버, Blogger, 티스토리, Notion에 흩어진 글을 한 목록으로 읽습니다.">
+  <meta name="author" content="STARGATE">
+  <link rel="canonical" href="https://blog.stargateedu.co.kr/app/">
+  <meta name="theme-color" content="#1c1915">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#view">본문으로</a>
+  <div class="shell">
+    <header class="top">
+      <a class="brand" href="#/">스타게이트 블로그</a>
+      <p class="brand-note" id="brand-note">흩어진 글을 한 목록으로</p>
+    </header>
+    <main id="view" tabindex="-1"></main>
+    <nav class="tabs" aria-label="주요 화면">
+      <a href="#/" data-tab="home">홈</a>
+      <a href="#/channels" data-tab="channels">채널</a>
+      <a href="#/search" data-tab="search">검색</a>
+      <a href="#/me" data-tab="me">내 기록</a>
+    </nav>
+  </div>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
