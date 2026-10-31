@@ -1,2 +1,10 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /scripts/
+Disallow: /supabase/
+Disallow: /templates/
+Disallow: /tests/
+Disallow: /android/
+
+Sitemap: https://blog.stargateedu.co.kr/sitemap.xml

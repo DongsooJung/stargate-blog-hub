@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">스타게이트 블로그</string>
+    <string name="launch_url">https://blog.stargateedu.co.kr/app/</string>
+    <string name="asset_statements">
+        [{
+            \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://blog.stargateedu.co.kr\"
+            }
+        }]
+    </string>
+</resources>

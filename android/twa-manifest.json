@@ -13,7 +13,7 @@
   "navigationDividerColorDark": "#1A1A2E",
   "backgroundColor": "#1A1A2E",
   "enableNotifications": false,
-  "startUrl": "/?source=twa",
+  "startUrl": "/app/",
   "iconUrl": "https://blog.stargateedu.co.kr/assets/app/icon-512.png",
   "maskableIconUrl": "https://blog.stargateedu.co.kr/assets/app/icon-maskable-512.png",
   "splashScreenFadeOutDuration": 300,
@@ -21,11 +21,11 @@
     "path": "./stargate-blog-upload.keystore",
     "alias": "upload"
   },
-  "appVersionName": "1.0.0",
-  "appVersionCode": 1,
+  "appVersionName": "1.0.1",
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://blog.stargateedu.co.kr/manifest.webmanifest",
+  "webManifestUrl": "https://blog.stargateedu.co.kr/app/manifest.webmanifest",
   "fallbackType": "customtabs",
   "features": {},
   "alphaDependencies": {
