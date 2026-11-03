@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-02T07:03:41+09:00",
+  "generatedAt": "2026-11-03T09:59:38+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-02 06:45 KST",
+    "generator": "stargate-blog-hub · 2026-11-03 09:37 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
-    "date": "2026-11-02",
+    "date": "2026-11-03",
     "today": 0,
-    "total": 28,
+    "total": 29,
     "source": "firebase",
     "endpoint": "https://stargate.stargate8225.workers.dev/api/blog-visitors",
     "note": "같은 브라우저 하루 1회. 누적은 일별 방문 합계. 실시간 조회는 blog.stargateedu.co.kr 출처만 허용됩니다."
