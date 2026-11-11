@@ -1,8 +1,8 @@
-const CACHE = "stargate-reader-v6";
+const CACHE = "stargate-reader-v7-white";
 const SHELL = [
   "./",
   "./index.html",
-  "./styles.css",
+  "./styles.css?v=20261111-white",
   "./app.js",
   "./feed.json",
   "./manifest.webmanifest",
@@ -18,7 +18,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))
+      Promise.all(keys.filter((key) => key.startsWith("stargate-reader-") && key !== CACHE).map((key) => caches.delete(key)))
     )
   );
   self.clients.claim();
@@ -27,7 +27,7 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin || event.request.method !== "GET") return;
-  if (url.pathname.endsWith("/feed.json")) {
+  if (event.request.mode === "navigate" || url.pathname.endsWith("/feed.json")) {
     event.respondWith(networkFirst(event.request));
     return;
   }

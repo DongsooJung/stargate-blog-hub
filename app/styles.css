@@ -1,11 +1,11 @@
 :root {
-  --bg: #f3f0e8;
-  --paper: #fffdf8;
-  --ink: #1c1915;
-  --muted: #6f685e;
-  --line: #e2dbcf;
-  --accent: #243f8f;
-  --accent-ink: #f6f3ec;
+  --bg: #ffffff;
+  --paper: #ffffff;
+  --ink: #182230;
+  --muted: #526070;
+  --line: #e4e7ec;
+  --accent: #1b2a6b;
+  --accent-ink: #ffffff;
   --danger: #8d2f2a;
   color-scheme: light;
   font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;

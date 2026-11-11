@@ -1,0 +1,37 @@
+/* White theme for the blog home and its installed app. */
+html { color-scheme: light; }
+body { background: #fff; }
+.hero { background: #fff; color: var(--home-text); border-bottom: 1px solid #e4e7ec; }
+.hero::after { display: none; }
+.brand { color: #1b2a6b; }
+.brand__mark { border-color: #d8e1ef; background: #f4f7fc; color: #1b2a6b; }
+.brand__name { border-color: #d8e1ef; color: #526070; }
+.hero .nav-pills>a:not(.naver-cafe-link):not(.sms-console-link),
+.hero .nav-more>summary { color: #344054; }
+.hero .nav-pills>a:not(.naver-cafe-link):not(.sms-console-link):hover,
+.hero .nav-pills>a:not(.naver-cafe-link):not(.sms-console-link):focus-visible,
+.hero .nav-more[open]>summary,
+.hero .nav-more>summary:hover { background: #eef3fb; color: #1b2a6b; }
+.hero .eyebrow { color: #526b8e; }
+.hero h1 span { color: #1b2a6b; }
+.hero p { color: #526070; }
+.author-link { color: #344054; }
+.author-link__initial { border-color: #d8e1ef; background: #f4f7fc; color: #1b2a6b; }
+.author-link small { color: #526070; }
+.hero .blog-visitor-counter { background: #fff; border-color: #d8e1ef; color: #526070; }
+.hero .blog-visitor-counter__label { color: #526070; }
+.hero .blog-visitor-counter strong { color: #1b2a6b; }
+.hero a:focus-visible, .hero summary:focus-visible { outline-color: #275fbd; }
+.engagement { background: #fff; border: 1px solid #e4e7ec; box-shadow: none; }
+.section-heading--light h2, .section-heading--light .section-kicker,
+.section-heading--light p { color: var(--home-text); }
+.section-toggle--light { background: #fff; border-color: #e4e7ec; }
+.section-toggle--light>summary { color: var(--home-text); }
+.section-toggle--light>summary:hover { background: #f7f9fc; }
+.section-toggle--light>summary:focus-visible { outline-color: #275fbd; }
+.section-toggle--light>summary::after,
+.section-toggle--light .section-toggle__label span { color: #526070; }
+.section-toggle--light[open]>summary { border-bottom-color: #e4e7ec; }
+footer { background: #fff; color: #526070; border-top: 1px solid #e4e7ec; }
+footer a { color: #1b2a6b; }
+.footer-business { border-top-color: #e4e7ec; }
