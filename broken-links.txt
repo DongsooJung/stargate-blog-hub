@@ -1,0 +1,2 @@
+- [ERR URLError] https://stargateedu.co.kr/.well-known/assetlinks.json  ← (앱 진입)
+- [ERR URLError] https://stargateedu.co.kr/?source=twa  ← (앱 진입)
