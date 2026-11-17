@@ -2,7 +2,7 @@ name: reader feed
 
 on:
   schedule:
-    - cron: "15 18 * * *"
+    - cron: "37 * * * *"   # 허브 갱신(매시 17분) 20분 뒤
   workflow_dispatch:
 
 permissions:

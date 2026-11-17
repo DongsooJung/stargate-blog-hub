@@ -471,6 +471,22 @@ def daily_problem(payload: dict) -> dict:
     }
 
 
+def keep_previous_generated_at(feed: dict, path: Path) -> None:
+    """generatedAt 말고 바뀐 내용이 없으면 기존 generatedAt을 그대로 씁니다.
+
+    매시간 갱신에서 시각만 바뀐 feed.json 커밋·배포가 생기지 않게 합니다.
+    """
+    try:
+        previous = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return
+    if not isinstance(previous, dict) or "generatedAt" not in previous:
+        return
+    strip = lambda data: {key: value for key, value in data.items() if key != "generatedAt"}
+    if strip(previous) == strip(feed):
+        feed["generatedAt"] = previous["generatedAt"]
+
+
 def visitors() -> dict:
     endpoint = "https://stargate.stargate8225.workers.dev/api/blog-visitors"
     try:
@@ -539,6 +555,7 @@ def main() -> None:
             "source": HUB + "posts/posts.json",
         },
     }
+    keep_previous_generated_at(feed, OUT)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(feed, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     home_reads = {}

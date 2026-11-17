@@ -81,6 +81,22 @@ class HubBuilderTests(unittest.TestCase):
                 self.assertEqual(hub.main(), 1)
             self.assertEqual(output.read_text(encoding="utf8"), "last good page")
 
+    def test_same_posts_keep_existing_page_and_new_post_rewrites_it(self):
+        post = {"link":"https://example.com/post", "title":"같은 글", "channel":"test", "icon":"x", "color":"#000", "date":"2026-10-16", "published_at":"2026-10-16T20:00:00+09:00", "display_date":"2026.10.16", "display_time":"20:00", "sort_key": 1}
+        new_post = {**post, "link":"https://example.com/new", "title":"새 글", "sort_key": 2}
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "index.html"
+            previous = hub.render([post], updated="2000-01-01 00:00 KST")
+            output.write_text(previous, encoding="utf8")
+            with patch.object(hub, "OUTPUT_PATH", output), patch.object(hub, "fetch_feed", return_value=[post]):
+                self.assertEqual(hub.main(), 0)
+            self.assertEqual(output.read_text(encoding="utf8"), previous)
+            with patch.object(hub, "OUTPUT_PATH", output), patch.object(hub, "fetch_feed", return_value=[post, new_post]):
+                self.assertEqual(hub.main(), 0)
+            rewritten = output.read_text(encoding="utf8")
+            self.assertIn("새 글", rewritten)
+            self.assertNotIn("2000-01-01 00:00 KST", rewritten)
+
 
 if __name__ == "__main__":
     unittest.main()
