@@ -105,4 +105,44 @@
     <lastmod>2026-10-17</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/divisors-and-multiples/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/remainders/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/digit-sums/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/invariants/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/pigeonhole-principle/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/counting-paths/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blog.stargateedu.co.kr/math/olympiad/area-ratios/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
