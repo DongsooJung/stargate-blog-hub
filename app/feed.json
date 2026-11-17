@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-17T10:22:06+09:00",
+  "generatedAt": "2026-11-18T04:19:18+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-17 10:21 KST",
+    "generator": "stargate-blog-hub · 2026-11-17 19:40 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "today": 0,
     "total": 31,
     "source": "firebase",
@@ -115,6 +115,30 @@
     }
   ],
   "posts": [
+    {
+      "id": "naver-lab-224480252938",
+      "title": "정부, AI 기본법 세부 규정 손질 착수 — 에이전트·피지컬 AI 시대 &#39;책임의 기준&#39;은 어디에",
+      "url": "https://blog.naver.com/stargate8225/224480252938",
+      "publishedAt": "2026-11-17T10:54:31+09:00",
+      "channelId": "naver-lab",
+      "topic": "수학·AI",
+      "summary": "과기정통부가 시행 10개월째인 AI 기본법의 세부 규정을 다시 정비하겠다고 밝혔습니다 오늘의 AI 뉴스 핵심 요약 과학기술정보통신부가 올해 1월 22일 시행된 인공지능기본법(AI 기본법)의 세부 규정을 손보기로 했습니다. 엄열 과기정통부 인공지능정책실장은 11월 16일 서울 여의도에서 열린 '2026년 하반기 AI법정책…",
+      "bodyHtml": null,
+      "read": "external",
+      "onHome": true
+    },
+    {
+      "id": "naver-lab-224480230963",
+      "title": "숙제 점수 18% 오르고 시험 점수 20% 떨어졌다 — 중국 &#39;2억 명 AI 교육&#39;이 경고한 &#39;생각의 외주화&#39;와 우리 교실의 과제",
+      "url": "https://blog.naver.com/stargate8225/224480230963",
+      "publishedAt": "2026-11-17T10:39:41+09:00",
+      "channelId": "naver-lab",
+      "topic": "수학·AI",
+      "summary": "로이터통신이 16일(현지시간) 중국의 AI 교육 확대 실태를 다룬 심층 보도를 냈습니다. 중국은 2030년까지 약 2억 명에 이르는 초·중등 학생 모두가 AI를 이해하고 활용하도록 한다는 목표를 세웠고, 성·직할시의 절반 가까이가 구속력 있는 실행 계획을 마련했습니다. 상하이는 모든 학년에 연 30시간 이상의 AI 수업…",
+      "bodyHtml": null,
+      "read": "external",
+      "onHome": true
+    },
     {
       "id": "tistory-46",
       "title": "서울 출근의 시계가 50분 당겨졌다 — 9호선 급행 재배치·급행버스 첫날, &#39;평범하지 않은 첫 주&#39;를 읽는 법",
@@ -243,30 +267,6 @@
       "channelId": "naver-market",
       "topic": "부동산·경제",
       "summary": "한 줄 판정: 부분적 효과. 서울 전역 토지거래허가구역 지정은 강남권 고가 매매를 13주 연속 하락으로 돌려세웠지만, 같은 1년간 서울 아파트 매매가는 10.42%, 전세가는 9.61% 올랐고 임대차 거래의 55.3%가 월세로 바뀌어 안정의 비용이 임차인에게 옮겨갔다. 기준 시각: 2026년 11월 10일 09시 KST…",
-      "bodyHtml": null,
-      "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "naver-lab-224471391971",
-      "title": "구글, 170억 달러 와이오밍 데이터센터 발표 — AI 경쟁의 승부처는 이제 ‘전력’입니다",
-      "url": "https://blog.naver.com/stargate8225/224471391971",
-      "publishedAt": "2026-11-10T11:11:13+09:00",
-      "channelId": "naver-lab",
-      "topic": "수학·AI",
-      "summary": "가스 연료전지와 탄소포집을 앞세운 구글의 선택이 AI 인프라 경쟁에 던지는 질문 오늘의 AI 뉴스 핵심 요약 구글이 2026년 11월 5일(현지시간), 미국 와이오밍주 라라미 카운티(샤이엔 인근)에 장기 170억 달러(약 17B 달러)를 투자하는 데이터센터 계획을 블로그를 통해 공개했습니다. 이번 발표의 특징은 건물이나…",
-      "bodyHtml": null,
-      "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "naver-lab-224471391295",
-      "title": "초·중·고 학생의 생성형 AI, 언제부터 어디까지? 경기도교육청이 꺼낸 &#39;학교급별 기준안&#39;을 읽는 법",
-      "url": "https://blog.naver.com/stargate8225/224471391295",
-      "publishedAt": "2026-11-10T11:10:44+09:00",
-      "channelId": "naver-lab",
-      "topic": "수학·AI",
-      "summary": "AI를 막는 기준이 아니라, 사고의 순서를 지키는 기준 — AX 경기교육대전환 공청회 분석 초등은 제한, 고등은 공개와 검증 — 학생 AI 활용 기준안이 교실 평가를 바꾸는 이유 2026년 11월 9일, 경기도교육청 남부청사 대강당에서 'AX(AI Transformation) 경기교육대전환 공청회'가 열렸습니다. 교사·…",
       "bodyHtml": null,
       "read": "external",
       "onHome": true
