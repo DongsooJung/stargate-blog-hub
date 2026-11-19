@@ -82,6 +82,8 @@ FEED_TIMEOUT = int(os.environ.get("FEED_TIMEOUT", "15"))
 BASE_DIR      = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = Path(os.environ.get("TEMPLATE_PATH", BASE_DIR / "templates" / "허브_템플릿.html"))
 OUTPUT_PATH   = Path(os.environ.get("OUTPUT_PATH",   BASE_DIR / "index.html"))
+# 기존 index.html의 수집 시각(템플릿 <meta name="generator">)을 읽어 내용 변경 여부를 판정합니다.
+UPDATED_RE    = re.compile(r'<meta name="generator" content="stargate-blog-hub · ([^"]+)">')
 
 
 # ───────────────────────────────────────────────────────────────────
@@ -242,7 +244,7 @@ def fetch_feed(channel: str, meta: dict) -> list[dict]:
 # 렌더링
 # ───────────────────────────────────────────────────────────────────
 
-def render(posts: list[dict]) -> str:
+def render(posts: list[dict], updated: str | None = None) -> str:
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
         autoescape=select_autoescape(["html"]),
@@ -251,8 +253,17 @@ def render(posts: list[dict]) -> str:
     return template.render(
         posts=posts,
         post_count=len(posts),
-        updated=datetime.now(KST).strftime("%Y-%m-%d %H:%M KST"),
+        updated=updated or datetime.now(KST).strftime("%Y-%m-%d %H:%M KST"),
     )
+
+
+def unchanged_except_timestamp(posts: list[dict], previous: str) -> bool:
+    """기존 페이지를 그 페이지의 수집 시각으로 다시 렌더링했을 때 똑같으면 True.
+
+    매시간 갱신에서 글 목록이 그대로인데 시각만 바뀐 커밋·배포가 생기지 않게 합니다.
+    """
+    match = UPDATED_RE.search(previous)
+    return bool(match) and render(posts, updated=match.group(1)) == previous
 
 
 # ───────────────────────────────────────────────────────────────────
@@ -272,6 +283,10 @@ def main() -> int:
         log("ERROR", "수집된 글 없음 — 기존 index.html을 보존합니다.")
         return 1
     top_posts = select_posts(all_posts)
+
+    if OUTPUT_PATH.exists() and unchanged_except_timestamp(top_posts, OUTPUT_PATH.read_text(encoding="utf-8")):
+        log("NOTICE", f"글 목록 변경 없음 — {OUTPUT_PATH.name} 유지 · 포스팅 {len(top_posts)}/{len(all_posts)}")
+        return 0
 
     html = render(top_posts)
 
