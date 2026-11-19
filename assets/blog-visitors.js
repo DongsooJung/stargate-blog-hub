@@ -36,8 +36,9 @@
     const day = koreaDay();
     const id = browserId();
     const record = Boolean(id && !wasCounted(day));
-    if (recordOnly && !record) { pending = false; return; }
-    const path = String(window.location.pathname || '/').slice(0,512);
+    if (recordOnly && !record) { pending = false; scheduleMidnight(); return; }
+    const rawPath = String(window.location.pathname || '/');
+    const path = rawPath.length > 512 ? '/' : rawPath;
     try {
       const response = await fetch(endpoint,{
         method:record ? 'POST' : 'GET', cache:'no-store', credentials:'omit',
@@ -49,6 +50,8 @@
       if (value.source !== 'firebase' || !/^\d{4}-\d{2}-\d{2}$/.test(value.date) || ![value.today,value.total].every(n => Number.isSafeInteger(n) && n >= 0)) throw Error('Invalid visitor summary');
       if (record) {
         try { localStorage.setItem(`${prefix}:counted`,value.date); } catch {}
+        // Pages that render their own counts (the /app/ reader) refresh from this result.
+        window.dispatchEvent(new CustomEvent('stargate:blog-visit-recorded',{detail:{date:value.date,today:value.today,total:value.total}}));
       }
       lastChecked = Date.now();
       if (recordOnly) return;
@@ -64,10 +67,13 @@
       console.warn('Blog visitor counter unavailable:',error.message);
     } finally {
       pending = false;
-      clearTimeout(midnightTimer);
-      const nextMidnight = Date.parse(`${koreaDay()}T00:00:00+09:00`) + 86400000;
-      midnightTimer = setTimeout(update,Math.max(1000,nextMidnight - Date.now() + 1000));
+      scheduleMidnight();
     }
+  }
+  function scheduleMidnight() {
+    clearTimeout(midnightTimer);
+    const nextMidnight = Date.parse(`${koreaDay()}T00:00:00+09:00`) + 86400000;
+    midnightTimer = setTimeout(update,Math.max(1000,nextMidnight - Date.now() + 1000));
   }
   document.addEventListener('visibilitychange',() => {
     if (document.visibilityState === 'visible' && (Date.now() - lastChecked > 60000 || !wasCounted(koreaDay()))) update();
