@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-19T18:26:35+09:00",
+  "generatedAt": "2026-11-20T03:36:46+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-19 05:28 KST",
+    "generator": "stargate-blog-hub · 2026-11-19 20:34 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
-    "date": "2026-11-19",
-    "today": 1,
+    "date": "2026-11-20",
+    "today": 0,
     "total": 32,
     "source": "firebase",
     "endpoint": "https://stargate.stargate8225.workers.dev/api/blog-visitors",
@@ -115,6 +115,18 @@
     }
   ],
   "posts": [
+    {
+      "id": "naver-market-224483727507",
+      "title": "데이터로 검증하는 오늘의 부동산 정책 — 2026. 11. 19.(목)",
+      "url": "https://blog.naver.com/stargate8224/224483727507",
+      "publishedAt": "2026-11-19T18:30:42+09:00",
+      "channelId": "naver-market",
+      "topic": "부동산·경제",
+      "summary": "한 줄 결론 — 공동주택 리모델링 허가 동의율 75%→70% 완화는 30년 이상 노후 아파트가 전체의 20% 가까이 되는 구조적 전환에 맞춘 공급 보완 수단이지만, 동의율 하향만으로 사업성(공사비·분양가·기부채납)이 풀리지 않는 한 효과는 선별적으로 나타날 것으로 보인다. 오늘의 정책: 「주택법 시행령」 개정안 국무회의…",
+      "bodyHtml": null,
+      "read": "external",
+      "onHome": true
+    },
     {
       "id": "tistory-48",
       "title": "가계대출 규제 2026 | 신규대출 70%가 DSR 예외였다",
@@ -279,18 +291,6 @@
       "channelId": "naver-market",
       "topic": "부동산·경제",
       "summary": "한 줄 판정: 부분적 효과. 서울 전역 토지거래허가구역 지정은 강남권 고가 매매를 13주 연속 하락으로 돌려세웠지만, 같은 1년간 서울 아파트 매매가는 10.42%, 전세가는 9.61% 올랐고 임대차 거래의 55.3%가 월세로 바뀌어 안정의 비용이 임차인에게 옮겨갔다. 기준 시각: 2026년 11월 10일 09시 KST…",
-      "bodyHtml": null,
-      "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "naver-market-224452295343",
-      "title": "서울 아파트값 89주 연속 상승, 그런데 강남·서초는 11주째 하락입니다",
-      "url": "https://blog.naver.com/stargate8224/224452295343",
-      "publishedAt": "2026-10-24T16:01:43+09:00",
-      "channelId": "naver-market",
-      "topic": "부동산·경제",
-      "summary": "성북·서대문 0.36% 대 서초 -0.32% — 상승폭은 0.16%에서 0.13%로, 25개 구 중 19곳이 둔화한 10월 셋째 주 통계 원고 전문 공간계량·부동산 데이터를 다루는 전공자 관점에서 오늘의 기사를 함께 읽어보겠습니다. 기사 핵심 요약 한국부동산원이 10월 19일 기준으로 집계한 주간 아파트 가격 동향에서,…",
       "bodyHtml": null,
       "read": "external",
       "onHome": true
