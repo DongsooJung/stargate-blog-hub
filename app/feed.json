@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-20T03:36:46+09:00",
+  "generatedAt": "2026-11-20T09:54:25+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-19 20:34 KST",
+    "generator": "stargate-blog-hub · 2026-11-20 05:32 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
@@ -115,6 +115,18 @@
     }
   ],
   "posts": [
+    {
+      "id": "naver-market-224483864749",
+      "title": "데이터로 읽는 실시간 도시 이야기",
+      "url": "https://blog.naver.com/stargate8224/224483864749",
+      "publishedAt": "2026-11-19T20:49:55+09:00",
+      "channelId": "naver-market",
+      "topic": "부동산·경제",
+      "summary": "비 내린 월요일, 서울의 집값은 ‘남저북고’로 갈라졌다 한 줄 요약 가을비로 시작한 출근길 뒤편에서 서울 아파트 시장은 강남권 하락과 강북·경기 남부 상승으로 갈라지고 있고, 내일 오후부터는 기온도 급락한다. 기준 시각 2026년 10월 26일 09시 KST (작성 시각) 가장 오래된 자료 2026년 10월 19일 (한…",
+      "bodyHtml": null,
+      "read": "external",
+      "onHome": true
+    },
     {
       "id": "naver-market-224483727507",
       "title": "데이터로 검증하는 오늘의 부동산 정책 — 2026. 11. 19.(목)",
@@ -279,18 +291,6 @@
       "channelId": "naver-market",
       "topic": "부동산·경제",
       "summary": "10월 신청 3,947건(+8.2%), 강남3구·용산구는 건수 +20.6%에 가격 -0.92% — 서로 엇갈린 두 방향을 데이터로 읽어봅니다 공간계량·부동산 데이터를 다루는 전공자 관점에서 오늘의 기사를 함께 읽어보겠습니다. 1. 기사 핵심 요약 서울시가 발표한 '2026년 10월 서울 아파트 토지거래허가 신청현황 및…",
-      "bodyHtml": null,
-      "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "naver-market-224471409545",
-      "title": "토허제 1년, 서울 임대차 절반이 월세가 됐다",
-      "url": "https://blog.naver.com/stargate8224/224471409545",
-      "publishedAt": "2026-11-10T11:23:15+09:00",
-      "channelId": "naver-market",
-      "topic": "부동산·경제",
-      "summary": "한 줄 판정: 부분적 효과. 서울 전역 토지거래허가구역 지정은 강남권 고가 매매를 13주 연속 하락으로 돌려세웠지만, 같은 1년간 서울 아파트 매매가는 10.42%, 전세가는 9.61% 올랐고 임대차 거래의 55.3%가 월세로 바뀌어 안정의 비용이 임차인에게 옮겨갔다. 기준 시각: 2026년 11월 10일 09시 KST…",
       "bodyHtml": null,
       "read": "external",
       "onHome": true
