@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-21T02:58:23+09:00",
+  "generatedAt": "2026-11-21T05:22:46+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-20 20:31 KST",
+    "generator": "stargate-blog-hub · 2026-11-21 05:21 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
@@ -116,6 +116,18 @@
   ],
   "posts": [
     {
+      "id": "tistory-54",
+      "title": "앤트로픽, 역대 최대 813억 달러 IPO로 나스닥 데뷔 — 첫 &#39;프런티어 AI 연구소&#39; 상장이 던진 질문",
+      "url": "https://dongsoo.tistory.com/54",
+      "publishedAt": "2026-11-21T05:18:58+09:00",
+      "channelId": "tistory",
+      "topic": "정치·데이터",
+      "summary": "오늘의 AI 뉴스 핵심 요약 Claude를 만든 미국 AI 기업 앤트로픽(Anthropic)이 11월 19일(현지시간) 나스닥에 상장했습니다. 종목코드는 ANT 입니다. 앤트로픽은 전날 공모가를 주당 83달러 로 확정했는데, 당초 제시한 희망 범위(70~78달러)의 상단보다 5달러 높은 가격입니다. 공모 규모는 기록적입…",
+      "bodyHtml": "<h2>오늘의 AI 뉴스 핵심 요약</h2>\n<p>Claude를 만든 미국 AI 기업 앤트로픽(Anthropic)이 11월 19일(현지시간) 나스닥에 상장했습니다. 종목코드는 ANT입니다. 앤트로픽은 전날 공모가를 주당 83달러로 확정했는데, 당초 제시한 희망 범위(70~78달러)의 상단보다 5달러 높은 가격입니다.</p>\n<p>공모 규모는 기록적입니다. 클래스 A 보통주 9억 8천만 주를 팔아 약 813억 달러(약 108조 원)를 조달했고, 지난 6월 스페이스X의 기본 공모액(약 750억 달러)을 넘어 역대 최대 기업공개(IPO)가 됐습니다. 완전 희석 기준 기업가치는 약 1조 5천억 달러로, 지난 5월 비상장 투자 유치 때의 9,650억 달러보다 크게 높아졌습니다. 이와 별도로 엔비디아·구글·마이크로소프트·AMD 등 반도체·클라우드 기업 7곳이 공모가로 약 260억 달러어치 주식을 사들여, 총 조달액은 약 1,070억 달러에 이릅니다.</p>\n<p>첫 거래일 시초가는 111.5달러로 공모가보다 약 34% 높았지만, 장중 한때 100달러 아래로 밀리는 등 변동성이 컸습니다. 상장 과정에서 공개된 재무 정보에 따르면 3분기 매출은 169억 6천만 달러, 영업손실은 5억 6,700만 달러였습니다. 경향신문은 앤트로픽이 1년 안에 칩·데이터센터 비용으로 707억 달러를, 2030년까지 모두 4,516억 달러를 지급해야 한다고 전했습니다.</p>\n<p>국내에도 파장이 이어졌습니다. 2023년부터 앤트로픽에 투자해 온 SK텔레콤의 지분 가치는 공모가 기준 약 32억 달러(블룸버그 추산)로 평가됐지만, 19일 SK텔레콤 주가는 장중 7% 넘게 하락했습니다.</p>\n<h2>AI 산업·데이터 관점의 해설</h2>\n<p>이번 상장의 가장 큰 의미는 최첨단 AI 모델을 직접 개발하는 '프런티어 AI 연구소'가 처음으로 공개 시장의 평가를 받게 됐다는 점입니다. 지금까지 AI 기업의 가치는 소수 투자자 사이의 협상으로 정해졌지만, 이제는 분기마다 공시되는 매출·손실·컴퓨팅 비용이 곧바로 주가에 반영됩니다. 아직 비상장인 오픈AI 등 경쟁사의 가치를 가늠할 기준점도 생겼습니다. 다만 CBS뉴스에 따르면 트루이스트 어드바이저리 서비스의 샘 그렐크 애널리스트는 \"앤트로픽의 IPO를 AI에 대한 판결로 보지는 않는다\"고 말했습니다. 한 기업의 주가로 산업 전체를 단정하기는 어렵다는 지적입니다.</p>\n<p>경쟁 구도에서는 AI 경쟁의 축이 모델 성능에서 자본과 컴퓨팅 확보력으로 옮겨 가고 있음을 보여 줍니다. 수천억 달러 규모의 칩·데이터센터 계약을 감당하려면 공개 시장의 자금이 필요해진 것입니다. 칩과 클라우드를 공급하는 기업이 고객사 지분을 사들이는 구조는 수요를 안정시키는 장치이기도 하지만, 서로의 실적을 떠받치는 '순환 투자'라는 우려도 함께 받고 있습니다.</p>\n<p>기업 고객 입장에서는 공급사의 재무 상태를 투명하게 확인할 수 있게 된 점이 장점입니다. 반면 상장사가 된 AI 기업은 수익성 압박을 더 크게 받으므로, 요금제나 사용량 정책이 바뀔 가능성도 염두에 둬야 합니다. 국내 기업과 대학·교육기관이라면 특정 모델 하나에 업무를 묶어 두기보다 여러 모델을 병행할 수 있는 구조를 미리 갖춰 두는 편이 안전합니다. 개인 투자자라면 유통 주식이 전체의 약 5% 수준이라 주가 변동이 클 수 있고, 아직 영업손실을 내는 기업이라는 점을 함께 살펴야 합니다.</p>\n<h2>향후 전망</h2>\n<p>앞으로 1~3년 동안 시장은 앤트로픽의 분기 실적을 통해 'AI가 실제로 돈을 버는 사업인가'를 확인하려 할 것으로 보입니다. 매출 성장 속도가 컴퓨팅 비용 증가를 앞지르는지가 핵심 지표가 될 가능성이 크고, 그 결과에 따라 오픈AI 등 다른 AI 기업의 상장 시점과 기업가치도 달라질 수 있습니다. 국내에서도 지분을 가진 SK텔레콤과 메모리 수요 확대의 수혜 기업으로 거론되는 삼성전자·SK하이닉스가 이 흐름의 영향을 직접 받게 될 것으로 보입니다.</p>\n<p>핵심 메시지: 이번 상장으로 AI 산업은 '기대'로 평가받던 단계에서 '숫자'로 검증받는 단계로 넘어가고 있습니다. 기업과 개인 모두 화제성보다 매출, 비용, 특정 모델 의존도라는 기본 지표로 AI를 바라볼 때입니다.</p>\n<h2>출처</h2>\n<ul>\n<li>출처: CBS News, 「Anthropic shares jump in Nasdaq trading debut after record IPO」, <a href=\"https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/\" target=\"_blank\" rel=\"noopener\">https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/</a></li>\n<li>출처: TechCrunch, 「Anthropic prices IPO at $83 a share, above projected range」, <a href=\"https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/\" target=\"_blank\" rel=\"noopener\">https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/</a></li>\n<li>출처: 경향신문, 「앤트로픽 '108조원' IPO 최대어로 나스닥 상장」, <a href=\"https://www.khan.co.kr/article/202611192045005\" target=\"_blank\" rel=\"noopener\">https://www.khan.co.kr/article/202611192045005</a></li>\n<li>출처: 뉴스1, 「앤트로픽 IPO 시초가 111.5달러…공모가 83달러 상회」, <a href=\"https://www.news1.kr/world/usa-canada/6360290\" target=\"_blank\" rel=\"noopener\">https://www.news1.kr/world/usa-canada/6360290</a></li>\n<li>출처: Fox News, 「Anthropic soars 34% past IPO price in Nasdaq debut」, <a href=\"https://www.foxnews.com/live-news/anthropic-claude-ai-ipo-nasdaq-11-19-26\" target=\"_blank\" rel=\"noopener\">https://www.foxnews.com/live-news/anthropic-claude-ai-ipo-nasdaq-11-19-26</a></li>\n<li>출처: 인베스팅닷컴, 「사상 최대 IPO 앤트로픽 오늘 밤 나스닥 데뷔…국내 연관주는 '뉴스에 팔아라'」, <a href=\"https://kr.investing.com/news/stock-market-news/article-2182927\" target=\"_blank\" rel=\"noopener\">https://kr.investing.com/news/stock-market-news/article-2182927</a></li>\n</ul>",
+      "read": "in-app",
+      "onHome": true
+    },
+    {
       "id": "tistory-53",
       "title": "외국인 2,000만 명 시대, 서울의 &#39;돈길&#39;이 바뀌었다 — 면세점 객단가 −28.9%, 뚝섬 임대료 +9.92%",
       "url": "https://dongsoo.tistory.com/53",
@@ -185,18 +197,6 @@
       "summary": "서울 아파트값이 93주째 올랐습니다. 숫자만 보면 '여전히 오른다'는 이야기지만, 이번 주 통계를 구(區) 단위로 펼쳐 보면 전혀 다른 그림이 나옵니다. 고가 핵심지는 내리고 외곽 중저가 지역은 오르는, 서울 안의 온도 차가 한층 뚜렷해졌습니다. 기사 핵심 요약 한국부동산원이 19일 발표한 11월 셋째 주(16일 기준)…",
       "bodyHtml": null,
       "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "tistory-49",
-      "title": "15년 만에 바뀌는 최저주거기준, 1인 14㎡·4인 43㎡ 기준이 흔들린다",
-      "url": "https://dongsoo.tistory.com/49",
-      "publishedAt": "2026-11-20T09:45:08+09:00",
-      "channelId": "tistory",
-      "topic": "정치·데이터",
-      "summary": "기준 시각 2026년 11월 20일 06시 KST 작성 결론부터 말씀드리면, 정부가 2011년 이후 15년 만에 최저주거기준 개정을 추진합니다. 20일 오후 서울에서 열리는 주거복지정책 토론회가 출발점입니다. 다만 개정 수치는 아직 나오지 않았고, 이날은 방향에 대한 의견을 듣는 자리입니다. 최저주거기준은 무엇이고, 지…",
-      "bodyHtml": "<p>기준 시각 2026년 11월 20일 06시 KST 작성</p>\n<p>결론부터 말씀드리면, 정부가 2011년 이후 15년 만에 최저주거기준 개정을 추진합니다. 20일 오후 서울에서 열리는 주거복지정책 토론회가 출발점입니다. 다만 개정 수치는 아직 나오지 않았고, 이날은 방향에 대한 의견을 듣는 자리입니다.</p>\n<h3>최저주거기준은 무엇이고, 지금 기준은 어떤가요?</h3>\n<p>최저주거기준은 국민이 인간다운 주거생활을 하는 데 필요한 최소 수준을 정한 기준입니다. 현행 최소 주거면적은 1인 가구 14㎡, 2인 26㎡, 3인 36㎡, 4인 43㎡, 5인 46㎡, 6인 55㎡입니다(<a href=\"https://www.rcast.co.kr/news/articleView.html?idxno=32110\" target=\"_blank\" rel=\"noopener\">RCast 보도</a>). 2011년에 1인 가구는 12㎡에서 14㎡로, 4인 가구는 37㎡에서 43㎡로 올라갔고, 이후 15년 동안 같은 기준이 유지됐습니다.</p>\n<h3>가구 구조는 바뀌었는데 기준은 그대로였습니다</h3>\n<p>국가데이터처에 따르면 2025년 국내 1인 가구는 824만 가구로 전체 일반가구의 36.6%입니다. 1~2인 가구를 합하면 66.1%에 달합니다(<a href=\"https://www.rcast.co.kr/news/articleView.html?idxno=32110\" target=\"_blank\" rel=\"noopener\">RCast 보도</a>). 국토교통부 「2025년도 주거실태조사」에서는 국민 1인당 주거면적이 38.2㎡로 전년(36㎡)보다 2.2㎡ 늘었습니다. 평균 면적은 넓어졌지만, 청년가구의 5.6%는 여전히 현행 최저주거기준에도 못 미칩니다.</p>\n<p>평균이 올라도 하위 구간이 기준선 아래에 남아 있다면 정책은 평균이 아닌 최저선을 봐야 합니다. 이번 개정 논의가 주목받는 이유도 여기에 있습니다.</p>\n<h3>20일 토론회에서는 무엇을 논의하나요?</h3>\n<p>국토교통부는 20일 오후 서울에서 전문가, 청년, 시민단체가 참석하는 '주거복지정책 토론회'를 엽니다(<a href=\"https://www.yna.co.kr/view/AKR20261119028200003\" target=\"_blank\" rel=\"noopener\">연합뉴스, 2026.11.19</a>). 1부는 최저주거기준 개선이 주제입니다. 최소 주거면적뿐 아니라 필수 설비, 구조·성능, 환경 기준까지 함께 살핀다는 방침입니다. 기후재난과 안전 대응도 고려 대상에 들어갑니다(<a href=\"https://www.mt.co.kr/amp/estate/2026/11/19/2026111910384836401\" target=\"_blank\" rel=\"noopener\">머니투데이, 2026.11.19</a>).</p>\n<p>2부는 보편형 공공임대입니다. 지난 9월 '주거안정플랜'에서 밝힌 도입 방향을 구체화하는 자리입니다. 발제는 조승연 LH토지주택연구원 수석연구원이 맡습니다.</p>\n<h3>보편형 공공임대, 쟁점은 세 가지입니다</h3>\n<p>보편형 공공임대는 다양한 계층이 품질 좋은 주택에서 장기간 안정적으로 살 수 있도록 새로 도입하는 공공임대 유형입니다. 부담 가능한 임대료를 책정하는 것이 기본 방향입니다(머니투데이 보도 기준).</p>\n<p>국토부가 밝힌 주요 쟁점은 입주 기준, 임대료 산정 방식, 거주 기간입니다(<a href=\"https://www.yna.co.kr/view/AKR20261119028200003\" target=\"_blank\" rel=\"noopener\">연합뉴스</a>). 구체적인 수치는 토론 이후 제도 개선 방안에서 나올 전망입니다. 지금 단계에서 확정된 숫자는 없다는 점을 기억하셔야 합니다.</p>\n<h3>읽는 법: 면적 숫자보다 적용 범위를 보세요</h3>\n<p>기준을 몇 ㎡로 올리느냐보다, 그 기준이 어떤 주택과 어떤 가구에 적용되는지가 실제 체감을 가릅니다. 최저주거기준은 주거 정책의 최소 잣대라서 보편형 공공임대 논의와 함께 봐야 전체 그림이 보입니다.</p>\n<p>다만 현재 공개된 자료로는 개정 폭이 얼마인지 단정할 수 없습니다. 발표 전까지는 \"기준이 바뀌려 한다\"까지만 확인하셔도 충분합니다.</p>\n<h3>정리</h3>\n<ul>\n<li>15년 만의 최저주거기준 개정 논의가 20일 토론회로 시작됩니다.</li>\n<li>현행 1인 14㎡, 4인 43㎡ 기준은 아직 바뀌지 않았습니다.</li>\n<li>보편형 공공임대는 입주 기준, 임대료, 거주 기간이 핵심 쟁점입니다.</li>\n</ul>\n<p>토론회 결과가 나오면 개정 수치를 다시 정리하겠습니다.</p>\n\n<p>함께 읽기</p>\n<ul>\n<li><a href=\"https://dongsoo.tistory.com/40\" target=\"_blank\" rel=\"noopener\">수도권 4만 가구 입주, 서울 공급 기반 확대와 체감 사이의 시차</a> — 공급 물량과 체감의 간극을 짚은 글입니다.</li>\n<li><a href=\"https://dongsoo.tistory.com/48\" target=\"_blank\" rel=\"noopener\">가계대출 규제 2026, 신규대출 70%가 DSR 예외였다</a> — 주택 수요를 움직이는 대출 규제를 정리한 글입니다.</li>\n</ul>\n\n<p>출처</p>\n<ul>\n<li>연합뉴스, 「국토부, 전문가·청년·시민단체와 주거복지정책 토론회」, 2026.11.19 — <a href=\"https://www.yna.co.kr/view/AKR20261119028200003\" target=\"_blank\" rel=\"noopener\">https://www.yna.co.kr/view/AKR20261119028200003</a></li>\n<li>머니투데이, 「정부, 15년 만에 최저주거기준 손본다」, 2026.11.19 — <a href=\"https://www.mt.co.kr/amp/estate/2026/11/19/2026111910384836401\" target=\"_blank\" rel=\"noopener\">https://www.mt.co.kr/amp/estate/2026/11/19/2026111910384836401</a></li>\n<li>RCast, 「4평짜리 원룸이면 충분하다?… 15년 만에 바뀌는 '최저주거기준'」 — <a href=\"https://www.rcast.co.kr/news/articleView.html?idxno=32110\" target=\"_blank\" rel=\"noopener\">https://www.rcast.co.kr/news/articleView.html?idxno=32110</a></li>\n</ul>",
-      "read": "in-app",
       "onHome": true
     },
     {
