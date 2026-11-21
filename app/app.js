@@ -7,6 +7,17 @@ let visitors = null;
 let topicId = "";
 
 const state = loadState();
+// blog-visitors.js records this browser's first visit of the day after this module runs;
+// its result can be newer than the summary liveVisitors() fetched in parallel.
+let recordedVisit = null;
+window.addEventListener("stargate:blog-visit-recorded", (event) => {
+  const d = event.detail || {};
+  if (!Number.isInteger(d.today) || !Number.isInteger(d.total) || typeof d.date !== "string") return;
+  recordedVisit = { today: d.today, total: d.total, date: d.date };
+  if (!feed) return;
+  visitors = withRecordedVisit(visitors || { ...feed.visitors, live: false });
+  if (location.hash === "" || location.hash === "#/" || location.hash.startsWith("#/?")) render();
+});
 
 boot();
 
@@ -23,7 +34,7 @@ async function boot() {
       saveState();
     }
     render();
-    visitors = await liveVisitors(feed.visitors);
+    visitors = withRecordedVisit(await liveVisitors(feed.visitors));
     if (location.hash === "" || location.hash === "#/" || location.hash.startsWith("#/?")) render();
     registerWorker();
   } catch (error) {
@@ -56,6 +67,12 @@ async function liveVisitors(snapshot) {
   } catch {
     return { ...snapshot, live: false };
   }
+}
+
+function withRecordedVisit(current) {
+  if (!recordedVisit) return current;
+  if (current.live && current.date === recordedVisit.date && current.today >= recordedVisit.today) return current;
+  return { ...current, ...recordedVisit, live: true };
 }
 
 function registerWorker() {
