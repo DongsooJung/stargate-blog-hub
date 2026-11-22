@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-22T11:32:55+09:00",
+  "generatedAt": "2026-11-23T08:46:11+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
-    "generator": "stargate-blog-hub · 2026-11-21 18:45 KST",
+    "generator": "stargate-blog-hub · 2026-11-22 20:16 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
-    "date": "2026-11-22",
-    "today": 2,
-    "total": 34,
+    "date": "2026-11-23",
+    "today": 0,
+    "total": 37,
     "source": "firebase",
     "endpoint": "https://stargate.stargate8225.workers.dev/api/blog-visitors",
     "note": "같은 브라우저 하루 1회. 누적은 일별 방문 합계. 실시간 조회는 blog.stargateedu.co.kr 출처만 허용됩니다."
@@ -115,6 +115,18 @@
     }
   ],
   "posts": [
+    {
+      "id": "naver-lab-224487291875",
+      "title": "2027 경기도교육청미래과학교육원 영재교육원, 지원 전 꼭 확인할 것",
+      "url": "https://blog.naver.com/stargate8225/224487291875",
+      "publishedAt": "2026-11-22T19:32:24+09:00",
+      "channelId": "naver-lab",
+      "topic": "수학·AI",
+      "summary": "본문 2027학년도 경기도교육청미래과학교육원부설영재교육원 지원을 준비하고 계신가요? 이번 선발은 누구나 지원할 수 있는 과정이 아니라, 과정별로 정해진 영재교육원 수료 이력을 충족해야 합니다. 학년, 수료 연도와 기관, 제출서류, 학교 추천 일정을 함께 확인하는 것이 중요합니다. 2026년 11월 22일 기준, 진로특화…",
+      "bodyHtml": null,
+      "read": "external",
+      "onHome": true
+    },
     {
       "id": "tistory-59",
       "title": "공시가격 현실화율 69% 5년째 동결 — 그래도 내년 서울 보유세가 오르는 이유",
@@ -267,18 +279,6 @@
       "channelId": "naver-lab",
       "topic": "수학·AI",
       "summary": "블로그 원고 전문 2026년 11월 15일 보도된 정부 '모두의 AI' 사업 점검 기사입니다. 전 국민이 무료로 쓰는 AI 비서가 왜 기술 문제가 아니라 '권한과 책임'의 문제인지 함께 살펴보겠습니다. 1. 오늘의 AI 뉴스 핵심 요약 정부가 지원하고 SK텔레콤·KT·카카오 3개 컨소시엄이 참여하는 전 국민 무료 AI…",
-      "bodyHtml": null,
-      "read": "external",
-      "onHome": true
-    },
-    {
-      "id": "naver-lab-224479450505",
-      "title": "세무사 &#39;AI 커닝&#39; 시인, 수능 사흘 앞 범정부 대응 — 감독 강화를 넘어 &#39;평가 재설계&#39;가 필요한 이유",
-      "url": "https://blog.naver.com/stargate8225/224479450505",
-      "publishedAt": "2026-11-16T18:35:39+09:00",
-      "channelId": "naver-lab",
-      "topic": "수학·AI",
-      "summary": "오늘의 교육 뉴스 지난 15일, 제63회 세무사 시험 수석 합격자가 초소형 카메라와 스마트폰, 생성형 AI를 이용해 부정행위를 했다고 스스로 밝혔습니다. 당시 감독위원 4명은 모두 \"특이사항이 없었다\"고 답한 것으로 알려져, 사람의 눈에 의존하는 감독 체계의 한계가 드러났습니다. 청와대는 같은 날 긴급대책회의를 열어 모…",
       "bodyHtml": null,
       "read": "external",
       "onHome": true
