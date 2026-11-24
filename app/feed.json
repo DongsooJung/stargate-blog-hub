@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-24T05:29:44+09:00",
+  "generatedAt": "2026-11-25T01:17:06+09:00",
   "hub": {
     "url": "https://blog.stargateedu.co.kr/",
     "generator": "stargate-blog-hub · 2026-11-23 17:58 KST",
     "proposalBaseline": "2026-10-24 06:04 KST"
   },
   "visitors": {
-    "date": "2026-11-24",
+    "date": "2026-11-25",
     "today": 0,
     "total": 39,
     "source": "firebase",
