@@ -71,5 +71,5 @@
     $("#importBtn").onclick=()=>$("#importFile").click();$("#importFile").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data))throw Error();const own=data.filter(p=>String(p.id).startsWith("user-"));localStorage.setItem("readingPosts",JSON.stringify(own));posts=[...starterPosts,...own];render();toast("백업을 불러왔습니다")}catch{toast("올바른 JSON 백업 파일이 아닙니다")}};
     $("#themeBtn").onclick=()=>{const dark=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=dark?"":"dark";localStorage.setItem("readingTheme",dark?"light":"dark")};if(localStorage.getItem("readingTheme")==="dark")document.documentElement.dataset.theme="dark";loadPublishedPosts();
   </script>
-</body>
+<script src="/assets/blog-visitors.js?v=20261115-1" defer></script></body>
 </html>

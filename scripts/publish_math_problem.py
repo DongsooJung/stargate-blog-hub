@@ -84,7 +84,7 @@ def render_page(post):
 <body><nav><div class="w"><a href="/math/"><b>STARGATE MATH</b></a><a href="/">Blog Hub</a></div></nav>
 <header><div class="w"><small>{html.escape(post['series'])} · {html.escape(post['level'])} · 난도 {post['difficulty']}/5</small><h1>{html.escape(post['title'])}</h1><p>{html.escape(post['topic'])} · {html.escape(post['date'])}</p></div></header>
 <main><div class="w"><section class="box"><h2>오늘의 문제</h2><p class="problem">{html.escape(post['problem'])}</p></section><section class="box hint"><h2>힌트</h2><p>{html.escape(post['hint'])}</p></section><section class="box"><h2>단계별 풀이</h2><ol>{steps}</ol></section><section class="box"><h2>정답</h2><p class="answer">{html.escape(post['answer'])}</p><p><a href="{html.escape(post['research_url'])}">연구 아카이브에서 다시 보기 →</a></p><p class="note">{html.escape(post['copyright_note'])}</p></section></div></main>
-<footer>© 2026 Stargate Corporation · One Problem a Day</footer></body></html>'''
+<footer>© 2026 Stargate Corporation · One Problem a Day</footer><script src="/assets/blog-visitors.js?v=20261115-1" defer></script></body></html>'''
 
 
 def build_naver_payload(post):

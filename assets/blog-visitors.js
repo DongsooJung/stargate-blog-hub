@@ -1,7 +1,9 @@
 (() => {
   'use strict';
+  // Pages without the counter still record the first visit of the day (no display, no GET),
+  // so a visit to any blog page reaches the owner's Kakao visit alert.
   const counter = document.getElementById('blog-visitor-counter');
-  if (!counter) return;
+  const recordOnly = !counter;
   const today = document.getElementById('blog-visitor-today');
   const total = document.getElementById('blog-visitor-total');
   const endpoint = 'https://stargate.stargate8225.workers.dev/api/blog-visitors';
@@ -34,34 +36,44 @@
     const day = koreaDay();
     const id = browserId();
     const record = Boolean(id && !wasCounted(day));
+    if (recordOnly && !record) { pending = false; scheduleMidnight(); return; }
+    const rawPath = String(window.location.pathname || '/');
+    const path = rawPath.length > 512 ? '/' : rawPath;
     try {
       const response = await fetch(endpoint,{
         method:record ? 'POST' : 'GET', cache:'no-store', credentials:'omit',
-        ...(record ? {headers:{'Content-Type':'application/json'},body:JSON.stringify({visitorId:id})} : {}),
+        ...(record ? {headers:{'Content-Type':'application/json'},body:JSON.stringify({visitorId:id,path})} : {}),
         signal:AbortSignal.timeout(12000),
       });
       if (!response.ok) throw Error(`Visitor counter HTTP ${response.status}`);
       const value = await response.json();
       if (value.source !== 'firebase' || !/^\d{4}-\d{2}-\d{2}$/.test(value.date) || ![value.today,value.total].every(n => Number.isSafeInteger(n) && n >= 0)) throw Error('Invalid visitor summary');
+      if (record) {
+        try { localStorage.setItem(`${prefix}:counted`,value.date); } catch {}
+        // Pages that render their own counts (the /app/ reader) refresh from this result.
+        window.dispatchEvent(new CustomEvent('stargate:blog-visit-recorded',{detail:{date:value.date,today:value.today,total:value.total}}));
+      }
+      lastChecked = Date.now();
+      if (recordOnly) return;
       today.textContent = value.today.toLocaleString('ko-KR');
       total.textContent = value.total.toLocaleString('ko-KR');
       counter.dataset.state = 'ready';
       counter.title = `${value.date} 한국시간 기준 · 같은 브라우저 하루 1회 · 누적은 일별 방문 합계`;
-      if (record) {
-        try { localStorage.setItem(`${prefix}:counted`,value.date); } catch {}
-      }
-      lastChecked = Date.now();
     } catch(error) {
+      if (recordOnly) { console.warn('Blog visit record unavailable:',error.message); return; }
       today.textContent = total.textContent = '—';
       counter.dataset.state = 'error';
       counter.title = '방문 통계를 불러오지 못했습니다. 잠시 후 다시 방문해 주세요.';
       console.warn('Blog visitor counter unavailable:',error.message);
     } finally {
       pending = false;
-      clearTimeout(midnightTimer);
-      const nextMidnight = Date.parse(`${koreaDay()}T00:00:00+09:00`) + 86400000;
-      midnightTimer = setTimeout(update,Math.max(1000,nextMidnight - Date.now() + 1000));
+      scheduleMidnight();
     }
+  }
+  function scheduleMidnight() {
+    clearTimeout(midnightTimer);
+    const nextMidnight = Date.parse(`${koreaDay()}T00:00:00+09:00`) + 86400000;
+    midnightTimer = setTimeout(update,Math.max(1000,nextMidnight - Date.now() + 1000));
   }
   document.addEventListener('visibilitychange',() => {
     if (document.visibilityState === 'visible' && (Date.now() - lastChecked > 60000 || !wasCounted(koreaDay()))) update();
